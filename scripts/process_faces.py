@@ -2,6 +2,7 @@
 
 import argparse
 import os
+import re
 
 import numpy as np
 from PIL import Image
@@ -82,16 +83,39 @@ def process_player(fname, new_only=False):
         return False
 
 
+def cleanup_legacy_filenames():
+    """Delete PNGs named with only a numeric ID (no slug) from face and thumb dirs."""
+    numeric_re = re.compile(r"^\d+\.png$")
+    total_deleted = 0
+    for d in (FACE_DIR, THUMB_DIR):
+        if not os.path.isdir(d):
+            continue
+        deleted = 0
+        for fname in os.listdir(d):
+            if numeric_re.match(fname):
+                os.remove(os.path.join(d, fname))
+                deleted += 1
+        if deleted:
+            log(f"Deleted {deleted} legacy numeric-only file(s) from {d}")
+        total_deleted += deleted
+    if total_deleted == 0:
+        log("No legacy numeric-only files found")
+    return total_deleted
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process player headshots into face crops and thumbnails")
     parser.add_argument("--new-only", action="store_true", help="Skip existing face PNGs")
     parser.add_argument("--id", type=int, default=None, help="Process a single player by NBA ID (finds file by prefix)")
+    parser.add_argument("--cleanup", action="store_true", help="Remove legacy numeric-only filenames from face/thumb dirs")
     args = parser.parse_args()
 
     os.makedirs(FACE_DIR, exist_ok=True)
     os.makedirs(THUMB_DIR, exist_ok=True)
 
-    if args.id:
+    if args.cleanup:
+        cleanup_legacy_filenames()
+    elif args.id:
         # Find file by ID prefix
         prefix = f"{args.id}-"
         matches = [f for f in os.listdir(ORIGINAL_DIR) if f.startswith(prefix) and f.endswith(".png")]
@@ -110,3 +134,4 @@ if __name__ == "__main__":
             if (i + 1) % 100 == 0:
                 log(f"Progress: {i + 1}/{len(files)} (success={success})")
         log(f"Done. {success}/{len(files)} processed successfully")
+        cleanup_legacy_filenames()
