@@ -1,6 +1,7 @@
 """Download NBA player headshots from the NBA CDN."""
 
 import json
+import re
 import sys
 import time
 import urllib.request
@@ -15,6 +16,15 @@ ORIGINAL_DIR.mkdir(parents=True, exist_ok=True)
 META_DIR.mkdir(parents=True, exist_ok=True)
 
 HEADERS = {"User-Agent": "Mozilla/5.0"}
+
+
+def slugify(name):
+    """Lowercase, spaces to hyphens, strip apostrophes and dots."""
+    name = name.lower()
+    name = name.replace("'", "").replace(".", "")
+    name = re.sub(r"\s+", "-", name.strip())
+    name = re.sub(r"[^a-z0-9-]", "", name)
+    return name
 
 
 def ts():
@@ -41,11 +51,13 @@ def get_all_players():
 
         players = []
         for r in rows:
+            full_name = f"{r[FIRST]} {r[LAST]}"
             players.append({
                 "nba_id": r[ID],
                 "first_name": r[FIRST],
                 "last_name": r[LAST],
-                "full_name": f"{r[FIRST]} {r[LAST]}",
+                "full_name": full_name,
+                "slug": slugify(full_name),
                 "team_id": r[TEAM_ID],
                 "team_abbrev": r[TEAM_ABB],
                 "active": r[STATUS] == 1,
@@ -56,8 +68,8 @@ def get_all_players():
         return []
 
 
-def download_headshot(nba_id):
-    out_path = ORIGINAL_DIR / f"{nba_id}.png"
+def download_headshot(nba_id, slug):
+    out_path = ORIGINAL_DIR / f"{nba_id}-{slug}.png"
     if out_path.exists():
         return "cached"
     try:
@@ -111,7 +123,7 @@ if __name__ == "__main__":
     total = len(players)
 
     for idx, p in enumerate(players, 1):
-        result = download_headshot(p["nba_id"])
+        result = download_headshot(p["nba_id"], p["slug"])
         if result == "success":
             success += 1
         elif result == "cached":

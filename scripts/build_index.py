@@ -69,8 +69,10 @@ def build_index():
 
     for p in players:
         nba_id = p["nba_id"]
-        has_face = os.path.exists(os.path.join(FACE_DIR, f"{nba_id}.png"))
-        has_original = os.path.exists(os.path.join(ORIGINAL_DIR, f"{nba_id}.png"))
+        slug = slugify(p["full_name"])
+        filename = f"{nba_id}-{slug}.png"
+        has_face = os.path.exists(os.path.join(FACE_DIR, filename))
+        has_original = os.path.exists(os.path.join(ORIGINAL_DIR, filename))
         espn_id = crosswalk.get(str(nba_id))
 
         if has_face:
@@ -85,7 +87,7 @@ def build_index():
             "full_name": p["full_name"],
             "first_name": p["first_name"],
             "last_name": p["last_name"],
-            "slug": slugify(p["full_name"]),
+            "slug": slug,
             "team_id": p["team_id"],
             "team_abbrev": p["team_abbrev"],
             "active": p["roster_status"] == 1,
@@ -95,6 +97,7 @@ def build_index():
                 "face": has_face,
                 "original": has_original,
                 "source": source,
+                "filename": filename,
             },
         }
         if espn_id:

@@ -17,6 +17,7 @@
   var _teamIndex = null;
   var _playerPromise = null;
   var _teamPromise = null;
+  var _playerByIdMap = null;
 
   function loadPlayers() {
     if (_playerIndex) return Promise.resolve(_playerIndex);
@@ -25,6 +26,10 @@
       .then(function (r) { return r.json(); })
       .then(function (data) {
         _playerIndex = data;
+        _playerByIdMap = {};
+        data.players.forEach(function (p) {
+          _playerByIdMap[p.nba_id] = p;
+        });
         return data;
       });
     return _playerPromise;
@@ -42,6 +47,13 @@
     return _teamPromise;
   }
 
+  function filenameForId(nbaId) {
+    if (_playerByIdMap && _playerByIdMap[nbaId]) {
+      return _playerByIdMap[nbaId].headshot.filename;
+    }
+    return nbaId + ".png";
+  }
+
   var NBAAssets = {
     /**
      * Override the base URL at runtime.
@@ -52,6 +64,7 @@
       _teamIndex = null;
       _playerPromise = null;
       _teamPromise = null;
+      _playerByIdMap = null;
     },
 
     fallbacks: {
@@ -59,14 +72,14 @@
       team: BASE_URL + "/fallbacks/player_silhouette.svg",
     },
 
-    // --- Synchronous URL builders ---
+    // --- Synchronous URL builders (best-effort; call loadPlayers() first for slug filenames) ---
 
     playerFaceById: function (nbaId) {
-      return BASE_URL + "/players/headshots/face/" + nbaId + ".png";
+      return BASE_URL + "/players/headshots/face/" + filenameForId(nbaId);
     },
 
     playerThumbById: function (nbaId) {
-      return BASE_URL + "/players/headshots/thumb/" + nbaId + ".png";
+      return BASE_URL + "/players/headshots/thumb/" + filenameForId(nbaId);
     },
 
     teamLogoById: function (teamId, format) {
@@ -78,8 +91,19 @@
 
     playerById: function (nbaId) {
       return loadPlayers().then(function (data) {
-        var p = data.players.find(function (p) { return p.nba_id === nbaId; });
-        return p || null;
+        return _playerByIdMap[nbaId] || null;
+      });
+    },
+
+    playerFaceUrl: function (nbaId) {
+      return loadPlayers().then(function () {
+        return BASE_URL + "/players/headshots/face/" + filenameForId(nbaId);
+      });
+    },
+
+    playerThumbUrl: function (nbaId) {
+      return loadPlayers().then(function () {
+        return BASE_URL + "/players/headshots/thumb/" + filenameForId(nbaId);
       });
     },
 

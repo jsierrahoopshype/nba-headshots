@@ -1,9 +1,18 @@
 import urllib.request
 import json
 import os
+import re
 import time
 os.makedirs('players/headshots/original', exist_ok=True)
 os.makedirs('players/metadata', exist_ok=True)
+
+def slugify(name):
+    name = name.lower()
+    name = name.replace("'", "").replace(".", "")
+    name = re.sub(r"\s+", "-", name.strip())
+    name = re.sub(r"[^a-z0-9-]", "", name)
+    return name
+
 print('Fetching player list...')
 req = urllib.request.Request(
     'https://cdn.nba.com/static/json/staticData/playerIndex.json',
@@ -23,6 +32,7 @@ players = [
     {
         'nba_id': r[ID],
         'full_name': f"{r[FIRST]} {r[LAST]}",
+        'slug': slugify(f"{r[FIRST]} {r[LAST]}"),
         'team_id': r[TEAM_ID],
         'team_abbrev': r[TEAM_ABB],
         'active': r[STATUS] == 1
@@ -34,7 +44,8 @@ missing = []
 for i, p in enumerate(players[:10]):
     nba_id = p['nba_id']
     name = p['full_name']
-    path = f'players/headshots/original/{nba_id}.png'
+    slug = p['slug']
+    path = f'players/headshots/original/{nba_id}-{slug}.png'
     if os.path.exists(path):
         print(f'{i+1}. {name} - cached')
         continue
