@@ -3,6 +3,7 @@
 import argparse
 import json
 import os
+import sys
 import time
 
 from utils import STATIC_CDN_HEADERS, log, safe_get
@@ -14,38 +15,42 @@ METADATA_DIR = os.path.join("players", "metadata")
 
 
 def fetch_player_list():
-    log("Fetching player index from NBA static CDN...")
-    resp = safe_get(PLAYER_INDEX_URL, headers=STATIC_CDN_HEADERS, timeout=30)
-    if not resp or resp.status_code != 200:
-        log("ERROR: Failed to fetch player index")
-        return []
+    try:
+        log("Fetching player index from NBA static CDN...")
+        resp = safe_get(PLAYER_INDEX_URL, headers=STATIC_CDN_HEADERS, timeout=30)
+        if not resp or resp.status_code != 200:
+            log("ERROR: Failed to fetch player index")
+            return []
 
-    data = resp.json()
-    rows = data["players"]
+        data = resp.json()
+        rows = data["players"]
 
-    players = []
-    for row in rows:
-        person_id = row[2]
-        first_name = row[1]
-        last_name = row[0]
-        team_id = row[4]
-        team_abbrev = row[7]
-        is_active = row[21]
+        players = []
+        for row in rows:
+            person_id = row[2]
+            first_name = row[1]
+            last_name = row[0]
+            team_id = row[4]
+            team_abbrev = row[7]
+            is_active = row[21]
 
-        players.append({
-            "nba_id": person_id,
-            "first_name": first_name,
-            "last_name": last_name,
-            "full_name": f"{first_name} {last_name}",
-            "from_year": None,
-            "to_year": None,
-            "roster_status": 1 if is_active == 1 else 0,
-            "team_id": team_id,
-            "team_abbrev": team_abbrev,
-        })
+            players.append({
+                "nba_id": person_id,
+                "first_name": first_name,
+                "last_name": last_name,
+                "full_name": f"{first_name} {last_name}",
+                "from_year": None,
+                "to_year": None,
+                "roster_status": 1 if is_active == 1 else 0,
+                "team_id": team_id,
+                "team_abbrev": team_abbrev,
+            })
 
-    log(f"Found {len(players)} players")
-    return players
+        log(f"Found {len(players)} players")
+        return players
+    except Exception as e:
+        log(f"ERROR: Failed to fetch player index: {type(e).__name__}: {e}")
+        sys.exit(1)
 
 
 def download_headshots(players, limit=None):
@@ -97,6 +102,13 @@ def download_headshots(players, limit=None):
 
 
 if __name__ == "__main__":
+    import urllib.request
+    try:
+        urllib.request.urlopen("https://cdn.nba.com/static/json/staticData/playerIndex.json", timeout=10)
+        log("DEBUG: Direct urllib connection to NBA CDN succeeded")
+    except Exception as e:
+        log(f"DEBUG: Direct urllib connection failed: {type(e).__name__}: {e}")
+
     parser = argparse.ArgumentParser(description="Download NBA player headshots")
     parser.add_argument("--limit", type=int, default=None, help="Limit number of players (for testing)")
     args = parser.parse_args()
