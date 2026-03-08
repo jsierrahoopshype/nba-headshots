@@ -1,118 +1,134 @@
 """Download NBA player headshots from the NBA CDN."""
 
-import argparse
 import json
-import os
 import sys
 import time
+from datetime import datetime
+from pathlib import Path
 
-from utils import STATIC_CDN_HEADERS, log, safe_get
+import requests
 
-PLAYER_INDEX_URL = "https://cdn.nba.com/static/json/staticData/playerIndex.json"
-HEADSHOT_URL = "https://cdn.nba.com/headshots/nba/latest/1040x760/{nba_id}.png"
-ORIGINAL_DIR = os.path.join("players", "headshots", "original")
-METADATA_DIR = os.path.join("players", "metadata")
+BASE_DIR = Path("players/headshots")
+ORIGINAL_DIR = BASE_DIR / "original"
+META_DIR = Path("players/metadata")
+
+ORIGINAL_DIR.mkdir(parents=True, exist_ok=True)
+META_DIR.mkdir(parents=True, exist_ok=True)
+
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+}
 
 
-def fetch_player_list():
+def ts():
+    return datetime.now().strftime("%H:%M:%S")
+
+
+def get_all_players():
     try:
-        log("Fetching player index from NBA static CDN...")
-        resp = safe_get(PLAYER_INDEX_URL, headers=STATIC_CDN_HEADERS, timeout=30)
-        if not resp or resp.status_code != 200:
-            log("ERROR: Failed to fetch player index")
-            return []
-
+        resp = requests.get(
+            "https://cdn.nba.com/static/json/staticData/playerIndex.json",
+            headers=HEADERS,
+            timeout=15,
+        )
+        resp.raise_for_status()
         data = resp.json()
-        rows = data["players"]
-
         players = []
-        for row in rows:
-            person_id = row[2]
-            first_name = row[1]
-            last_name = row[0]
-            team_id = row[4]
-            team_abbrev = row[7]
-            is_active = row[21]
-
+        for row in data["players"]:
             players.append({
-                "nba_id": person_id,
-                "first_name": first_name,
-                "last_name": last_name,
-                "full_name": f"{first_name} {last_name}",
-                "from_year": None,
-                "to_year": None,
-                "roster_status": 1 if is_active == 1 else 0,
-                "team_id": team_id,
-                "team_abbrev": team_abbrev,
+                "nba_id": row[2],
+                "first_name": row[1],
+                "last_name": row[0],
+                "full_name": f"{row[1]} {row[0]}",
+                "team_id": row[4],
+                "team_abbrev": row[7],
+                "active": row[21] == 1,
             })
-
-        log(f"Found {len(players)} players")
         return players
     except Exception as e:
-        log(f"ERROR: Failed to fetch player index: {type(e).__name__}: {e}")
+        print(f"ERROR in get_all_players: {type(e).__name__}: {e}")
+        return []
+
+
+def download_headshot(nba_id):
+    out_path = ORIGINAL_DIR / f"{nba_id}.png"
+    if out_path.exists():
+        return "cached"
+    try:
+        resp = requests.get(
+            f"https://cdn.nba.com/headshots/nba/latest/1040x760/{nba_id}.png",
+            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"},
+            timeout=10,
+        )
+        if resp.status_code == 200 and len(resp.content) > 5000:
+            out_path.write_bytes(resp.content)
+            return "success"
+        else:
+            return "404"
+    except Exception as e:
+        return f"error: {e}"
+
+
+if __name__ == "__main__":
+    limit = None
+    active_only = False
+    args = sys.argv[1:]
+    i = 0
+    while i < len(args):
+        if args[i] == "--limit" and i + 1 < len(args):
+            limit = int(args[i + 1])
+            i += 2
+        elif args[i] == "--active-only":
+            active_only = True
+            i += 1
+        else:
+            i += 1
+
+    print(f"[{ts()}] Fetching player index...")
+    players = get_all_players()
+    if not players:
+        print("ERROR: No players returned")
         sys.exit(1)
 
+    print(f"[{ts()}] Got {len(players)} players")
 
-def download_headshots(players, limit=None):
-    os.makedirs(ORIGINAL_DIR, exist_ok=True)
-    os.makedirs(METADATA_DIR, exist_ok=True)
+    if active_only:
+        players = [p for p in players if p["active"]]
 
     if limit:
         players = players[:limit]
 
+    print(f"[{ts()}] Downloading headshots for {len(players)} players...")
+
+    success = 0
+    cached = 0
     missing = []
-    downloaded = 0
-    skipped = 0
+    errors = 0
+    total = len(players)
 
-    for i, p in enumerate(players):
-        nba_id = p["nba_id"]
-        out_path = os.path.join(ORIGINAL_DIR, f"{nba_id}.png")
-
-        if os.path.exists(out_path):
-            skipped += 1
-            continue
-
-        url = HEADSHOT_URL.format(nba_id=nba_id)
-        resp = safe_get(url, timeout=15)
-
-        if resp and resp.status_code == 200 and len(resp.content) > 5000:
-            with open(out_path, "wb") as f:
-                f.write(resp.content)
-            downloaded += 1
-        else:
+    for idx, p in enumerate(players, 1):
+        result = download_headshot(p["nba_id"])
+        if result == "success":
+            success += 1
+        elif result == "cached":
+            cached += 1
+        elif result == "404":
             missing.append({
-                "nba_id": nba_id,
+                "nba_id": p["nba_id"],
                 "full_name": p["full_name"],
-                "from_year": p["from_year"],
-                "to_year": p["to_year"],
                 "tried_sources": ["nba_cdn"],
             })
+        else:
+            errors += 1
 
-        if (i + 1) % 100 == 0:
-            log(f"Progress: {i + 1}/{len(players)} | downloaded={downloaded} skipped={skipped} missing={len(missing)}")
+        if idx % 50 == 0:
+            print(f"[{ts()}] {idx}/{total} done - success:{success} cached:{cached} missing:{len(missing)}")
 
         time.sleep(0.25)
 
-    log(f"Done. downloaded={downloaded} skipped={skipped} missing={len(missing)}")
+    print(f"[{ts()}] Finished: success:{success} cached:{cached} missing:{len(missing)} errors:{errors}")
 
-    missing_path = os.path.join(METADATA_DIR, "missing.json")
-    with open(missing_path, "w") as f:
-        json.dump(missing, f, indent=2)
-    log(f"Wrote {missing_path} ({len(missing)} entries)")
-
-
-if __name__ == "__main__":
-    import urllib.request
-    try:
-        urllib.request.urlopen("https://cdn.nba.com/static/json/staticData/playerIndex.json", timeout=10)
-        log("DEBUG: Direct urllib connection to NBA CDN succeeded")
-    except Exception as e:
-        log(f"DEBUG: Direct urllib connection failed: {type(e).__name__}: {e}")
-
-    parser = argparse.ArgumentParser(description="Download NBA player headshots")
-    parser.add_argument("--limit", type=int, default=None, help="Limit number of players (for testing)")
-    args = parser.parse_args()
-
-    players = fetch_player_list()
-    if players:
-        download_headshots(players, limit=args.limit)
+    missing_path = META_DIR / "missing.json"
+    missing_path.write_text(json.dumps({"players": missing}, indent=2))
+    print(f"[{ts()}] Wrote {missing_path} ({len(missing)} entries)")
+    print("Done.")
