@@ -13,33 +13,40 @@ ORIGINAL_DIR = os.path.join("players", "headshots", "original")
 FACE_DIR = os.path.join("players", "headshots", "face")
 THUMB_DIR = os.path.join("players", "headshots", "thumb")
 
-# Try to import rembg for better background removal
-USE_REMBG = False
 try:
-    from rembg import remove as rembg_remove
+    from rembg import remove
+    import onnxruntime
     USE_REMBG = True
-    log("rembg available — using AI background removal")
-except ImportError:
-    log("rembg not available — using color-key fallback")
+    print("[info] rembg loaded successfully")
+except ImportError as e:
+    USE_REMBG = False
+    print(f"[info] rembg not available ({e}), using color-key fallback")
 
 
-def remove_bg_colorkey(img):
-    """Remove NBA grey background using color-key method."""
-    rgba = np.array(img.convert("RGBA"))
-    r, g, b = rgba[:, :, 0], rgba[:, :, 1], rgba[:, :, 2]
-    # NBA headshots have a grey background where R≈G≈B and values are high
-    mask = (np.abs(r.astype(int) - g.astype(int)) < 35) & \
-           (np.abs(g.astype(int) - b.astype(int)) < 35) & \
-           (r > 160)
-    rgba[mask, 3] = 0
-    return Image.fromarray(rgba)
+def remove_grey_background(img):
+    """Remove NBA CDN grey background using tight color-key threshold."""
+    img_rgba = img.convert("RGBA")
+    data = np.array(img_rgba)
+    r = data[:, :, 0].astype(int)
+    g = data[:, :, 1].astype(int)
+    b = data[:, :, 2].astype(int)
+    # Only remove pixels that are light grey (NBA CDN background ~RGB 200-215)
+    # Tight threshold to avoid removing face pixels
+    grey_mask = (
+        (np.abs(r - g) < 15) &
+        (np.abs(g - b) < 15) &
+        (np.abs(r - b) < 15) &
+        (r > 185)
+    )
+    data[:, :, 3] = np.where(grey_mask, 0, 255)
+    return Image.fromarray(data)
 
 
 def remove_bg(img):
     """Remove background using rembg or fallback."""
     if USE_REMBG:
-        return rembg_remove(img)
-    return remove_bg_colorkey(img)
+        return remove(img)
+    return remove_grey_background(img)
 
 
 def crop_face(img):
@@ -106,12 +113,15 @@ def cleanup_legacy_filenames():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process player headshots into face crops and thumbnails")
     parser.add_argument("--new-only", action="store_true", help="Skip existing face PNGs")
+    parser.add_argument("--force", action="store_true", help="Reprocess all files, overwriting existing outputs")
     parser.add_argument("--id", type=int, default=None, help="Process a single player by NBA ID (finds file by prefix)")
     parser.add_argument("--cleanup", action="store_true", help="Remove legacy numeric-only filenames from face/thumb dirs")
     args = parser.parse_args()
 
     os.makedirs(FACE_DIR, exist_ok=True)
     os.makedirs(THUMB_DIR, exist_ok=True)
+
+    skip_existing = args.new_only and not args.force
 
     if args.cleanup:
         cleanup_legacy_filenames()
@@ -120,16 +130,16 @@ if __name__ == "__main__":
         prefix = f"{args.id}-"
         matches = [f for f in os.listdir(ORIGINAL_DIR) if f.startswith(prefix) and f.endswith(".png")]
         if matches:
-            ok = process_player(matches[0], new_only=args.new_only)
+            ok = process_player(matches[0], new_only=skip_existing)
             log(f"Player {args.id} ({matches[0]}): {'OK' if ok else 'FAILED'}")
         else:
             log(f"Player {args.id}: no file found with prefix {prefix}")
     else:
         files = [f for f in os.listdir(ORIGINAL_DIR) if f.endswith(".png")]
-        log(f"Processing {len(files)} headshots...")
+        log(f"Processing {len(files)} headshots (force={args.force})...")
         success = 0
         for i, fname in enumerate(files):
-            if process_player(fname, new_only=args.new_only):
+            if process_player(fname, new_only=skip_existing):
                 success += 1
             if (i + 1) % 100 == 0:
                 log(f"Progress: {i + 1}/{len(files)} (success={success})")
