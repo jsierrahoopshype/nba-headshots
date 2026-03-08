@@ -1,0 +1,4 @@
+players/headshots/original/
+*.pyc
+__pycache__/
+.env
