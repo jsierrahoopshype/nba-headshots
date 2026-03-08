@@ -3,10 +3,9 @@
 import json
 import sys
 import time
+import urllib.request
 from datetime import datetime
 from pathlib import Path
-
-import requests
 
 BASE_DIR = Path("players/headshots")
 ORIGINAL_DIR = BASE_DIR / "original"
@@ -15,9 +14,7 @@ META_DIR = Path("players/metadata")
 ORIGINAL_DIR.mkdir(parents=True, exist_ok=True)
 META_DIR.mkdir(parents=True, exist_ok=True)
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-}
+HEADERS = {"User-Agent": "Mozilla/5.0"}
 
 
 def ts():
@@ -26,23 +23,32 @@ def ts():
 
 def get_all_players():
     try:
-        resp = requests.get(
+        req = urllib.request.Request(
             "https://cdn.nba.com/static/json/staticData/playerIndex.json",
             headers=HEADERS,
-            timeout=15,
         )
-        resp.raise_for_status()
-        data = resp.json()
+        data = json.loads(urllib.request.urlopen(req, timeout=15).read())
+        result_set = data["resultSets"][0]
+        headers = result_set["headers"]
+        rows = result_set["rowSet"]
+
+        ID = headers.index("PERSON_ID")
+        FIRST = headers.index("PLAYER_FIRST_NAME")
+        LAST = headers.index("PLAYER_LAST_NAME")
+        TEAM_ID = headers.index("TEAM_ID")
+        TEAM_ABB = headers.index("TEAM_ABBREVIATION")
+        STATUS = headers.index("ROSTER_STATUS")
+
         players = []
-        for row in data["players"]:
+        for r in rows:
             players.append({
-                "nba_id": row[2],
-                "first_name": row[1],
-                "last_name": row[0],
-                "full_name": f"{row[1]} {row[0]}",
-                "team_id": row[4],
-                "team_abbrev": row[7],
-                "active": row[21] == 1,
+                "nba_id": r[ID],
+                "first_name": r[FIRST],
+                "last_name": r[LAST],
+                "full_name": f"{r[FIRST]} {r[LAST]}",
+                "team_id": r[TEAM_ID],
+                "team_abbrev": r[TEAM_ABB],
+                "active": r[STATUS] == 1,
             })
         return players
     except Exception as e:
@@ -55,13 +61,11 @@ def download_headshot(nba_id):
     if out_path.exists():
         return "cached"
     try:
-        resp = requests.get(
-            f"https://cdn.nba.com/headshots/nba/latest/1040x760/{nba_id}.png",
-            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"},
-            timeout=10,
-        )
-        if resp.status_code == 200 and len(resp.content) > 5000:
-            out_path.write_bytes(resp.content)
+        url = f"https://cdn.nba.com/headshots/nba/latest/1040x760/{nba_id}.png"
+        req = urllib.request.Request(url, headers=HEADERS)
+        content = urllib.request.urlopen(req, timeout=10).read()
+        if len(content) > 5000:
+            out_path.write_bytes(content)
             return "success"
         else:
             return "404"

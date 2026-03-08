@@ -2,41 +2,51 @@
 
 import json
 import os
+import urllib.request
 from datetime import datetime, timezone
 
-from utils import NBA_HEADERS, log, safe_get, slugify
+from utils import log, slugify
 
-PLAYER_INDEX_URL = "https://stats.nba.com/stats/playerindex?Historical=1&LeagueID=00&Season=2024-25"
+PLAYER_INDEX_URL = "https://cdn.nba.com/static/json/staticData/playerIndex.json"
 FACE_DIR = os.path.join("players", "headshots", "face")
 ORIGINAL_DIR = os.path.join("players", "headshots", "original")
 METADATA_DIR = os.path.join("players", "metadata")
 
+HEADERS = {"User-Agent": "Mozilla/5.0"}
+
 
 def fetch_player_list():
-    log("Fetching player index from NBA Stats API...")
-    resp = safe_get(PLAYER_INDEX_URL, headers=NBA_HEADERS, timeout=30)
-    if not resp or resp.status_code != 200:
-        log("ERROR: Failed to fetch player index")
+    log("Fetching player index from NBA CDN...")
+    try:
+        req = urllib.request.Request(PLAYER_INDEX_URL, headers=HEADERS)
+        data = json.loads(urllib.request.urlopen(req, timeout=15).read())
+    except Exception as e:
+        log(f"ERROR: Failed to fetch player index: {type(e).__name__}: {e}")
         return []
 
-    data = resp.json()
     result_set = data["resultSets"][0]
     headers = result_set["headers"]
     rows = result_set["rowSet"]
 
-    col = {h: i for i, h in enumerate(headers)}
+    ID = headers.index("PERSON_ID")
+    FIRST = headers.index("PLAYER_FIRST_NAME")
+    LAST = headers.index("PLAYER_LAST_NAME")
+    TEAM_ID = headers.index("TEAM_ID")
+    TEAM_ABB = headers.index("TEAM_ABBREVIATION")
+    STATUS = headers.index("ROSTER_STATUS")
+
     players = []
     for row in rows:
         players.append({
-            "nba_id": row[col["PERSON_ID"]],
-            "first_name": row[col["PLAYER_FIRST_NAME"]],
-            "last_name": row[col["PLAYER_LAST_NAME"]],
-            "full_name": f"{row[col['PLAYER_FIRST_NAME']]} {row[col['PLAYER_LAST_NAME']]}",
-            "from_year": row[col["FROM_YEAR"]],
-            "to_year": row[col["TO_YEAR"]],
-            "roster_status": row[col["ROSTERSTATUS"]],
-            "team_id": row[col["TEAM_ID"]],
-            "team_abbrev": row[col["TEAM_ABBREVIATION"]],
+            "nba_id": row[ID],
+            "first_name": row[FIRST],
+            "last_name": row[LAST],
+            "full_name": f"{row[FIRST]} {row[LAST]}",
+            "from_year": row[headers.index("FROM_YEAR")] if "FROM_YEAR" in headers else None,
+            "to_year": row[headers.index("TO_YEAR")] if "TO_YEAR" in headers else None,
+            "roster_status": row[STATUS],
+            "team_id": row[TEAM_ID],
+            "team_abbrev": row[TEAM_ABB],
         })
     return players
 
