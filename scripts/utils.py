@@ -25,6 +25,10 @@ NBA_HEADERS = {
     "sec-ch-ua-platform": '"Windows"'
 }
 
+STATIC_CDN_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+}
+
 
 def safe_get(url, headers=None, timeout=15, retries=3):
     """GET with exponential backoff. Returns Response or None."""

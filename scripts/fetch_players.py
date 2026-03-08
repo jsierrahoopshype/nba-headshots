@@ -5,39 +5,43 @@ import json
 import os
 import time
 
-from utils import NBA_HEADERS, log, safe_get
+from utils import STATIC_CDN_HEADERS, log, safe_get
 
-PLAYER_INDEX_URL = "https://stats.nba.com/stats/playerindex?Historical=1&LeagueID=00&Season=2024-25"
+PLAYER_INDEX_URL = "https://cdn.nba.com/static/json/staticData/playerIndex.json"
 HEADSHOT_URL = "https://cdn.nba.com/headshots/nba/latest/1040x760/{nba_id}.png"
 ORIGINAL_DIR = os.path.join("players", "headshots", "original")
 METADATA_DIR = os.path.join("players", "metadata")
 
 
 def fetch_player_list():
-    log("Fetching player index from NBA Stats API...")
-    resp = safe_get(PLAYER_INDEX_URL, headers=NBA_HEADERS, timeout=30)
+    log("Fetching player index from NBA static CDN...")
+    resp = safe_get(PLAYER_INDEX_URL, headers=STATIC_CDN_HEADERS, timeout=30)
     if not resp or resp.status_code != 200:
         log("ERROR: Failed to fetch player index")
         return []
 
     data = resp.json()
-    result_set = data["resultSets"][0]
-    headers = result_set["headers"]
-    rows = result_set["rowSet"]
+    rows = data["players"]
 
-    col = {h: i for i, h in enumerate(headers)}
     players = []
     for row in rows:
+        person_id = row[2]
+        first_name = row[1]
+        last_name = row[0]
+        team_id = row[4]
+        team_abbrev = row[7]
+        is_active = row[21]
+
         players.append({
-            "nba_id": row[col["PERSON_ID"]],
-            "first_name": row[col["PLAYER_FIRST_NAME"]],
-            "last_name": row[col["PLAYER_LAST_NAME"]],
-            "full_name": f"{row[col['PLAYER_FIRST_NAME']]} {row[col['PLAYER_LAST_NAME']]}",
-            "from_year": row[col["FROM_YEAR"]],
-            "to_year": row[col["TO_YEAR"]],
-            "roster_status": row[col["ROSTERSTATUS"]],
-            "team_id": row[col["TEAM_ID"]],
-            "team_abbrev": row[col["TEAM_ABBREVIATION"]],
+            "nba_id": person_id,
+            "first_name": first_name,
+            "last_name": last_name,
+            "full_name": f"{first_name} {last_name}",
+            "from_year": None,
+            "to_year": None,
+            "roster_status": 1 if is_active == 1 else 0,
+            "team_id": team_id,
+            "team_abbrev": team_abbrev,
         })
 
     log(f"Found {len(players)} players")
