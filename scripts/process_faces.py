@@ -49,14 +49,25 @@ def remove_bg(img):
     return remove_grey_background(img)
 
 
-def crop_face(img):
-    """Crop to face region: left=15%, right=85%, top=2%, bottom=70%."""
+def crop_to_face(img):
+    """Crop to face region and make square to preserve aspect ratio."""
     w, h = img.size
+    # Define crop box for NBA CDN headshots (1040x760)
     left = int(w * 0.15)
     right = int(w * 0.85)
     top = int(h * 0.02)
-    bottom = int(h * 0.70)
-    return img.crop((left, top, right, bottom))
+    bottom = int(h * 0.72)
+    cropped = img.crop((left, top, right, bottom))
+
+    # Make it square by centering on a transparent canvas
+    cw, ch = cropped.size
+    side = max(cw, ch)
+    square = Image.new("RGBA", (side, side), (0, 0, 0, 0))
+    offset_x = (side - cw) // 2
+    offset_y = (side - ch) // 2
+    square.paste(cropped, (offset_x, offset_y))
+
+    return square.resize((256, 256), Image.LANCZOS)
 
 
 def process_player(fname, new_only=False):
@@ -74,14 +85,13 @@ def process_player(fname, new_only=False):
     try:
         img = Image.open(src).convert("RGBA")
         img = remove_bg(img)
-        img = crop_face(img)
+        face = crop_to_face(img)
 
-        # Face: 256x256
-        face = img.resize((256, 256), Image.LANCZOS)
+        # Face: 256x256 (already resized by crop_to_face)
         face.save(face_out, "PNG")
 
         # Thumb: 64x64
-        thumb = img.resize((64, 64), Image.LANCZOS)
+        thumb = face.resize((64, 64), Image.LANCZOS)
         thumb.save(thumb_out, "PNG")
 
         return True
