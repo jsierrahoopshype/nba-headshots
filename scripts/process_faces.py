@@ -56,7 +56,7 @@ def crop_to_face(img):
     left = int(w * 0.20)
     right = int(w * 0.80)
     top = int(h * 0.01)
-    bottom = int(h * 0.80)
+    bottom = int(h * 0.58)
     cropped = img.crop((left, top, right, bottom))
 
     # Make it square by centering on a transparent canvas
@@ -65,7 +65,10 @@ def crop_to_face(img):
     square = Image.new("RGBA", (side, side), (0, 0, 0, 0))
     offset_x = (side - cw) // 2
     offset_y = (side - ch) // 2
-    square.paste(cropped, (offset_x, offset_y))
+    if cropped.mode == "RGBA":
+        square.paste(cropped, (offset_x, offset_y), cropped)
+    else:
+        square.paste(cropped, (offset_x, offset_y))
 
     return square.resize((256, 256), Image.LANCZOS)
 
