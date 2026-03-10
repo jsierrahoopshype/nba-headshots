@@ -56,7 +56,7 @@ def crop_to_face(img):
     left = int(w * 0.20)
     right = int(w * 0.80)
     top = int(h * 0.01)
-    bottom = int(h * 0.58)
+    bottom = int(h * 0.50)
     cropped = img.crop((left, top, right, bottom))
 
     # Make it square by centering on a transparent canvas
