@@ -53,10 +53,10 @@ def crop_to_face(img):
     """Crop to face region and make square to preserve aspect ratio."""
     w, h = img.size
     # Define crop box for NBA CDN headshots (1040x760)
-    left = int(w * 0.20)
-    right = int(w * 0.80)
-    top = int(h * 0.01)
-    bottom = int(h * 0.50)
+    left = int(w * 0.18)
+    right = int(w * 0.82)
+    top = int(h * 0.00)
+    bottom = int(h * 0.55)
     cropped = img.crop((left, top, right, bottom))
 
     # Make it square by centering on a transparent canvas
