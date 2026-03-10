@@ -53,10 +53,10 @@ def crop_to_face(img):
     """Crop to face region and make square to preserve aspect ratio."""
     w, h = img.size
     # Define crop box for NBA CDN headshots (1040x760)
-    left = int(w * 0.18)
-    right = int(w * 0.82)
-    top = int(h * 0.00)
-    bottom = int(h * 0.55)
+    left = int(w * 0.20)
+    right = int(w * 0.80)
+    top = int(h * 0.01)
+    bottom = int(h * 0.72)
     cropped = img.crop((left, top, right, bottom))
 
     # Make it square by centering on a transparent canvas
@@ -91,10 +91,17 @@ def process_player(fname, new_only=False):
         face = crop_to_face(img)
 
         # Face: 256x256 (already resized by crop_to_face)
+        # Trim bottom 5% to remove jersey/padding strip
+        trim = int(256 * 0.05)
+        face = face.crop((0, 0, 256, 256 - trim))
+        face = face.resize((256, 256), Image.LANCZOS)
         face.save(face_out, "PNG")
 
         # Thumb: 64x64
         thumb = face.resize((64, 64), Image.LANCZOS)
+        trim = int(64 * 0.05)
+        thumb = thumb.crop((0, 0, 64, 64 - trim))
+        thumb = thumb.resize((64, 64), Image.LANCZOS)
         thumb.save(thumb_out, "PNG")
 
         return True
