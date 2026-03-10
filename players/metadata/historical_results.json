@@ -1,0 +1,4716 @@
+{
+  "total_attempted": 4106,
+  "downloaded": 1177,
+  "skipped": 575,
+  "not_found": 2354,
+  "downloaded_players": [
+    {
+      "nba_id": 949,
+      "slug": "shareef-abdur-rahim"
+    },
+    {
+      "nba_id": 203518,
+      "slug": "alex-abrines"
+    },
+    {
+      "nba_id": 203112,
+      "slug": "quincy-acy"
+    },
+    {
+      "nba_id": 1629121,
+      "slug": "jaylen-adams"
+    },
+    {
+      "nba_id": 203919,
+      "slug": "jordan-adams"
+    },
+    {
+      "nba_id": 1629061,
+      "slug": "deng-adel"
+    },
+    {
+      "nba_id": 202399,
+      "slug": "jeff-adrien"
+    },
+    {
+      "nba_id": 201167,
+      "slug": "arron-afflalo"
+    },
+    {
+      "nba_id": 201582,
+      "slug": "alexis-ajinca"
+    },
+    {
+      "nba_id": 1629152,
+      "slug": "devaughn-akoon-purcell"
+    },
+    {
+      "nba_id": 203128,
+      "slug": "furkan-aldemir"
+    },
+    {
+      "nba_id": 202332,
+      "slug": "cole-aldrich"
+    },
+    {
+      "nba_id": 200746,
+      "slug": "lamarcus-aldridge"
+    },
+    {
+      "nba_id": 1626146,
+      "slug": "cliff-alexander"
+    },
+    {
+      "nba_id": 1629734,
+      "slug": "kyle-alexander"
+    },
+    {
+      "nba_id": 1630234,
+      "slug": "ty-shon-alexander"
+    },
+    {
+      "nba_id": 1628959,
+      "slug": "rawle-alkins"
+    },
+    {
+      "nba_id": 1628443,
+      "slug": "kadeem-allen"
+    },
+    {
+      "nba_id": 202730,
+      "slug": "lavoy-allen"
+    },
+    {
+      "nba_id": 951,
+      "slug": "ray-allen"
+    },
+    {
+      "nba_id": 2754,
+      "slug": "tony-allen"
+    },
+    {
+      "nba_id": 1747,
+      "slug": "rafer-alston"
+    },
+    {
+      "nba_id": 202329,
+      "slug": "al-farouq-aminu"
+    },
+    {
+      "nba_id": 200811,
+      "slug": "lou-amundson"
+    },
+    {
+      "nba_id": 2365,
+      "slug": "chris-andersen"
+    },
+    {
+      "nba_id": 101187,
+      "slug": "alan-anderson"
+    },
+    {
+      "nba_id": 1507,
+      "slug": "derek-anderson"
+    },
+    {
+      "nba_id": 202341,
+      "slug": "james-anderson"
+    },
+    {
+      "nba_id": 1626147,
+      "slug": "justin-anderson"
+    },
+    {
+      "nba_id": 98,
+      "slug": "nick-anderson"
+    },
+    {
+      "nba_id": 201583,
+      "slug": "ryan-anderson"
+    },
+    {
+      "nba_id": 1628387,
+      "slug": "ike-anigbogu"
+    },
+    {
+      "nba_id": 1628961,
+      "slug": "kostas-antetokounmpo"
+    },
+    {
+      "nba_id": 2546,
+      "slug": "carmelo-anthony"
+    },
+    {
+      "nba_id": 201202,
+      "slug": "joel-anthony"
+    },
+    {
+      "nba_id": 203951,
+      "slug": "keith-appling"
+    },
+    {
+      "nba_id": 76054,
+      "slug": "nate-archibald"
+    },
+    {
+      "nba_id": 1627853,
+      "slug": "ryan-arcidiacono"
+    },
+    {
+      "nba_id": 2240,
+      "slug": "gilbert-arenas"
+    },
+    {
+      "nba_id": 2772,
+      "slug": "trevor-ariza"
+    },
+    {
+      "nba_id": 353,
+      "slug": "darrell-armstrong"
+    },
+    {
+      "nba_id": 200756,
+      "slug": "hilton-armstrong"
+    },
+    {
+      "nba_id": 201589,
+      "slug": "darrell-arthur"
+    },
+    {
+      "nba_id": 1628503,
+      "slug": "jamel-artis"
+    },
+    {
+      "nba_id": 201600,
+      "slug": "omer-asik"
+    },
+    {
+      "nba_id": 201571,
+      "slug": "dj-augustin"
+    },
+    {
+      "nba_id": 1630555,
+      "slug": "joel-ayayi"
+    },
+    {
+      "nba_id": 201965,
+      "slug": "jeff-ayres"
+    },
+    {
+      "nba_id": 101235,
+      "slug": "kelenna-azubuike"
+    },
+    {
+      "nba_id": 1628962,
+      "slug": "udoka-azubuike"
+    },
+    {
+      "nba_id": 203569,
+      "slug": "chris-babb"
+    },
+    {
+      "nba_id": 202337,
+      "slug": "luke-babbitt"
+    },
+    {
+      "nba_id": 1628407,
+      "slug": "dwayne-bacon"
+    },
+    {
+      "nba_id": 1630641,
+      "slug": "ibou-badji"
+    },
+    {
+      "nba_id": 1641735,
+      "slug": "amari-bailey"
+    },
+    {
+      "nba_id": 203946,
+      "slug": "cameron-bairstow"
+    },
+    {
+      "nba_id": 1627758,
+      "slug": "ron-baker"
+    },
+    {
+      "nba_id": 1627735,
+      "slug": "wade-baldwin-iv"
+    },
+    {
+      "nba_id": 1627760,
+      "slug": "cat-barber"
+    },
+    {
+      "nba_id": 2571,
+      "slug": "leandro-barbosa"
+    },
+    {
+      "nba_id": 200826,
+      "slug": "jj-barea"
+    },
+    {
+      "nba_id": 200745,
+      "slug": "andrea-bargnani"
+    },
+    {
+      "nba_id": 787,
+      "slug": "charles-barkley"
+    },
+    {
+      "nba_id": 2440,
+      "slug": "matt-barnes"
+    },
+    {
+      "nba_id": 2853,
+      "slug": "earl-barron"
+    },
+    {
+      "nba_id": 699,
+      "slug": "brent-barry"
+    },
+    {
+      "nba_id": 468,
+      "slug": "jon-barry"
+    },
+    {
+      "nba_id": 203115,
+      "slug": "will-barton"
+    },
+    {
+      "nba_id": 101138,
+      "slug": "brandon-bass"
+    },
+    {
+      "nba_id": 1641734,
+      "slug": "emoni-bates"
+    },
+    {
+      "nba_id": 1628966,
+      "slug": "keita-bates-diop"
+    },
+    {
+      "nba_id": 1641878,
+      "slug": "damion-baugh"
+    },
+    {
+      "nba_id": 201573,
+      "slug": "jerryd-bayless"
+    },
+    {
+      "nba_id": 203382,
+      "slug": "aron-baynes"
+    },
+    {
+      "nba_id": 203145,
+      "slug": "kent-bazemore"
+    },
+    {
+      "nba_id": 1629647,
+      "slug": "darius-bazley"
+    },
+    {
+      "nba_id": 1627736,
+      "slug": "malik-beasley"
+    },
+    {
+      "nba_id": 201563,
+      "slug": "michael-beasley"
+    },
+    {
+      "nba_id": 1641736,
+      "slug": "reece-beekman"
+    },
+    {
+      "nba_id": 201158,
+      "slug": "marco-belinelli"
+    },
+    {
+      "nba_id": 1628395,
+      "slug": "jordan-bell"
+    },
+    {
+      "nba_id": 1627761,
+      "slug": "deandre-bembry"
+    },
+    {
+      "nba_id": 1627733,
+      "slug": "dragan-bender"
+    },
+    {
+      "nba_id": 203461,
+      "slug": "anthony-bennett"
+    },
+    {
+      "nba_id": 202728,
+      "slug": "keith-benson"
+    },
+    {
+      "nba_id": 1627791,
+      "slug": "ben-bentil"
+    },
+    {
+      "nba_id": 1631262,
+      "slug": "jules-bernard"
+    },
+    {
+      "nba_id": 202722,
+      "slug": "davis-bertans"
+    },
+    {
+      "nba_id": 696,
+      "slug": "travis-best"
+    },
+    {
+      "nba_id": 201976,
+      "slug": "patrick-beverley"
+    },
+    {
+      "nba_id": 1630189,
+      "slug": "tyler-bey"
+    },
+    {
+      "nba_id": 1710,
+      "slug": "mike-bibby"
+    },
+    {
+      "nba_id": 1497,
+      "slug": "chauncey-billups"
+    },
+    {
+      "nba_id": 203920,
+      "slug": "khem-birch"
+    },
+    {
+      "nba_id": 1628444,
+      "slug": "jabari-bird"
+    },
+    {
+      "nba_id": 1449,
+      "slug": "larry-bird"
+    },
+    {
+      "nba_id": 1641931,
+      "slug": "onuralp-bitim"
+    },
+    {
+      "nba_id": 202357,
+      "slug": "nemanja-bjelica"
+    },
+    {
+      "nba_id": 204028,
+      "slug": "tarik-black"
+    },
+    {
+      "nba_id": 201971,
+      "slug": "dejuan-blair"
+    },
+    {
+      "nba_id": 2581,
+      "slug": "steve-blake"
+    },
+    {
+      "nba_id": 1628469,
+      "slug": "antonio-blakeney"
+    },
+    {
+      "nba_id": 302,
+      "slug": "mookie-blaylock"
+    },
+    {
+      "nba_id": 202339,
+      "slug": "eric-bledsoe"
+    },
+    {
+      "nba_id": 1629833,
+      "slug": "keljin-blevins"
+    },
+    {
+      "nba_id": 1628417,
+      "slug": "jaron-blossomgame"
+    },
+    {
+      "nba_id": 1548,
+      "slug": "mark-blount"
+    },
+    {
+      "nba_id": 203505,
+      "slug": "vander-blue"
+    },
+    {
+      "nba_id": 1629129,
+      "slug": "trevon-bluiett"
+    },
+    {
+      "nba_id": 202711,
+      "slug": "bojan-bogdanovic"
+    },
+    {
+      "nba_id": 101106,
+      "slug": "andrew-bogut"
+    },
+    {
+      "nba_id": 1629626,
+      "slug": "bol-bol"
+    },
+    {
+      "nba_id": 1628413,
+      "slug": "jonah-bolden"
+    },
+    {
+      "nba_id": 1629716,
+      "slug": "marques-bolden"
+    },
+    {
+      "nba_id": 1630195,
+      "slug": "leandro-bolmaro"
+    },
+    {
+      "nba_id": 1627762,
+      "slug": "joel-bolomboy"
+    },
+    {
+      "nba_id": 1629648,
+      "slug": "jordan-bone"
+    },
+    {
+      "nba_id": 1629067,
+      "slug": "isaac-bonga"
+    },
+    {
+      "nba_id": 2588,
+      "slug": "matt-bonner"
+    },
+    {
+      "nba_id": 202344,
+      "slug": "trevor-booker"
+    },
+    {
+      "nba_id": 2547,
+      "slug": "chris-bosh"
+    },
+    {
+      "nba_id": 1630527,
+      "slug": "brandon-boston"
+    },
+    {
+      "nba_id": 1630547,
+      "slug": "james-bouknight"
+    },
+    {
+      "nba_id": 2257,
+      "slug": "ruben-boumtje-boumtje"
+    },
+    {
+      "nba_id": 1477,
+      "slug": "bruce-bowen"
+    },
+    {
+      "nba_id": 1628968,
+      "slug": "brian-bowen-ii"
+    },
+    {
+      "nba_id": 1629065,
+      "slug": "ky-bowman"
+    },
+    {
+      "nba_id": 1863,
+      "slug": "earl-boykins"
+    },
+    {
+      "nba_id": 202340,
+      "slug": "avery-bradley"
+    },
+    {
+      "nba_id": 762,
+      "slug": "shawn-bradley"
+    },
+    {
+      "nba_id": 1882,
+      "slug": "elton-brand"
+    },
+    {
+      "nba_id": 210,
+      "slug": "terrell-brandon"
+    },
+    {
+      "nba_id": 1629714,
+      "slug": "jarrell-brantley"
+    },
+    {
+      "nba_id": 1629649,
+      "slug": "ignas-brazdeikis"
+    },
+    {
+      "nba_id": 201147,
+      "slug": "corey-brewer"
+    },
+    {
+      "nba_id": 1641779,
+      "slug": "jalen-bridges"
+    },
+    {
+      "nba_id": 1628578,
+      "slug": "amida-brimah"
+    },
+    {
+      "nba_id": 1628515,
+      "slug": "isaiah-briscoe"
+    },
+    {
+      "nba_id": 1629052,
+      "slug": "oshae-brissett"
+    },
+    {
+      "nba_id": 1631167,
+      "slug": "izaiah-brockington"
+    },
+    {
+      "nba_id": 1629151,
+      "slug": "ryan-broekhoff"
+    },
+    {
+      "nba_id": 1627763,
+      "slug": "malcolm-brogdon"
+    },
+    {
+      "nba_id": 201166,
+      "slug": "aaron-brooks"
+    },
+    {
+      "nba_id": 1629717,
+      "slug": "armoni-brooks"
+    },
+    {
+      "nba_id": 202705,
+      "slug": "marshon-brooks"
+    },
+    {
+      "nba_id": 1631232,
+      "slug": "keion-brooks-jr"
+    },
+    {
+      "nba_id": 1626148,
+      "slug": "anthony-brown"
+    },
+    {
+      "nba_id": 201628,
+      "slug": "bobby-brown"
+    },
+    {
+      "nba_id": 200793,
+      "slug": "dee-brown"
+    },
+    {
+      "nba_id": 203913,
+      "slug": "jabari-brown"
+    },
+    {
+      "nba_id": 1631112,
+      "slug": "kendall-brown"
+    },
+    {
+      "nba_id": 203485,
+      "slug": "lorenzo-brown"
+    },
+    {
+      "nba_id": 203900,
+      "slug": "markel-brown"
+    },
+    {
+      "nba_id": 1629650,
+      "slug": "moses-brown"
+    },
+    {
+      "nba_id": 136,
+      "slug": "pj-brown"
+    },
+    {
+      "nba_id": 1628425,
+      "slug": "sterling-brown"
+    },
+    {
+      "nba_id": 1630535,
+      "slug": "greg-brown-iii"
+    },
+    {
+      "nba_id": 1629718,
+      "slug": "charlie-brown-jr"
+    },
+    {
+      "nba_id": 1630602,
+      "slug": "chaundee-brown-jr"
+    },
+    {
+      "nba_id": 1628972,
+      "slug": "troy-brown-jr"
+    },
+    {
+      "nba_id": 1627852,
+      "slug": "nicolas-brussino"
+    },
+    {
+      "nba_id": 1629783,
+      "slug": "shaq-buchanan"
+    },
+    {
+      "nba_id": 201978,
+      "slug": "chase-budinger"
+    },
+    {
+      "nba_id": 672,
+      "slug": "matt-bullard"
+    },
+    {
+      "nba_id": 203493,
+      "slug": "reggie-bullock-jr"
+    },
+    {
+      "nba_id": 203504,
+      "slug": "trey-burke"
+    },
+    {
+      "nba_id": 202692,
+      "slug": "alec-burks"
+    },
+    {
+      "nba_id": 1629126,
+      "slug": "deonte-burton"
+    },
+    {
+      "nba_id": 2406,
+      "slug": "caron-butler"
+    },
+    {
+      "nba_id": 1630215,
+      "slug": "jared-butler"
+    },
+    {
+      "nba_id": 2446,
+      "slug": "rasual-butler"
+    },
+    {
+      "nba_id": 1631219,
+      "slug": "john-butler-jr"
+    },
+    {
+      "nba_id": 202779,
+      "slug": "dwight-buycks"
+    },
+    {
+      "nba_id": 101198,
+      "slug": "will-bynum"
+    },
+    {
+      "nba_id": 203998,
+      "slug": "bruno-caboclo"
+    },
+    {
+      "nba_id": 1629719,
+      "slug": "devontae-cacok"
+    },
+    {
+      "nba_id": 101181,
+      "slug": "jose-calderon"
+    },
+    {
+      "nba_id": 948,
+      "slug": "marcus-camby"
+    },
+    {
+      "nba_id": 1630267,
+      "slug": "facundo-campazzo"
+    },
+    {
+      "nba_id": 922,
+      "slug": "elden-campbell"
+    },
+    {
+      "nba_id": 203477,
+      "slug": "isaiah-canaan"
+    },
+    {
+      "nba_id": 1629962,
+      "slug": "devin-cannady"
+    },
+    {
+      "nba_id": 1630176,
+      "slug": "vernon-carey-jr"
+    },
+    {
+      "nba_id": 200760,
+      "slug": "rodney-carney"
+    },
+    {
+      "nba_id": 201960,
+      "slug": "demarre-carroll"
+    },
+    {
+      "nba_id": 1713,
+      "slug": "vince-carter"
+    },
+    {
+      "nba_id": 203487,
+      "slug": "michael-carter-williams"
+    },
+    {
+      "nba_id": 1630618,
+      "slug": "dj-carton"
+    },
+    {
+      "nba_id": 208,
+      "slug": "sam-cassell"
+    },
+    {
+      "nba_id": 201956,
+      "slug": "omri-casspi"
+    },
+    {
+      "nba_id": 1626161,
+      "slug": "willie-cauley-stein"
+    },
+    {
+      "nba_id": 1628505,
+      "slug": "troy-caupain"
+    },
+    {
+      "nba_id": 1628463,
+      "slug": "tyler-cavanaugh"
+    },
+    {
+      "nba_id": 1630608,
+      "slug": "malcolm-cazalon"
+    },
+    {
+      "nba_id": 2763,
+      "slug": "lionel-chalmers"
+    },
+    {
+      "nba_id": 201596,
+      "slug": "mario-chalmers"
+    },
+    {
+      "nba_id": 1631113,
+      "slug": "kennedy-chandler"
+    },
+    {
+      "nba_id": 2199,
+      "slug": "tyson-chandler"
+    },
+    {
+      "nba_id": 201163,
+      "slug": "wilson-chandler"
+    },
+    {
+      "nba_id": 1629147,
+      "slug": "joe-chealey"
+    },
+    {
+      "nba_id": 1629597,
+      "slug": "zylan-cheatham"
+    },
+    {
+      "nba_id": 2735,
+      "slug": "josh-childress"
+    },
+    {
+      "nba_id": 164,
+      "slug": "chris-childs"
+    },
+    {
+      "nba_id": 1629185,
+      "slug": "chris-chiozza"
+    },
+    {
+      "nba_id": 1642279,
+      "slug": "ulrich-chomche"
+    },
+    {
+      "nba_id": 1627737,
+      "slug": "marquese-chriss"
+    },
+    {
+      "nba_id": 57,
+      "slug": "doug-christie"
+    },
+    {
+      "nba_id": 1626176,
+      "slug": "rakeem-christmas"
+    },
+    {
+      "nba_id": 203902,
+      "slug": "semaj-christon"
+    },
+    {
+      "nba_id": 1630528,
+      "slug": "josh-christopher"
+    },
+    {
+      "nba_id": 1629109,
+      "slug": "gary-clark"
+    },
+    {
+      "nba_id": 203546,
+      "slug": "ian-clark"
+    },
+    {
+      "nba_id": 1721,
+      "slug": "keon-clark"
+    },
+    {
+      "nba_id": 1626262,
+      "slug": "coty-clarke"
+    },
+    {
+      "nba_id": 1628492,
+      "slug": "gian-clavell"
+    },
+    {
+      "nba_id": 1629598,
+      "slug": "chris-clemons"
+    },
+    {
+      "nba_id": 1628499,
+      "slug": "antonius-cleveland"
+    },
+    {
+      "nba_id": 202708,
+      "slug": "norris-cole"
+    },
+    {
+      "nba_id": 934,
+      "slug": "derrick-coleman"
+    },
+    {
+      "nba_id": 1641879,
+      "slug": "yuri-collins"
+    },
+    {
+      "nba_id": 1627858,
+      "slug": "kyle-collinsworth"
+    },
+    {
+      "nba_id": 201954,
+      "slug": "darren-collison"
+    },
+    {
+      "nba_id": 2555,
+      "slug": "nick-collison"
+    },
+    {
+      "nba_id": 1629045,
+      "slug": "bonzie-colson"
+    },
+    {
+      "nba_id": 1626188,
+      "slug": "quinn-cook"
+    },
+    {
+      "nba_id": 1629076,
+      "slug": "tyler-cook"
+    },
+    {
+      "nba_id": 1628429,
+      "slug": "charles-cooke"
+    },
+    {
+      "nba_id": 1641645,
+      "slug": "xavier-cooks"
+    },
+    {
+      "nba_id": 204022,
+      "slug": "jack-cooley"
+    },
+    {
+      "nba_id": 203142,
+      "slug": "chris-copeland"
+    },
+    {
+      "nba_id": 1627822,
+      "slug": "petr-cornelie"
+    },
+    {
+      "nba_id": 1627856,
+      "slug": "matt-costello"
+    },
+    {
+      "nba_id": 1641741,
+      "slug": "ricky-council-iv"
+    },
+    {
+      "nba_id": 202326,
+      "slug": "demarcus-cousins"
+    },
+    {
+      "nba_id": 203496,
+      "slug": "robert-covington"
+    },
+    {
+      "nba_id": 76462,
+      "slug": "dave-cowens"
+    },
+    {
+      "nba_id": 203459,
+      "slug": "allen-crabbe"
+    },
+    {
+      "nba_id": 1628470,
+      "slug": "torrey-craig"
+    },
+    {
+      "nba_id": 2037,
+      "slug": "jamal-crawford"
+    },
+    {
+      "nba_id": 202348,
+      "slug": "jordan-crawford"
+    },
+    {
+      "nba_id": 203109,
+      "slug": "jae-crowder"
+    },
+    {
+      "nba_id": 1630622,
+      "slug": "jalen-crutcher"
+    },
+    {
+      "nba_id": 1642385,
+      "slug": "cui-cui"
+    },
+    {
+      "nba_id": 1629633,
+      "slug": "jarrett-culver"
+    },
+    {
+      "nba_id": 201967,
+      "slug": "dante-cunningham"
+    },
+    {
+      "nba_id": 203099,
+      "slug": "jared-cunningham"
+    },
+    {
+      "nba_id": 209,
+      "slug": "dell-curry"
+    },
+    {
+      "nba_id": 2201,
+      "slug": "eddy-curry"
+    },
+    {
+      "nba_id": 688,
+      "slug": "michael-curry"
+    },
+    {
+      "nba_id": 2223,
+      "slug": "samuel-dalembert"
+    },
+    {
+      "nba_id": 956,
+      "slug": "erick-dampier"
+    },
+    {
+      "nba_id": 1498,
+      "slug": "antonio-daniels"
+    },
+    {
+      "nba_id": 2605,
+      "slug": "marquis-daniels"
+    },
+    {
+      "nba_id": 203584,
+      "slug": "troy-daniels"
+    },
+    {
+      "nba_id": 76504,
+      "slug": "adrian-dantley"
+    },
+    {
+      "nba_id": 1630268,
+      "slug": "nate-darling"
+    },
+    {
+      "nba_id": 1884,
+      "slug": "baron-davis"
+    },
+    {
+      "nba_id": 905,
+      "slug": "dale-davis"
+    },
+    {
+      "nba_id": 1627738,
+      "slug": "deyonta-davis"
+    },
+    {
+      "nba_id": 202334,
+      "slug": "ed-davis"
+    },
+    {
+      "nba_id": 93,
+      "slug": "hubert-davis"
+    },
+    {
+      "nba_id": 1631098,
+      "slug": "johnny-davis"
+    },
+    {
+      "nba_id": 1629056,
+      "slug": "terence-davis"
+    },
+    {
+      "nba_id": 1629093,
+      "slug": "tyler-davis"
+    },
+    {
+      "nba_id": 1626183,
+      "slug": "branden-dawson"
+    },
+    {
+      "nba_id": 201948,
+      "slug": "austin-daye"
+    },
+    {
+      "nba_id": 1630620,
+      "slug": "darius-days"
+    },
+    {
+      "nba_id": 1629602,
+      "slug": "javin-delaurier"
+    },
+    {
+      "nba_id": 1630466,
+      "slug": "gabriel-deck"
+    },
+    {
+      "nba_id": 203473,
+      "slug": "dewayne-dedmon"
+    },
+    {
+      "nba_id": 1626214,
+      "slug": "bryce-dejean-jones"
+    },
+    {
+      "nba_id": 1626155,
+      "slug": "sam-dekker"
+    },
+    {
+      "nba_id": 219,
+      "slug": "vinny-del-negro"
+    },
+    {
+      "nba_id": 1627098,
+      "slug": "malcolm-delaney"
+    },
+    {
+      "nba_id": 183,
+      "slug": "bison-dele"
+    },
+    {
+      "nba_id": 1629116,
+      "slug": "angel-delgado"
+    },
+    {
+      "nba_id": 203521,
+      "slug": "matthew-dellavedova"
+    },
+    {
+      "nba_id": 2736,
+      "slug": "luol-deng"
+    },
+    {
+      "nba_id": 1641926,
+      "slug": "dexter-dennis"
+    },
+    {
+      "nba_id": 1629094,
+      "slug": "marcus-derrickson"
+    },
+    {
+      "nba_id": 1629603,
+      "slug": "mamadi-diakite"
+    },
+    {
+      "nba_id": 1627767,
+      "slug": "cheick-diallo"
+    },
+    {
+      "nba_id": 1628977,
+      "slug": "hamidou-diallo"
+    },
+    {
+      "nba_id": 2564,
+      "slug": "boris-diaw"
+    },
+    {
+      "nba_id": 200821,
+      "slug": "yakhouba-diawara"
+    },
+    {
+      "nba_id": 1722,
+      "slug": "michael-dickerson"
+    },
+    {
+      "nba_id": 203476,
+      "slug": "gorgui-dieng"
+    },
+    {
+      "nba_id": 203915,
+      "slug": "spencer-dinwiddie"
+    },
+    {
+      "nba_id": 124,
+      "slug": "vlade-divac"
+    },
+    {
+      "nba_id": 1628416,
+      "slug": "tyler-dorsey"
+    },
+    {
+      "nba_id": 1628422,
+      "slug": "damyean-dotson"
+    },
+    {
+      "nba_id": 1629653,
+      "slug": "devon-dotson"
+    },
+    {
+      "nba_id": 428,
+      "slug": "sherman-douglas"
+    },
+    {
+      "nba_id": 201962,
+      "slug": "toney-douglas"
+    },
+    {
+      "nba_id": 201604,
+      "slug": "chris-douglas-roberts"
+    },
+    {
+      "nba_id": 1629635,
+      "slug": "sekou-doumbouya"
+    },
+    {
+      "nba_id": 1628495,
+      "slug": "milton-doyle"
+    },
+    {
+      "nba_id": 1628408,
+      "slug": "pj-dozier"
+    },
+    {
+      "nba_id": 201609,
+      "slug": "goran-dragic"
+    },
+    {
+      "nba_id": 1630929,
+      "slug": "henri-drell"
+    },
+    {
+      "nba_id": 203580,
+      "slug": "larry-drew-ii"
+    },
+    {
+      "nba_id": 17,
+      "slug": "clyde-drexler"
+    },
+    {
+      "nba_id": 1630537,
+      "slug": "chris-duarte"
+    },
+    {
+      "nba_id": 1642505,
+      "slug": "alex-ducas"
+    },
+    {
+      "nba_id": 201162,
+      "slug": "jared-dudley"
+    },
+    {
+      "nba_id": 1626251,
+      "slug": "duje-dukan"
+    },
+    {
+      "nba_id": 1630561,
+      "slug": "david-duke-jr"
+    },
+    {
+      "nba_id": 247,
+      "slug": "joe-dumars"
+    },
+    {
+      "nba_id": 2399,
+      "slug": "mike-dunleavy"
+    },
+    {
+      "nba_id": 1628979,
+      "slug": "trevon-duval"
+    },
+    {
+      "nba_id": 203921,
+      "slug": "cleanthony-early"
+    },
+    {
+      "nba_id": 1630693,
+      "slug": "jaime-echenique"
+    },
+    {
+      "nba_id": 204067,
+      "slug": "jarell-eddie"
+    },
+    {
+      "nba_id": 1629035,
+      "slug": "carsen-edwards"
+    },
+    {
+      "nba_id": 1642399,
+      "slug": "jesse-edwards"
+    },
+    {
+      "nba_id": 1630556,
+      "slug": "kessler-edwards"
+    },
+    {
+      "nba_id": 1630306,
+      "slug": "rob-edwards"
+    },
+    {
+      "nba_id": 1629053,
+      "slug": "vincent-edwards"
+    },
+    {
+      "nba_id": 53,
+      "slug": "mario-elie"
+    },
+    {
+      "nba_id": 1629604,
+      "slug": "cj-elleby"
+    },
+    {
+      "nba_id": 1627740,
+      "slug": "henry-ellenson"
+    },
+    {
+      "nba_id": 201961,
+      "slug": "wayne-ellington"
+    },
+    {
+      "nba_id": 107,
+      "slug": "dale-ellis"
+    },
+    {
+      "nba_id": 101145,
+      "slug": "monta-ellis"
+    },
+    {
+      "nba_id": 203898,
+      "slug": "tyler-ennis"
+    },
+    {
+      "nba_id": 203516,
+      "slug": "james-ennis-iii"
+    },
+    {
+      "nba_id": 76681,
+      "slug": "julius-erving"
+    },
+    {
+      "nba_id": 1628980,
+      "slug": "jacob-evans"
+    },
+    {
+      "nba_id": 1628393,
+      "slug": "jawun-evans"
+    },
+    {
+      "nba_id": 202379,
+      "slug": "jeremy-evans"
+    },
+    {
+      "nba_id": 201936,
+      "slug": "tyreke-evans"
+    },
+    {
+      "nba_id": 121,
+      "slug": "patrick-ewing"
+    },
+    {
+      "nba_id": 203957,
+      "slug": "dante-exum"
+    },
+    {
+      "nba_id": 203105,
+      "slug": "festus-ezeli"
+    },
+    {
+      "nba_id": 1629605,
+      "slug": "tacko-fall"
+    },
+    {
+      "nba_id": 202702,
+      "slug": "kenneth-faried"
+    },
+    {
+      "nba_id": 200770,
+      "slug": "jordan-farmar"
+    },
+    {
+      "nba_id": 202324,
+      "slug": "derrick-favors"
+    },
+    {
+      "nba_id": 1627770,
+      "slug": "kay-felder"
+    },
+    {
+      "nba_id": 1626245,
+      "slug": "cristiano-felicio"
+    },
+    {
+      "nba_id": 203467,
+      "slug": "carrick-felix"
+    },
+    {
+      "nba_id": 101109,
+      "slug": "raymond-felton"
+    },
+    {
+      "nba_id": 1628390,
+      "slug": "terrance-ferguson"
+    },
+    {
+      "nba_id": 201164,
+      "slug": "rudy-fernandez"
+    },
+    {
+      "nba_id": 1628981,
+      "slug": "bruno-fernando"
+    },
+    {
+      "nba_id": 1627812,
+      "slug": "yogi-ferrell"
+    },
+    {
+      "nba_id": 1630238,
+      "slug": "malik-fitts"
+    },
+    {
+      "nba_id": 1641745,
+      "slug": "adam-flagler"
+    },
+    {
+      "nba_id": 1630201,
+      "slug": "malachi-flynn"
+    },
+    {
+      "nba_id": 1627854,
+      "slug": "bryn-forbes"
+    },
+    {
+      "nba_id": 1630758,
+      "slug": "aleem-ford"
+    },
+    {
+      "nba_id": 1630259,
+      "slug": "jordan-ford"
+    },
+    {
+      "nba_id": 2551,
+      "slug": "tj-ford"
+    },
+    {
+      "nba_id": 1630235,
+      "slug": "trent-forrest"
+    },
+    {
+      "nba_id": 1504,
+      "slug": "danny-fortson"
+    },
+    {
+      "nba_id": 1630701,
+      "slug": "michael-foster-jr"
+    },
+    {
+      "nba_id": 203095,
+      "slug": "evan-fournier"
+    },
+    {
+      "nba_id": 200751,
+      "slug": "randy-foye"
+    },
+    {
+      "nba_id": 1502,
+      "slug": "adonal-foyle"
+    },
+    {
+      "nba_id": 1883,
+      "slug": "steve-francis"
+    },
+    {
+      "nba_id": 1629606,
+      "slug": "robert-franks"
+    },
+    {
+      "nba_id": 204025,
+      "slug": "tim-frazier"
+    },
+    {
+      "nba_id": 1626187,
+      "slug": "michael-frazier-ii"
+    },
+    {
+      "nba_id": 1628982,
+      "slug": "melvin-frazier-jr"
+    },
+    {
+      "nba_id": 202690,
+      "slug": "jimmer-fredette"
+    },
+    {
+      "nba_id": 202683,
+      "slug": "enes-freedom"
+    },
+    {
+      "nba_id": 1631241,
+      "slug": "javon-freeman-liberty"
+    },
+    {
+      "nba_id": 101112,
+      "slug": "channing-frye"
+    },
+    {
+      "nba_id": 1641788,
+      "slug": "alex-fudge"
+    },
+    {
+      "nba_id": 1628365,
+      "slug": "markelle-fultz"
+    },
+    {
+      "nba_id": 1641847,
+      "slug": "andrew-funk"
+    },
+    {
+      "nba_id": 1629117,
+      "slug": "wenyen-gabriel"
+    },
+    {
+      "nba_id": 201568,
+      "slug": "danilo-gallinari"
+    },
+    {
+      "nba_id": 204038,
+      "slug": "langston-galloway"
+    },
+    {
+      "nba_id": 1627868,
+      "slug": "patricio-garino"
+    },
+    {
+      "nba_id": 708,
+      "slug": "kevin-garnett"
+    },
+    {
+      "nba_id": 1630585,
+      "slug": "marcus-garrett"
+    },
+    {
+      "nba_id": 1727,
+      "slug": "pat-garrity"
+    },
+    {
+      "nba_id": 1630586,
+      "slug": "usman-garuba"
+    },
+    {
+      "nba_id": 201188,
+      "slug": "marc-gasol"
+    },
+    {
+      "nba_id": 2200,
+      "slug": "pau-gasol"
+    },
+    {
+      "nba_id": 1629232,
+      "slug": "kaiser-gates"
+    },
+    {
+      "nba_id": 200752,
+      "slug": "rudy-gay"
+    },
+    {
+      "nba_id": 1627771,
+      "slug": "michael-gbinije"
+    },
+    {
+      "nba_id": 202087,
+      "slug": "alonzo-gee"
+    },
+    {
+      "nba_id": 1627875,
+      "slug": "marcus-georges-hunt"
+    },
+    {
+      "nba_id": 76804,
+      "slug": "george-gervin"
+    },
+    {
+      "nba_id": 1626780,
+      "slug": "jonathan-gibson"
+    },
+    {
+      "nba_id": 1628385,
+      "slug": "harry-giles-iii"
+    },
+    {
+      "nba_id": 383,
+      "slug": "kendall-gill"
+    },
+    {
+      "nba_id": 1630273,
+      "slug": "freddie-gillespie"
+    },
+    {
+      "nba_id": 600014,
+      "slug": "artis-gilmore"
+    },
+    {
+      "nba_id": 1631367,
+      "slug": "jacob-gilyard"
+    },
+    {
+      "nba_id": 1938,
+      "slug": "manu-ginobili"
+    },
+    {
+      "nba_id": 1921,
+      "slug": "gordan-giricek"
+    },
+    {
+      "nba_id": 2400,
+      "slug": "drew-gooden"
+    },
+    {
+      "nba_id": 203462,
+      "slug": "archie-goodwin"
+    },
+    {
+      "nba_id": 1629164,
+      "slug": "brandon-goodwin"
+    },
+    {
+      "nba_id": 2732,
+      "slug": "ben-gordon"
+    },
+    {
+      "nba_id": 101162,
+      "slug": "marcin-gortat"
+    },
+    {
+      "nba_id": 1641789,
+      "slug": "jazian-gortman"
+    },
+    {
+      "nba_id": 202726,
+      "slug": "andrew-goudelock"
+    },
+    {
+      "nba_id": 1628984,
+      "slug": "devonte-graham"
+    },
+    {
+      "nba_id": 1626203,
+      "slug": "treveon-graham"
+    },
+    {
+      "nba_id": 101122,
+      "slug": "danny-granger"
+    },
+    {
+      "nba_id": 258,
+      "slug": "brian-grant"
+    },
+    {
+      "nba_id": 1626170,
+      "slug": "jerian-grant"
+    },
+    {
+      "nba_id": 1629055,
+      "slug": "donte-grantham"
+    },
+    {
+      "nba_id": 1629755,
+      "slug": "hassani-gravett"
+    },
+    {
+      "nba_id": 1627982,
+      "slug": "josh-gray"
+    },
+    {
+      "nba_id": 1630564,
+      "slug": "raiquan-gray"
+    },
+    {
+      "nba_id": 201980,
+      "slug": "danny-green"
+    },
+    {
+      "nba_id": 203475,
+      "slug": "erick-green"
+    },
+    {
+      "nba_id": 101123,
+      "slug": "gerald-green"
+    },
+    {
+      "nba_id": 203210,
+      "slug": "jamychal-green"
+    },
+    {
+      "nba_id": 1631100,
+      "slug": "aj-griffin"
+    },
+    {
+      "nba_id": 201933,
+      "slug": "blake-griffin"
+    },
+    {
+      "nba_id": 1629741,
+      "slug": "marko-guduric"
+    },
+    {
+      "nba_id": 1631338,
+      "slug": "mouhamadou-gueye"
+    },
+    {
+      "nba_id": 203268,
+      "slug": "jorge-gutierrez"
+    },
+    {
+      "nba_id": 1629657,
+      "slug": "kyle-guy"
+    },
+    {
+      "nba_id": 1630204,
+      "slug": "ashton-hagans"
+    },
+    {
+      "nba_id": 203798,
+      "slug": "pj-hairston"
+    },
+    {
+      "nba_id": 1628985,
+      "slug": "devon-hall"
+    },
+    {
+      "nba_id": 1629743,
+      "slug": "donta-hall"
+    },
+    {
+      "nba_id": 1631160,
+      "slug": "jordan-hall"
+    },
+    {
+      "nba_id": 1630221,
+      "slug": "josh-hall"
+    },
+    {
+      "nba_id": 1629788,
+      "slug": "tyler-hall"
+    },
+    {
+      "nba_id": 1627772,
+      "slug": "daniel-hamilton"
+    },
+    {
+      "nba_id": 203120,
+      "slug": "justin-hamilton"
+    },
+    {
+      "nba_id": 1627773,
+      "slug": "aj-hammons"
+    },
+    {
+      "nba_id": 1630181,
+      "slug": "rj-hampton"
+    },
+    {
+      "nba_id": 201946,
+      "slug": "tyler-hansbrough"
+    },
+    {
+      "nba_id": 358,
+      "slug": "anfernee-hardaway"
+    },
+    {
+      "nba_id": 203090,
+      "slug": "maurice-harkless"
+    },
+    {
+      "nba_id": 1629607,
+      "slug": "jared-harper"
+    },
+    {
+      "nba_id": 202712,
+      "slug": "justin-harper"
+    },
+    {
+      "nba_id": 1626149,
+      "slug": "montrezl-harrell"
+    },
+    {
+      "nba_id": 202725,
+      "slug": "josh-harrellson"
+    },
+    {
+      "nba_id": 2734,
+      "slug": "devin-harris"
+    },
+    {
+      "nba_id": 1630223,
+      "slug": "jalen-harris"
+    },
+    {
+      "nba_id": 203925,
+      "slug": "joe-harris"
+    },
+    {
+      "nba_id": 1630284,
+      "slug": "kevon-harris"
+    },
+    {
+      "nba_id": 1626151,
+      "slug": "aaron-harrison"
+    },
+    {
+      "nba_id": 1626150,
+      "slug": "andrew-harrison"
+    },
+    {
+      "nba_id": 1627885,
+      "slug": "shaquille-harrison"
+    },
+    {
+      "nba_id": 2617,
+      "slug": "udonis-haslem"
+    },
+    {
+      "nba_id": 201150,
+      "slug": "spencer-hawes"
+    },
+    {
+      "nba_id": 765,
+      "slug": "hersey-hawkins"
+    },
+    {
+      "nba_id": 101236,
+      "slug": "chuck-hayes"
+    },
+    {
+      "nba_id": 202330,
+      "slug": "gordon-hayward"
+    },
+    {
+      "nba_id": 101129,
+      "slug": "luther-head"
+    },
+    {
+      "nba_id": 203687,
+      "slug": "reggie-hearn"
+    },
+    {
+      "nba_id": 201945,
+      "slug": "gerald-henderson"
+    },
+    {
+      "nba_id": 1630565,
+      "slug": "aaron-henry"
+    },
+    {
+      "nba_id": 1627988,
+      "slug": "myke-henry"
+    },
+    {
+      "nba_id": 203089,
+      "slug": "john-henson"
+    },
+    {
+      "nba_id": 1629608,
+      "slug": "dewan-hernandez"
+    },
+    {
+      "nba_id": 1627823,
+      "slug": "juancho-hernangomez"
+    },
+    {
+      "nba_id": 1626195,
+      "slug": "willy-hernangomez"
+    },
+    {
+      "nba_id": 1628987,
+      "slug": "kevin-hervey"
+    },
+    {
+      "nba_id": 1626209,
+      "slug": "mario-hezonja"
+    },
+    {
+      "nba_id": 201579,
+      "slug": "roy-hibbert"
+    },
+    {
+      "nba_id": 1628439,
+      "slug": "isaiah-hicks"
+    },
+    {
+      "nba_id": 201581,
+      "slug": "jj-hickson"
+    },
+    {
+      "nba_id": 2403,
+      "slug": "nene"
+    },
+    {
+      "nba_id": 201588,
+      "slug": "george-hill"
+    },
+    {
+      "nba_id": 255,
+      "slug": "grant-hill"
+    },
+    {
+      "nba_id": 201941,
+      "slug": "jordan-hill"
+    },
+    {
+      "nba_id": 1630792,
+      "slug": "malcolm-hill"
+    },
+    {
+      "nba_id": 203524,
+      "slug": "solomon-hill"
+    },
+    {
+      "nba_id": 1626199,
+      "slug": "darrun-hilliard"
+    },
+    {
+      "nba_id": 2550,
+      "slug": "kirk-hinrich"
+    },
+    {
+      "nba_id": 1630207,
+      "slug": "nate-hinton"
+    },
+    {
+      "nba_id": 1629658,
+      "slug": "jaylen-hoard"
+    },
+    {
+      "nba_id": 1641793,
+      "slug": "dmoi-hodge"
+    },
+    {
+      "nba_id": 697,
+      "slug": "fred-hoiberg"
+    },
+    {
+      "nba_id": 203200,
+      "slug": "justin-holiday"
+    },
+    {
+      "nba_id": 204066,
+      "slug": "john-holland"
+    },
+    {
+      "nba_id": 200797,
+      "slug": "ryan-hollins"
+    },
+    {
+      "nba_id": 1626178,
+      "slug": "rondae-hollis-jefferson"
+    },
+    {
+      "nba_id": 1626158,
+      "slug": "richaun-holmes"
+    },
+    {
+      "nba_id": 1630258,
+      "slug": "caleb-homesley"
+    },
+    {
+      "nba_id": 203918,
+      "slug": "rodney-hood"
+    },
+    {
+      "nba_id": 1641720,
+      "slug": "jalen-hood-schifino"
+    },
+    {
+      "nba_id": 204,
+      "slug": "jeff-hornacek"
+    },
+    {
+      "nba_id": 1629659,
+      "slug": "talen-horton-tucker"
+    },
+    {
+      "nba_id": 1627863,
+      "slug": "danuel-house-jr"
+    },
+    {
+      "nba_id": 275,
+      "slug": "allan-houston"
+    },
+    {
+      "nba_id": 2730,
+      "slug": "dwight-howard"
+    },
+    {
+      "nba_id": 2572,
+      "slug": "josh-howard"
+    },
+    {
+      "nba_id": 1630210,
+      "slug": "markus-howard"
+    },
+    {
+      "nba_id": 1629739,
+      "slug": "william-howard"
+    },
+    {
+      "nba_id": 1631309,
+      "slug": "trevor-hudgins"
+    },
+    {
+      "nba_id": 1607,
+      "slug": "troy-hudson"
+    },
+    {
+      "nba_id": 1626273,
+      "slug": "marcelo-huertas"
+    },
+    {
+      "nba_id": 203962,
+      "slug": "josh-huestis"
+    },
+    {
+      "nba_id": 1630190,
+      "slug": "elijah-hughes"
+    },
+    {
+      "nba_id": 203133,
+      "slug": "robbie-hummel"
+    },
+    {
+      "nba_id": 2743,
+      "slug": "kris-humphries"
+    },
+    {
+      "nba_id": 1630624,
+      "slug": "feron-hunt"
+    },
+    {
+      "nba_id": 1626154,
+      "slug": "rj-hunter"
+    },
+    {
+      "nba_id": 1626205,
+      "slug": "vincent-hunter"
+    },
+    {
+      "nba_id": 1628990,
+      "slug": "chandler-hutchison"
+    },
+    {
+      "nba_id": 201586,
+      "slug": "serge-ibaka"
+    },
+    {
+      "nba_id": 2738,
+      "slug": "andre-iguodala"
+    },
+    {
+      "nba_id": 980,
+      "slug": "zydrunas-ilgauskas"
+    },
+    {
+      "nba_id": 101141,
+      "slug": "ersan-ilyasova"
+    },
+    {
+      "nba_id": 203996,
+      "slug": "damien-inglis"
+    },
+    {
+      "nba_id": 201281,
+      "slug": "andre-ingram"
+    },
+    {
+      "nba_id": 947,
+      "slug": "allen-iverson"
+    },
+    {
+      "nba_id": 1628411,
+      "slug": "wes-iwundu"
+    },
+    {
+      "nba_id": 101127,
+      "slug": "jarrett-jack"
+    },
+    {
+      "nba_id": 1627743,
+      "slug": "demetrius-jackson"
+    },
+    {
+      "nba_id": 1628402,
+      "slug": "frank-jackson"
+    },
+    {
+      "nba_id": 754,
+      "slug": "jim-jackson"
+    },
+    {
+      "nba_id": 1628367,
+      "slug": "josh-jackson"
+    },
+    {
+      "nba_id": 1628382,
+      "slug": "justin-jackson"
+    },
+    {
+      "nba_id": 1531,
+      "slug": "marc-jackson"
+    },
+    {
+      "nba_id": 203510,
+      "slug": "pierre-jackson"
+    },
+    {
+      "nba_id": 202704,
+      "slug": "reggie-jackson"
+    },
+    {
+      "nba_id": 1629713,
+      "slug": "justin-james"
+    },
+    {
+      "nba_id": 1628455,
+      "slug": "mike-james"
+    },
+    {
+      "nba_id": 1630610,
+      "slug": "dejon-jarreau"
+    },
+    {
+      "nba_id": 2744,
+      "slug": "al-jefferson"
+    },
+    {
+      "nba_id": 1628518,
+      "slug": "amile-jefferson"
+    },
+    {
+      "nba_id": 203928,
+      "slug": "cory-jefferson"
+    },
+    {
+      "nba_id": 2210,
+      "slug": "richard-jefferson"
+    },
+    {
+      "nba_id": 1629610,
+      "slug": "daquan-jeffries"
+    },
+    {
+      "nba_id": 203098,
+      "slug": "john-jenkins"
+    },
+    {
+      "nba_id": 201943,
+      "slug": "brandon-jennings"
+    },
+    {
+      "nba_id": 201973,
+      "slug": "jonas-jerebko"
+    },
+    {
+      "nba_id": 203511,
+      "slug": "grant-jerrett"
+    },
+    {
+      "nba_id": 1628993,
+      "slug": "alize-johnson"
+    },
+    {
+      "nba_id": 101161,
+      "slug": "amir-johnson"
+    },
+    {
+      "nba_id": 422,
+      "slug": "avery-johnson"
+    },
+    {
+      "nba_id": 1629168,
+      "slug": "bj-johnson"
+    },
+    {
+      "nba_id": 1627744,
+      "slug": "brice-johnson"
+    },
+    {
+      "nba_id": 202419,
+      "slug": "chris-johnson"
+    },
+    {
+      "nba_id": 203187,
+      "slug": "chris-johnson"
+    },
+    {
+      "nba_id": 1626177,
+      "slug": "dakari-johnson"
+    },
+    {
+      "nba_id": 1630525,
+      "slug": "david-johnson"
+    },
+    {
+      "nba_id": 201949,
+      "slug": "james-johnson"
+    },
+    {
+      "nba_id": 2207,
+      "slug": "joe-johnson"
+    },
+    {
+      "nba_id": 1630553,
+      "slug": "keon-johnson"
+    },
+    {
+      "nba_id": 134,
+      "slug": "kevin-johnson"
+    },
+    {
+      "nba_id": 1641749,
+      "slug": "keyontae-johnson"
+    },
+    {
+      "nba_id": 77142,
+      "slug": "magic-johnson"
+    },
+    {
+      "nba_id": 203910,
+      "slug": "nick-johnson"
+    },
+    {
+      "nba_id": 204179,
+      "slug": "omari-johnson"
+    },
+    {
+      "nba_id": 203111,
+      "slug": "orlando-johnson"
+    },
+    {
+      "nba_id": 1626169,
+      "slug": "stanley-johnson"
+    },
+    {
+      "nba_id": 204020,
+      "slug": "tyler-johnson"
+    },
+    {
+      "nba_id": 202325,
+      "slug": "wesley-johnson"
+    },
+    {
+      "nba_id": 203130,
+      "slug": "darius-johnson-odom"
+    },
+    {
+      "nba_id": 1630637,
+      "slug": "carlik-jones"
+    },
+    {
+      "nba_id": 2563,
+      "slug": "dahntay-jones"
+    },
+    {
+      "nba_id": 1627745,
+      "slug": "damian-jones"
+    },
+    {
+      "nba_id": 203199,
+      "slug": "dequan-jones"
+    },
+    {
+      "nba_id": 224,
+      "slug": "eddie-jones"
+    },
+    {
+      "nba_id": 2410,
+      "slug": "fred-jones"
+    },
+    {
+      "nba_id": 1627883,
+      "slug": "jalen-jones"
+    },
+    {
+      "nba_id": 2592,
+      "slug": "james-jones"
+    },
+    {
+      "nba_id": 1629203,
+      "slug": "jemerrio-jones"
+    },
+    {
+      "nba_id": 1630539,
+      "slug": "kai-jones"
+    },
+    {
+      "nba_id": 1630222,
+      "slug": "mason-jones"
+    },
+    {
+      "nba_id": 203093,
+      "slug": "terrence-jones"
+    },
+    {
+      "nba_id": 203103,
+      "slug": "perry-jones-iii"
+    },
+    {
+      "nba_id": 202709,
+      "slug": "cory-joseph"
+    },
+    {
+      "nba_id": 1629662,
+      "slug": "mfiondu-kabengele"
+    },
+    {
+      "nba_id": 1630686,
+      "slug": "georgios-kalaitzakis"
+    },
+    {
+      "nba_id": 2549,
+      "slug": "chris-kaman"
+    },
+    {
+      "nba_id": 1626163,
+      "slug": "frank-kaminsky"
+    },
+    {
+      "nba_id": 2574,
+      "slug": "jason-kapono"
+    },
+    {
+      "nba_id": 203508,
+      "slug": "sergey-karasev"
+    },
+    {
+      "nba_id": 201619,
+      "slug": "sasha-kaun"
+    },
+    {
+      "nba_id": 1630283,
+      "slug": "kylor-kelley"
+    },
+    {
+      "nba_id": 203527,
+      "slug": "ryan-kelly"
+    },
+    {
+      "nba_id": 431,
+      "slug": "shawn-kemp"
+    },
+    {
+      "nba_id": 202810,
+      "slug": "dj-kennedy"
+    },
+    {
+      "nba_id": 70,
+      "slug": "steve-kerr"
+    },
+    {
+      "nba_id": 1630296,
+      "slug": "braxton-key"
+    },
+    {
+      "nba_id": 1629742,
+      "slug": "stanton-kidd"
+    },
+    {
+      "nba_id": 203077,
+      "slug": "michael-kidd-gilchrist"
+    },
+    {
+      "nba_id": 203930,
+      "slug": "sean-kilpatrick"
+    },
+    {
+      "nba_id": 77264,
+      "slug": "bernard-king"
+    },
+    {
+      "nba_id": 1628994,
+      "slug": "george-king"
+    },
+    {
+      "nba_id": 1629663,
+      "slug": "louis-king"
+    },
+    {
+      "nba_id": 954,
+      "slug": "kerry-kittles"
+    },
+    {
+      "nba_id": 202688,
+      "slug": "brandon-knight"
+    },
+    {
+      "nba_id": 1510,
+      "slug": "brevin-knight"
+    },
+    {
+      "nba_id": 1630233,
+      "slug": "nathan-knight"
+    },
+    {
+      "nba_id": 1628995,
+      "slug": "kevin-knox-ii"
+    },
+    {
+      "nba_id": 1627788,
+      "slug": "furkan-korkmaz"
+    },
+    {
+      "nba_id": 2594,
+      "slug": "kyle-korver"
+    },
+    {
+      "nba_id": 201585,
+      "slug": "kosta-koufos"
+    },
+    {
+      "nba_id": 2420,
+      "slug": "nenad-krstic"
+    },
+    {
+      "nba_id": 389,
+      "slug": "toni-kukoc"
+    },
+    {
+      "nba_id": 1629083,
+      "slug": "arnoldas-kulboka"
+    },
+    {
+      "nba_id": 1629066,
+      "slug": "rodions-kurucs"
+    },
+    {
+      "nba_id": 1627851,
+      "slug": "mindaugas-kuzminskas"
+    },
+    {
+      "nba_id": 1711,
+      "slug": "raef-lafrentz"
+    },
+    {
+      "nba_id": 1630237,
+      "slug": "anthony-lamb"
+    },
+    {
+      "nba_id": 203087,
+      "slug": "jeremy-lamb"
+    },
+    {
+      "nba_id": 201171,
+      "slug": "carl-landry"
+    },
+    {
+      "nba_id": 202068,
+      "slug": "marcus-landry"
+    },
+    {
+      "nba_id": 1629641,
+      "slug": "romeo-langford"
+    },
+    {
+      "nba_id": 600005,
+      "slug": "bob-lanier"
+    },
+    {
+      "nba_id": 1627879,
+      "slug": "nicolas-laprovittola"
+    },
+    {
+      "nba_id": 203499,
+      "slug": "shane-larkin"
+    },
+    {
+      "nba_id": 203530,
+      "slug": "joffrey-lauvergne"
+    },
+    {
+      "nba_id": 1629724,
+      "slug": "vic-law"
+    },
+    {
+      "nba_id": 201951,
+      "slug": "ty-lawson"
+    },
+    {
+      "nba_id": 1627774,
+      "slug": "jake-layman"
+    },
+    {
+      "nba_id": 1628388,
+      "slug": "tj-leaf"
+    },
+    {
+      "nba_id": 1629665,
+      "slug": "jalen-lecque"
+    },
+    {
+      "nba_id": 201584,
+      "slug": "courtney-lee"
+    },
+    {
+      "nba_id": 1627814,
+      "slug": "damion-lee"
+    },
+    {
+      "nba_id": 101135,
+      "slug": "david-lee"
+    },
+    {
+      "nba_id": 1630240,
+      "slug": "saben-lee"
+    },
+    {
+      "nba_id": 1627215,
+      "slug": "walt-lemon-jr"
+    },
+    {
+      "nba_id": 203458,
+      "slug": "alex-len"
+    },
+    {
+      "nba_id": 702,
+      "slug": "voshon-lenard"
+    },
+    {
+      "nba_id": 203086,
+      "slug": "meyers-leonard"
+    },
+    {
+      "nba_id": 202720,
+      "slug": "jon-leuer"
+    },
+    {
+      "nba_id": 1631171,
+      "slug": "justin-lewis"
+    },
+    {
+      "nba_id": 1641721,
+      "slug": "maxwell-lewis"
+    },
+    {
+      "nba_id": 1630575,
+      "slug": "scottie-lewis"
+    },
+    {
+      "nba_id": 1630184,
+      "slug": "kira-lewis-jr"
+    },
+    {
+      "nba_id": 202732,
+      "slug": "deandre-liggins"
+    },
+    {
+      "nba_id": 202391,
+      "slug": "jeremy-lin"
+    },
+    {
+      "nba_id": 1629642,
+      "slug": "nassir-little"
+    },
+    {
+      "nba_id": 2733,
+      "slug": "shaun-livingston"
+    },
+    {
+      "nba_id": 1631254,
+      "slug": "kenneth-lofton-jr"
+    },
+    {
+      "nba_id": 1627848,
+      "slug": "shawn-long"
+    },
+    {
+      "nba_id": 201577,
+      "slug": "robin-lopez"
+    },
+    {
+      "nba_id": 1629712,
+      "slug": "didi-louzada"
+    },
+    {
+      "nba_id": 1628070,
+      "slug": "jordan-loyd"
+    },
+    {
+      "nba_id": 203564,
+      "slug": "kalin-lucas"
+    },
+    {
+      "nba_id": 101249,
+      "slug": "john-lucas-iii"
+    },
+    {
+      "nba_id": 1731,
+      "slug": "tyronn-lue"
+    },
+    {
+      "nba_id": 1641754,
+      "slug": "seth-lundy"
+    },
+    {
+      "nba_id": 1627789,
+      "slug": "timothe-luwawu-cabarrot"
+    },
+    {
+      "nba_id": 1628399,
+      "slug": "tyler-lydon"
+    },
+    {
+      "nba_id": 1626168,
+      "slug": "trey-lyles"
+    },
+    {
+      "nba_id": 248,
+      "slug": "george-lynch"
+    },
+    {
+      "nba_id": 1627815,
+      "slug": "sheldon-mac"
+    },
+    {
+      "nba_id": 202714,
+      "slug": "shelvin-mack"
+    },
+    {
+      "nba_id": 1629133,
+      "slug": "daryl-macon"
+    },
+    {
+      "nba_id": 1629122,
+      "slug": "jp-macura"
+    },
+    {
+      "nba_id": 203705,
+      "slug": "josh-magette"
+    },
+    {
+      "nba_id": 1630266,
+      "slug": "will-magnay"
+    },
+    {
+      "nba_id": 101133,
+      "slug": "ian-mahinmi"
+    },
+    {
+      "nba_id": 105,
+      "slug": "dan-majerle"
+    },
+    {
+      "nba_id": 1627748,
+      "slug": "thon-maker"
+    },
+    {
+      "nba_id": 1630177,
+      "slug": "theo-maledon"
+    },
+    {
+      "nba_id": 252,
+      "slug": "karl-malone"
+    },
+    {
+      "nba_id": 77449,
+      "slug": "moses-malone"
+    },
+    {
+      "nba_id": 1630211,
+      "slug": "karim-mane"
+    },
+    {
+      "nba_id": 330,
+      "slug": "danny-manning"
+    },
+    {
+      "nba_id": 1630185,
+      "slug": "nico-mannion"
+    },
+    {
+      "nba_id": 77459,
+      "slug": "pete-maravich"
+    },
+    {
+      "nba_id": 203906,
+      "slug": "devyn-marble"
+    },
+    {
+      "nba_id": 950,
+      "slug": "stephon-marbury"
+    },
+    {
+      "nba_id": 1626246,
+      "slug": "boban-marjanovic"
+    },
+    {
+      "nba_id": 203088,
+      "slug": "kendall-marshall"
+    },
+    {
+      "nba_id": 201858,
+      "slug": "cartier-martin"
+    },
+    {
+      "nba_id": 1626185,
+      "slug": "jarell-martin"
+    },
+    {
+      "nba_id": 1641798,
+      "slug": "jaylen-martin"
+    },
+    {
+      "nba_id": 1629725,
+      "slug": "jeremiah-martin"
+    },
+    {
+      "nba_id": 1630231,
+      "slug": "kj-martin"
+    },
+    {
+      "nba_id": 1629103,
+      "slug": "kelan-martin"
+    },
+    {
+      "nba_id": 2030,
+      "slug": "kenyon-martin"
+    },
+    {
+      "nba_id": 2755,
+      "slug": "kevin-martin"
+    },
+    {
+      "nba_id": 193,
+      "slug": "anthony-mason"
+    },
+    {
+      "nba_id": 1628412,
+      "slug": "frank-mason-iii"
+    },
+    {
+      "nba_id": 2427,
+      "slug": "roger-mason-jr"
+    },
+    {
+      "nba_id": 1628999,
+      "slug": "yante-maten"
+    },
+    {
+      "nba_id": 1628493,
+      "slug": "mangok-mathiang"
+    },
+    {
+      "nba_id": 1629751,
+      "slug": "dakota-mathias"
+    },
+    {
+      "nba_id": 202083,
+      "slug": "wesley-matthews"
+    },
+    {
+      "nba_id": 201564,
+      "slug": "oj-mayo"
+    },
+    {
+      "nba_id": 1630219,
+      "slug": "skylar-mays"
+    },
+    {
+      "nba_id": 201601,
+      "slug": "luc-mbah-a-moute"
+    },
+    {
+      "nba_id": 77498,
+      "slug": "bob-mcadoo"
+    },
+    {
+      "nba_id": 203949,
+      "slug": "james-michael-mcadoo"
+    },
+    {
+      "nba_id": 1628769,
+      "slug": "tahjere-mccall"
+    },
+    {
+      "nba_id": 203492,
+      "slug": "ray-mccallum"
+    },
+    {
+      "nba_id": 1627775,
+      "slug": "patrick-mccaw"
+    },
+    {
+      "nba_id": 45,
+      "slug": "george-mccloud"
+    },
+    {
+      "nba_id": 1628571,
+      "slug": "erik-mccree"
+    },
+    {
+      "nba_id": 1626191,
+      "slug": "chris-mccullough"
+    },
+    {
+      "nba_id": 1629667,
+      "slug": "jalen-mcdaniels"
+    },
+    {
+      "nba_id": 203909,
+      "slug": "kj-mcdaniels"
+    },
+    {
+      "nba_id": 1630253,
+      "slug": "sean-mcdermott"
+    },
+    {
+      "nba_id": 686,
+      "slug": "antonio-mcdyess"
+    },
+    {
+      "nba_id": 203956,
+      "slug": "mitch-mcgary"
+    },
+    {
+      "nba_id": 201580,
+      "slug": "javale-mcgee"
+    },
+    {
+      "nba_id": 1503,
+      "slug": "tracy-mcgrady"
+    },
+    {
+      "nba_id": 203585,
+      "slug": "rodney-mcgruder"
+    },
+    {
+      "nba_id": 1450,
+      "slug": "kevin-mchale"
+    },
+    {
+      "nba_id": 203590,
+      "slug": "trey-mckinney-jones"
+    },
+    {
+      "nba_id": 1628035,
+      "slug": "alfonzo-mckinnie"
+    },
+    {
+      "nba_id": 1630605,
+      "slug": "jaquori-mclaughlin"
+    },
+    {
+      "nba_id": 203463,
+      "slug": "ben-mclemore"
+    },
+    {
+      "nba_id": 203895,
+      "slug": "jordan-mcrae"
+    },
+    {
+      "nba_id": 201177,
+      "slug": "josh-mcroberts"
+    },
+    {
+      "nba_id": 1629098,
+      "slug": "jack-mcveigh"
+    },
+    {
+      "nba_id": 201975,
+      "slug": "jodie-meeks"
+    },
+    {
+      "nba_id": 1626257,
+      "slug": "salah-mejri"
+    },
+    {
+      "nba_id": 1629740,
+      "slug": "nicolo-melli"
+    },
+    {
+      "nba_id": 1641877,
+      "slug": "nathan-mensah"
+    },
+    {
+      "nba_id": 1629002,
+      "slug": "chimezie-metu"
+    },
+    {
+      "nba_id": 203995,
+      "slug": "vasilije-micic"
+    },
+    {
+      "nba_id": 1626175,
+      "slug": "jordan-mickey"
+    },
+    {
+      "nba_id": 1628450,
+      "slug": "eric-mika"
+    },
+    {
+      "nba_id": 101223,
+      "slug": "aaron-miles"
+    },
+    {
+      "nba_id": 101139,
+      "slug": "cj-miles"
+    },
+    {
+      "nba_id": 2032,
+      "slug": "darius-miles"
+    },
+    {
+      "nba_id": 1889,
+      "slug": "andre-miller"
+    },
+    {
+      "nba_id": 1802,
+      "slug": "brad-miller"
+    },
+    {
+      "nba_id": 203121,
+      "slug": "darius-miller"
+    },
+    {
+      "nba_id": 1626259,
+      "slug": "malcolm-miller"
+    },
+    {
+      "nba_id": 2034,
+      "slug": "mike-miller"
+    },
+    {
+      "nba_id": 203113,
+      "slug": "quincy-miller"
+    },
+    {
+      "nba_id": 397,
+      "slug": "reggie-miller"
+    },
+    {
+      "nba_id": 201988,
+      "slug": "patty-mills"
+    },
+    {
+      "nba_id": 371,
+      "slug": "terry-mills"
+    },
+    {
+      "nba_id": 202407,
+      "slug": "elijah-millsap"
+    },
+    {
+      "nba_id": 200794,
+      "slug": "paul-millsap"
+    },
+    {
+      "nba_id": 1629003,
+      "slug": "shake-milton"
+    },
+    {
+      "nba_id": 1631303,
+      "slug": "justin-minaya"
+    },
+    {
+      "nba_id": 202703,
+      "slug": "nikola-mirotic"
+    },
+    {
+      "nba_id": 203502,
+      "slug": "tony-mitchell"
+    },
+    {
+      "nba_id": 1628513,
+      "slug": "naz-mitrou-long"
+    },
+    {
+      "nba_id": 1749,
+      "slug": "cuttino-mobley"
+    },
+    {
+      "nba_id": 1630600,
+      "slug": "isaiah-mobley"
+    },
+    {
+      "nba_id": 1737,
+      "slug": "nazr-mohammed"
+    },
+    {
+      "nba_id": 1629690,
+      "slug": "adam-mokoka"
+    },
+    {
+      "nba_id": 1631320,
+      "slug": "chima-moneke"
+    },
+    {
+      "nba_id": 202328,
+      "slug": "greg-monroe"
+    },
+    {
+      "nba_id": 1626242,
+      "slug": "luis-montero"
+    },
+    {
+      "nba_id": 200081,
+      "slug": "jamario-moon"
+    },
+    {
+      "nba_id": 1629875,
+      "slug": "xavier-moon"
+    },
+    {
+      "nba_id": 1629760,
+      "slug": "matt-mooney"
+    },
+    {
+      "nba_id": 1628500,
+      "slug": "ben-moore"
+    },
+    {
+      "nba_id": 202734,
+      "slug": "etwaun-moore"
+    },
+    {
+      "nba_id": 1630,
+      "slug": "mikki-moore"
+    },
+    {
+      "nba_id": 1631386,
+      "slug": "taze-moore"
+    },
+    {
+      "nba_id": 203961,
+      "slug": "eric-moreland"
+    },
+    {
+      "nba_id": 1629752,
+      "slug": "juwan-morgan"
+    },
+    {
+      "nba_id": 202721,
+      "slug": "darius-morris"
+    },
+    {
+      "nba_id": 1628537,
+      "slug": "jaylen-morris"
+    },
+    {
+      "nba_id": 202693,
+      "slug": "markieff-morris"
+    },
+    {
+      "nba_id": 202694,
+      "slug": "marcus-morris-sr"
+    },
+    {
+      "nba_id": 201627,
+      "slug": "anthony-morrow"
+    },
+    {
+      "nba_id": 202700,
+      "slug": "donatas-motiejunas"
+    },
+    {
+      "nba_id": 1628405,
+      "slug": "johnathan-motley"
+    },
+    {
+      "nba_id": 297,
+      "slug": "alonzo-mourning"
+    },
+    {
+      "nba_id": 202389,
+      "slug": "timofey-mozgov"
+    },
+    {
+      "nba_id": 1626144,
+      "slug": "emmanuel-mudiay"
+    },
+    {
+      "nba_id": 203498,
+      "slug": "shabazz-muhammad"
+    },
+    {
+      "nba_id": 1628539,
+      "slug": "mychal-mulder"
+    },
+    {
+      "nba_id": 904,
+      "slug": "chris-mullin"
+    },
+    {
+      "nba_id": 204098,
+      "slug": "xavier-munford"
+    },
+    {
+      "nba_id": 1630278,
+      "slug": "ade-murkey"
+    },
+    {
+      "nba_id": 203122,
+      "slug": "kevin-murphy"
+    },
+    {
+      "nba_id": 2211,
+      "slug": "troy-murphy"
+    },
+    {
+      "nba_id": 203315,
+      "slug": "toure-murry"
+    },
+    {
+      "nba_id": 1629058,
+      "slug": "dzanan-musa"
+    },
+    {
+      "nba_id": 203488,
+      "slug": "mike-muscala"
+    },
+    {
+      "nba_id": 87,
+      "slug": "dikembe-mutombo"
+    },
+    {
+      "nba_id": 2411,
+      "slug": "bostjan-nachbar"
+    },
+    {
+      "nba_id": 1627846,
+      "slug": "abdel-nader"
+    },
+    {
+      "nba_id": 203894,
+      "slug": "shabazz-napier"
+    },
+    {
+      "nba_id": 959,
+      "slug": "steve-nash"
+    },
+    {
+      "nba_id": 1626254,
+      "slug": "maurice-ndour"
+    },
+    {
+      "nba_id": 202390,
+      "slug": "gary-neal"
+    },
+    {
+      "nba_id": 2749,
+      "slug": "jameer-nelson"
+    },
+    {
+      "nba_id": 1630612,
+      "slug": "ruben-nembhard-jr"
+    },
+    {
+      "nba_id": 1725,
+      "slug": "rasho-nesterovic"
+    },
+    {
+      "nba_id": 203526,
+      "slug": "raul-neto"
+    },
+    {
+      "nba_id": 1629005,
+      "slug": "malik-newman"
+    },
+    {
+      "nba_id": 1627777,
+      "slug": "georges-niang"
+    },
+    {
+      "nba_id": 203094,
+      "slug": "andrew-nicholson"
+    },
+    {
+      "nba_id": 1630227,
+      "slug": "daishen-nix"
+    },
+    {
+      "nba_id": 201149,
+      "slug": "joakim-noah"
+    },
+    {
+      "nba_id": 2804,
+      "slug": "andres-nocioni"
+    },
+    {
+      "nba_id": 203457,
+      "slug": "nerlens-noel"
+    },
+    {
+      "nba_id": 203512,
+      "slug": "lucas-nogueira"
+    },
+    {
+      "nba_id": 1641936,
+      "slug": "miles-norris"
+    },
+    {
+      "nba_id": 1629668,
+      "slug": "zach-norvell-jr"
+    },
+    {
+      "nba_id": 200779,
+      "slug": "steve-novak"
+    },
+    {
+      "nba_id": 1629669,
+      "slug": "jaylen-nowell"
+    },
+    {
+      "nba_id": 1641806,
+      "slug": "markquis-nowell"
+    },
+    {
+      "nba_id": 1717,
+      "slug": "dirk-nowitzki"
+    },
+    {
+      "nba_id": 1628373,
+      "slug": "frank-ntilikina"
+    },
+    {
+      "nba_id": 1629134,
+      "slug": "kendrick-nunn"
+    },
+    {
+      "nba_id": 203263,
+      "slug": "james-nunnally"
+    },
+    {
+      "nba_id": 1628021,
+      "slug": "david-nwaba"
+    },
+    {
+      "nba_id": 1629670,
+      "slug": "jordan-nwora"
+    },
+    {
+      "nba_id": 1626266,
+      "slug": "jj-obrien"
+    },
+    {
+      "nba_id": 203948,
+      "slug": "johnny-obryant-iii"
+    },
+    {
+      "nba_id": 406,
+      "slug": "shaquille-oneal"
+    },
+    {
+      "nba_id": 203124,
+      "slug": "kyle-oquinn"
+    },
+    {
+      "nba_id": 891,
+      "slug": "charles-oakley"
+    },
+    {
+      "nba_id": 1627849,
+      "slug": "daniel-ochefu"
+    },
+    {
+      "nba_id": 1628400,
+      "slug": "semi-ojeleye"
+    },
+    {
+      "nba_id": 2731,
+      "slug": "emeka-okafor"
+    },
+    {
+      "nba_id": 1626143,
+      "slug": "jahlil-okafor"
+    },
+    {
+      "nba_id": 1629643,
+      "slug": "chuma-okeke"
+    },
+    {
+      "nba_id": 1629059,
+      "slug": "elie-okobo"
+    },
+    {
+      "nba_id": 1629644,
+      "slug": "kz-okpala"
+    },
+    {
+      "nba_id": 203506,
+      "slug": "victor-oladipo"
+    },
+    {
+      "nba_id": 165,
+      "slug": "hakeem-olajuwon"
+    },
+    {
+      "nba_id": 1642439,
+      "slug": "quincy-olivari"
+    },
+    {
+      "nba_id": 1628419,
+      "slug": "cameron-oliver"
+    },
+    {
+      "nba_id": 1563,
+      "slug": "kevin-ollie"
+    },
+    {
+      "nba_id": 1630647,
+      "slug": "eugene-omoruyi"
+    },
+    {
+      "nba_id": 1629671,
+      "slug": "miye-oni"
+    },
+    {
+      "nba_id": 202620,
+      "slug": "arinze-onuaku"
+    },
+    {
+      "nba_id": 1627778,
+      "slug": "chinanu-onuaku"
+    },
+    {
+      "nba_id": 1626224,
+      "slug": "cedi-osman"
+    },
+    {
+      "nba_id": 731,
+      "slug": "greg-ostertag"
+    },
+    {
+      "nba_id": 1630187,
+      "slug": "daniel-oturu"
+    },
+    {
+      "nba_id": 448,
+      "slug": "bo-outlaw"
+    },
+    {
+      "nba_id": 1629745,
+      "slug": "tariq-owens"
+    },
+    {
+      "nba_id": 2585,
+      "slug": "zaza-pachulia"
+    },
+    {
+      "nba_id": 1627779,
+      "slug": "marcus-paige"
+    },
+    {
+      "nba_id": 1630698,
+      "slug": "kevin-pangos"
+    },
+    {
+      "nba_id": 1627834,
+      "slug": "georgios-papagiannis"
+    },
+    {
+      "nba_id": 203123,
+      "slug": "kostas-papanikolaou"
+    },
+    {
+      "nba_id": 202951,
+      "slug": "jeremy-pargo"
+    },
+    {
+      "nba_id": 305,
+      "slug": "robert-parish"
+    },
+    {
+      "nba_id": 1515,
+      "slug": "anthony-parker"
+    },
+    {
+      "nba_id": 203953,
+      "slug": "jabari-parker"
+    },
+    {
+      "nba_id": 2470,
+      "slug": "smush-parker"
+    },
+    {
+      "nba_id": 2225,
+      "slug": "tony-parker"
+    },
+    {
+      "nba_id": 202718,
+      "slug": "chandler-parsons"
+    },
+    {
+      "nba_id": 1629672,
+      "slug": "eric-paschall"
+    },
+    {
+      "nba_id": 1628394,
+      "slug": "anejs-paseiks"
+    },
+    {
+      "nba_id": 203934,
+      "slug": "lamar-patterson"
+    },
+    {
+      "nba_id": 202335,
+      "slug": "patrick-patterson"
+    },
+    {
+      "nba_id": 1739,
+      "slug": "ruben-patterson"
+    },
+    {
+      "nba_id": 1628383,
+      "slug": "justin-patton"
+    },
+    {
+      "nba_id": 203464,
+      "slug": "brandon-paul"
+    },
+    {
+      "nba_id": 203940,
+      "slug": "adreian-payne"
+    },
+    {
+      "nba_id": 203901,
+      "slug": "elfrid-payton"
+    },
+    {
+      "nba_id": 56,
+      "slug": "gary-payton"
+    },
+    {
+      "nba_id": 200762,
+      "slug": "oleksiy-pecherov"
+    },
+    {
+      "nba_id": 324,
+      "slug": "anthony-peeler"
+    },
+    {
+      "nba_id": 201593,
+      "slug": "nikola-pekovic"
+    },
+    {
+      "nba_id": 203658,
+      "slug": "norvel-pelle"
+    },
+    {
+      "nba_id": 1641970,
+      "slug": "maozinha-pereira"
+    },
+    {
+      "nba_id": 2570,
+      "slug": "kendrick-perkins"
+    },
+    {
+      "nba_id": 1628506,
+      "slug": "london-perrantes"
+    },
+    {
+      "nba_id": 1629617,
+      "slug": "reggie-perry"
+    },
+    {
+      "nba_id": 445,
+      "slug": "wesley-person"
+    },
+    {
+      "nba_id": 1628409,
+      "slug": "alec-peters"
+    },
+    {
+      "nba_id": 1630196,
+      "slug": "filip-petrusev"
+    },
+    {
+      "nba_id": 15,
+      "slug": "eric-piatkowski"
+    },
+    {
+      "nba_id": 1630691,
+      "slug": "jamorko-pickett"
+    },
+    {
+      "nba_id": 1718,
+      "slug": "paul-pierce"
+    },
+    {
+      "nba_id": 1629033,
+      "slug": "theo-pinson"
+    },
+    {
+      "nba_id": 937,
+      "slug": "scottie-pippen"
+    },
+    {
+      "nba_id": 202353,
+      "slug": "tibor-pleiss"
+    },
+    {
+      "nba_id": 1627850,
+      "slug": "marshall-plumlee"
+    },
+    {
+      "nba_id": 203101,
+      "slug": "miles-plumlee"
+    },
+    {
+      "nba_id": 1629738,
+      "slug": "vincent-poirier"
+    },
+    {
+      "nba_id": 1630197,
+      "slug": "aleksej-pokusevski"
+    },
+    {
+      "nba_id": 202347,
+      "slug": "quincy-pondexter"
+    },
+    {
+      "nba_id": 1629044,
+      "slug": "shamorie-ponds"
+    },
+    {
+      "nba_id": 1630582,
+      "slug": "yves-pons"
+    },
+    {
+      "nba_id": 1629007,
+      "slug": "jontay-porter"
+    },
+    {
+      "nba_id": 203490,
+      "slug": "otto-porter-jr"
+    },
+    {
+      "nba_id": 1899,
+      "slug": "james-posey"
+    },
+    {
+      "nba_id": 2694,
+      "slug": "josh-powell"
+    },
+    {
+      "nba_id": 1629619,
+      "slug": "myles-powell"
+    },
+    {
+      "nba_id": 1627816,
+      "slug": "alex-poythress"
+    },
+    {
+      "nba_id": 203515,
+      "slug": "phil-pressey"
+    },
+    {
+      "nba_id": 1630554,
+      "slug": "jason-preston"
+    },
+    {
+      "nba_id": 101179,
+      "slug": "ronnie-price"
+    },
+    {
+      "nba_id": 203143,
+      "slug": "pablo-prigioni"
+    },
+    {
+      "nba_id": 1630563,
+      "slug": "joshua-primo"
+    },
+    {
+      "nba_id": 2419,
+      "slug": "tayshaun-prince"
+    },
+    {
+      "nba_id": 1626643,
+      "slug": "jacob-pullen"
+    },
+    {
+      "nba_id": 1627753,
+      "slug": "zhou-qi"
+    },
+    {
+      "nba_id": 1627817,
+      "slug": "tim-quarterman"
+    },
+    {
+      "nba_id": 1630243,
+      "slug": "trevelin-queen"
+    },
+    {
+      "nba_id": 1631311,
+      "slug": "lester-quinones"
+    },
+    {
+      "nba_id": 1628397,
+      "slug": "ivan-rabb"
+    },
+    {
+      "nba_id": 1630186,
+      "slug": "jahmius-ramsey"
+    },
+    {
+      "nba_id": 1626184,
+      "slug": "chasson-randle"
+    },
+    {
+      "nba_id": 2216,
+      "slug": "zach-randolph"
+    },
+    {
+      "nba_id": 1628504,
+      "slug": "xavier-rathan-mayes"
+    },
+    {
+      "nba_id": 689,
+      "slug": "theo-ratliff"
+    },
+    {
+      "nba_id": 202360,
+      "slug": "andy-rautins"
+    },
+    {
+      "nba_id": 1629729,
+      "slug": "josh-reaves"
+    },
+    {
+      "nba_id": 695,
+      "slug": "eldridge-recasner"
+    },
+    {
+      "nba_id": 1629629,
+      "slug": "cam-reddish"
+    },
+    {
+      "nba_id": 200755,
+      "slug": "jj-redick"
+    },
+    {
+      "nba_id": 1628432,
+      "slug": "davon-reed"
+    },
+    {
+      "nba_id": 203186,
+      "slug": "willie-reed"
+    },
+    {
+      "nba_id": 1642024,
+      "slug": "alex-reese"
+    },
+    {
+      "nba_id": 1629244,
+      "slug": "cam-reynolds"
+    },
+    {
+      "nba_id": 1631197,
+      "slug": "jared-rhoden"
+    },
+    {
+      "nba_id": 1626196,
+      "slug": "josh-richardson"
+    },
+    {
+      "nba_id": 1627781,
+      "slug": "malachi-richardson"
+    },
+    {
+      "nba_id": 782,
+      "slug": "mitch-richmond"
+    },
+    {
+      "nba_id": 1630203,
+      "slug": "grant-riller"
+    },
+    {
+      "nba_id": 203085,
+      "slug": "austin-rivers"
+    },
+    {
+      "nba_id": 1641857,
+      "slug": "liam-robbins"
+    },
+    {
+      "nba_id": 203460,
+      "slug": "andre-roberson"
+    },
+    {
+      "nba_id": 203148,
+      "slug": "brian-roberts"
+    },
+    {
+      "nba_id": 764,
+      "slug": "david-robinson"
+    },
+    {
+      "nba_id": 1628421,
+      "slug": "devin-robinson"
+    },
+    {
+      "nba_id": 1629010,
+      "slug": "jerome-robinson"
+    },
+    {
+      "nba_id": 1629620,
+      "slug": "justin-robinson"
+    },
+    {
+      "nba_id": 203080,
+      "slug": "thomas-robinson"
+    },
+    {
+      "nba_id": 203922,
+      "slug": "glenn-robinson-iii"
+    },
+    {
+      "nba_id": 1629676,
+      "slug": "isaiah-roby"
+    },
+    {
+      "nba_id": 23,
+      "slug": "dennis-rodman"
+    },
+    {
+      "nba_id": 200771,
+      "slug": "sergio-rodriguez"
+    },
+    {
+      "nba_id": 915,
+      "slug": "rodney-rogers"
+    },
+    {
+      "nba_id": 200765,
+      "slug": "rajon-rondo"
+    },
+    {
+      "nba_id": 201565,
+      "slug": "derrick-rose"
+    },
+    {
+      "nba_id": 147,
+      "slug": "jalen-rose"
+    },
+    {
+      "nba_id": 203082,
+      "slug": "terrence-ross"
+    },
+    {
+      "nba_id": 1642050,
+      "slug": "jackson-rowe"
+    },
+    {
+      "nba_id": 201937,
+      "slug": "ricky-rubio"
+    },
+    {
+      "nba_id": 204014,
+      "slug": "damjan-rudez"
+    },
+    {
+      "nba_id": 201575,
+      "slug": "brandon-rush"
+    },
+    {
+      "nba_id": 1630346,
+      "slug": "matt-ryan"
+    },
+    {
+      "nba_id": 203135,
+      "slug": "robert-sacre"
+    },
+    {
+      "nba_id": 2422,
+      "slug": "john-salmons"
+    },
+    {
+      "nba_id": 1629677,
+      "slug": "luka-samanic"
+    },
+    {
+      "nba_id": 1629102,
+      "slug": "brandon-sampson"
+    },
+    {
+      "nba_id": 203960,
+      "slug": "jakarr-sampson"
+    },
+    {
+      "nba_id": 1631257,
+      "slug": "jermaine-samuels-jr"
+    },
+    {
+      "nba_id": 202336,
+      "slug": "larry-sanders"
+    },
+    {
+      "nba_id": 1641766,
+      "slug": "adama-sanogo"
+    },
+    {
+      "nba_id": 203107,
+      "slug": "tomas-satoransky"
+    },
+    {
+      "nba_id": 1630648,
+      "slug": "jordan-schakel"
+    },
+    {
+      "nba_id": 1629678,
+      "slug": "admiral-schofield"
+    },
+    {
+      "nba_id": 2449,
+      "slug": "luis-scola"
+    },
+    {
+      "nba_id": 203118,
+      "slug": "mike-scott"
+    },
+    {
+      "nba_id": 1630206,
+      "slug": "jay-scrubb"
+    },
+    {
+      "nba_id": 1631220,
+      "slug": "dereon-seabron"
+    },
+    {
+      "nba_id": 200757,
+      "slug": "thabo-sefolosha"
+    },
+    {
+      "nba_id": 1627782,
+      "slug": "wayne-selden"
+    },
+    {
+      "nba_id": 202338,
+      "slug": "kevin-seraphin"
+    },
+    {
+      "nba_id": 201196,
+      "slug": "ramon-sessions"
+    },
+    {
+      "nba_id": 1539,
+      "slug": "god-shammgod"
+    },
+    {
+      "nba_id": 1629621,
+      "slug": "marial-shayok"
+    },
+    {
+      "nba_id": 202697,
+      "slug": "iman-shumpert"
+    },
+    {
+      "nba_id": 1626296,
+      "slug": "jordan-sibert"
+    },
+    {
+      "nba_id": 202918,
+      "slug": "xavier-silas"
+    },
+    {
+      "nba_id": 1629735,
+      "slug": "chris-silva"
+    },
+    {
+      "nba_id": 1627732,
+      "slug": "ben-simmons"
+    },
+    {
+      "nba_id": 2250,
+      "slug": "bobby-simmons"
+    },
+    {
+      "nba_id": 203613,
+      "slug": "jonathon-simmons"
+    },
+    {
+      "nba_id": 1628424,
+      "slug": "kobi-simmons"
+    },
+    {
+      "nba_id": 1630250,
+      "slug": "marko-simonovic"
+    },
+    {
+      "nba_id": 1630285,
+      "slug": "zavier-simpson"
+    },
+    {
+      "nba_id": 203156,
+      "slug": "henry-sims"
+    },
+    {
+      "nba_id": 1631301,
+      "slug": "jaylen-sims"
+    },
+    {
+      "nba_id": 202713,
+      "slug": "kyle-singler"
+    },
+    {
+      "nba_id": 1629686,
+      "slug": "deividas-sirvydis"
+    },
+    {
+      "nba_id": 1631376,
+      "slug": "dmytro-skapintsev"
+    },
+    {
+      "nba_id": 202388,
+      "slug": "donald-sloan"
+    },
+    {
+      "nba_id": 1629346,
+      "slug": "alen-smailagic"
+    },
+    {
+      "nba_id": 1630606,
+      "slug": "javonte-smart"
+    },
+    {
+      "nba_id": 202397,
+      "slug": "ish-smith"
+    },
+    {
+      "nba_id": 2747,
+      "slug": "jr-smith"
+    },
+    {
+      "nba_id": 201160,
+      "slug": "jason-smith"
+    },
+    {
+      "nba_id": 693,
+      "slug": "joe-smith"
+    },
+    {
+      "nba_id": 2746,
+      "slug": "josh-smith"
+    },
+    {
+      "nba_id": 203893,
+      "slug": "russ-smith"
+    },
+    {
+      "nba_id": 120,
+      "slug": "steven-smith"
+    },
+    {
+      "nba_id": 1631173,
+      "slug": "terquavion-smith"
+    },
+    {
+      "nba_id": 1629015,
+      "slug": "zhaire-smith"
+    },
+    {
+      "nba_id": 1628372,
+      "slug": "dennis-smith-jr"
+    },
+    {
+      "nba_id": 1630270,
+      "slug": "xavier-sneed"
+    },
+    {
+      "nba_id": 203503,
+      "slug": "tony-snell"
+    },
+    {
+      "nba_id": 1629034,
+      "slug": "ray-spalding"
+    },
+    {
+      "nba_id": 201578,
+      "slug": "marreese-speights"
+    },
+    {
+      "nba_id": 1629016,
+      "slug": "omari-spellman"
+    },
+    {
+      "nba_id": 201168,
+      "slug": "tiago-splitter"
+    },
+    {
+      "nba_id": 1630531,
+      "slug": "jaden-springer"
+    },
+    {
+      "nba_id": 1630199,
+      "slug": "cassius-stanley"
+    },
+    {
+      "nba_id": 203917,
+      "slug": "nik-stauskas"
+    },
+    {
+      "nba_id": 203474,
+      "slug": "dj-stephens"
+    },
+    {
+      "nba_id": 202362,
+      "slug": "lance-stephenson"
+    },
+    {
+      "nba_id": 1630205,
+      "slug": "lamar-stevens"
+    },
+    {
+      "nba_id": 1630597,
+      "slug": "dj-stewart"
+    },
+    {
+      "nba_id": 201880,
+      "slug": "greg-stiemsma"
+    },
+    {
+      "nba_id": 304,
+      "slug": "john-stockton"
+    },
+    {
+      "nba_id": 978,
+      "slug": "peja-stojakovic"
+    },
+    {
+      "nba_id": 203950,
+      "slug": "jarnell-stokes"
+    },
+    {
+      "nba_id": 1627754,
+      "slug": "diamond-stone"
+    },
+    {
+      "nba_id": 202933,
+      "slug": "julyan-stone"
+    },
+    {
+      "nba_id": 757,
+      "slug": "damon-stoudamire"
+    },
+    {
+      "nba_id": 2405,
+      "slug": "amare-stoudemire"
+    },
+    {
+      "nba_id": 393,
+      "slug": "rod-strickland"
+    },
+    {
+      "nba_id": 201155,
+      "slug": "rodney-stuckey"
+    },
+    {
+      "nba_id": 203096,
+      "slug": "jared-sullinger"
+    },
+    {
+      "nba_id": 201969,
+      "slug": "dajuan-summers"
+    },
+    {
+      "nba_id": 1628410,
+      "slug": "edmond-sumner"
+    },
+    {
+      "nba_id": 682,
+      "slug": "bob-sura"
+    },
+    {
+      "nba_id": 1628403,
+      "slug": "caleb-swanigan"
+    },
+    {
+      "nba_id": 1631306,
+      "slug": "cole-swider"
+    },
+    {
+      "nba_id": 1626208,
+      "slug": "keifer-sykes"
+    },
+    {
+      "nba_id": 1887,
+      "slug": "wally-szczerbiak"
+    },
+    {
+      "nba_id": 204002,
+      "slug": "edy-tavares"
+    },
+    {
+      "nba_id": 1627819,
+      "slug": "isaiah-taylor"
+    },
+    {
+      "nba_id": 1630678,
+      "slug": "terry-taylor"
+    },
+    {
+      "nba_id": 201952,
+      "slug": "jeff-teague"
+    },
+    {
+      "nba_id": 203141,
+      "slug": "mirza-teletovic"
+    },
+    {
+      "nba_id": 1628462,
+      "slug": "milos-teodosic"
+    },
+    {
+      "nba_id": 1629123,
+      "slug": "jared-terrell"
+    },
+    {
+      "nba_id": 1629150,
+      "slug": "emanuel-terry"
+    },
+    {
+      "nba_id": 1891,
+      "slug": "jason-terry"
+    },
+    {
+      "nba_id": 1630179,
+      "slug": "tyrell-terry"
+    },
+    {
+      "nba_id": 1630257,
+      "slug": "jon-teske"
+    },
+    {
+      "nba_id": 1628464,
+      "slug": "daniel-theis"
+    },
+    {
+      "nba_id": 203519,
+      "slug": "adonis-thomas"
+    },
+    {
+      "nba_id": 1630271,
+      "slug": "brodric-thomas"
+    },
+    {
+      "nba_id": 202738,
+      "slug": "isaiah-thomas"
+    },
+    {
+      "nba_id": 78318,
+      "slug": "isiah-thomas"
+    },
+    {
+      "nba_id": 1903,
+      "slug": "kenny-thomas"
+    },
+    {
+      "nba_id": 1629017,
+      "slug": "khyri-thomas"
+    },
+    {
+      "nba_id": 202498,
+      "slug": "lance-thomas"
+    },
+    {
+      "nba_id": 1629744,
+      "slug": "matt-thomas"
+    },
+    {
+      "nba_id": 1501,
+      "slug": "tim-thomas"
+    },
+    {
+      "nba_id": 203138,
+      "slug": "hollis-thompson"
+    },
+    {
+      "nba_id": 201574,
+      "slug": "jason-thompson"
+    },
+    {
+      "nba_id": 202684,
+      "slug": "tristan-thompson"
+    },
+    {
+      "nba_id": 1630550,
+      "slug": "jt-thor"
+    },
+    {
+      "nba_id": 201977,
+      "slug": "marcus-thornton"
+    },
+    {
+      "nba_id": 1628414,
+      "slug": "sindarius-thornwell"
+    },
+    {
+      "nba_id": 901,
+      "slug": "otis-thorpe"
+    },
+    {
+      "nba_id": 1629681,
+      "slug": "killian-tillie"
+    },
+    {
+      "nba_id": 2224,
+      "slug": "jamaal-tinsley"
+    },
+    {
+      "nba_id": 1627861,
+      "slug": "mike-tobey"
+    },
+    {
+      "nba_id": 1630225,
+      "slug": "isaiah-todd"
+    },
+    {
+      "nba_id": 201229,
+      "slug": "anthony-tolliver"
+    },
+    {
+      "nba_id": 1629308,
+      "slug": "juan-toscano-anderson"
+    },
+    {
+      "nba_id": 1626253,
+      "slug": "axel-toupane"
+    },
+    {
+      "nba_id": 1642422,
+      "slug": "armel-traore"
+    },
+    {
+      "nba_id": 1629019,
+      "slug": "allonzo-trier"
+    },
+    {
+      "nba_id": 2401,
+      "slug": "nikoloz-tskitishvili"
+    },
+    {
+      "nba_id": 200782,
+      "slug": "pj-tucker"
+    },
+    {
+      "nba_id": 1629730,
+      "slug": "rayjon-tucker"
+    },
+    {
+      "nba_id": 2045,
+      "slug": "hedo-turkoglu"
+    },
+    {
+      "nba_id": 202323,
+      "slug": "evan-turner"
+    },
+    {
+      "nba_id": 202719,
+      "slug": "jeremy-tyler"
+    },
+    {
+      "nba_id": 202327,
+      "slug": "ekpe-udoh"
+    },
+    {
+      "nba_id": 2757,
+      "slug": "beno-udrih"
+    },
+    {
+      "nba_id": 1627755,
+      "slug": "tyler-ulis"
+    },
+    {
+      "nba_id": 1627784,
+      "slug": "jarrod-uthoff"
+    },
+    {
+      "nba_id": 1627756,
+      "slug": "denzel-valentine"
+    },
+    {
+      "nba_id": 89,
+      "slug": "nick-van-exel"
+    },
+    {
+      "nba_id": 1496,
+      "slug": "keith-van-horn"
+    },
+    {
+      "nba_id": 2760,
+      "slug": "anderson-varejao"
+    },
+    {
+      "nba_id": 202349,
+      "slug": "greivis-vasquez"
+    },
+    {
+      "nba_id": 1626173,
+      "slug": "rashad-vaughn"
+    },
+    {
+      "nba_id": 1628426,
+      "slug": "sasha-vezenkov"
+    },
+    {
+      "nba_id": 1630492,
+      "slug": "luca-vildoza"
+    },
+    {
+      "nba_id": 101111,
+      "slug": "charlie-villanueva"
+    },
+    {
+      "nba_id": 203943,
+      "slug": "noah-vonleh"
+    },
+    {
+      "nba_id": 2756,
+      "slug": "sasha-vujacic"
+    },
+    {
+      "nba_id": 2548,
+      "slug": "dwyane-wade"
+    },
+    {
+      "nba_id": 1630688,
+      "slug": "ish-wainright"
+    },
+    {
+      "nba_id": 203079,
+      "slug": "dion-waiters"
+    },
+    {
+      "nba_id": 952,
+      "slug": "antoine-walker"
+    },
+    {
+      "nba_id": 202689,
+      "slug": "kemba-walker"
+    },
+    {
+      "nba_id": 1630640,
+      "slug": "mj-walker"
+    },
+    {
+      "nba_id": 955,
+      "slug": "samaki-walker"
+    },
+    {
+      "nba_id": 1629022,
+      "slug": "lonnie-walker-iv"
+    },
+    {
+      "nba_id": 202322,
+      "slug": "john-wall"
+    },
+    {
+      "nba_id": 1112,
+      "slug": "ben-wallace"
+    },
+    {
+      "nba_id": 739,
+      "slug": "rasheed-wallace"
+    },
+    {
+      "nba_id": 1627820,
+      "slug": "tyrone-wallace"
+    },
+    {
+      "nba_id": 78450,
+      "slug": "bill-walton"
+    },
+    {
+      "nba_id": 1628476,
+      "slug": "derrick-walton-jr"
+    },
+    {
+      "nba_id": 202954,
+      "slug": "brad-wanamaker"
+    },
+    {
+      "nba_id": 203810,
+      "slug": "casper-ware"
+    },
+    {
+      "nba_id": 203933,
+      "slug": "tj-warren"
+    },
+    {
+      "nba_id": 1627395,
+      "slug": "julian-washburn"
+    },
+    {
+      "nba_id": 1630613,
+      "slug": "duane-washington-jr"
+    },
+    {
+      "nba_id": 1629139,
+      "slug": "yuta-watanabe"
+    },
+    {
+      "nba_id": 1629682,
+      "slug": "tremont-waters"
+    },
+    {
+      "nba_id": 1641817,
+      "slug": "anton-watson"
+    },
+    {
+      "nba_id": 201228,
+      "slug": "cj-watson"
+    },
+    {
+      "nba_id": 1628778,
+      "slug": "paul-watson"
+    },
+    {
+      "nba_id": 203146,
+      "slug": "maalik-wayns"
+    },
+    {
+      "nba_id": 204037,
+      "slug": "travis-wear"
+    },
+    {
+      "nba_id": 1629683,
+      "slug": "quinndary-weatherspoon"
+    },
+    {
+      "nba_id": 1627821,
+      "slug": "james-webb-iii"
+    },
+    {
+      "nba_id": 185,
+      "slug": "chris-webber"
+    },
+    {
+      "nba_id": 1627362,
+      "slug": "briante-weber"
+    },
+    {
+      "nba_id": 101110,
+      "slug": "martell-webster"
+    },
+    {
+      "nba_id": 201603,
+      "slug": "sonny-weems"
+    },
+    {
+      "nba_id": 1719,
+      "slug": "bonzi-wells"
+    },
+    {
+      "nba_id": 2412,
+      "slug": "jiri-welsch"
+    },
+    {
+      "nba_id": 1629118,
+      "slug": "thomas-welsh"
+    },
+    {
+      "nba_id": 133,
+      "slug": "david-wesley"
+    },
+    {
+      "nba_id": 2561,
+      "slug": "david-west"
+    },
+    {
+      "nba_id": 1631298,
+      "slug": "jack-white"
+    },
+    {
+      "nba_id": 1627855,
+      "slug": "okaro-white"
+    },
+    {
+      "nba_id": 1628510,
+      "slug": "andrew-white-iii"
+    },
+    {
+      "nba_id": 1641727,
+      "slug": "dariq-whitehead"
+    },
+    {
+      "nba_id": 1627785,
+      "slug": "isaiah-whitehead"
+    },
+    {
+      "nba_id": 202355,
+      "slug": "hassan-whiteside"
+    },
+    {
+      "nba_id": 204222,
+      "slug": "greg-whittington"
+    },
+    {
+      "nba_id": 203963,
+      "slug": "shayne-whittington"
+    },
+    {
+      "nba_id": 1630580,
+      "slug": "joe-wieskamp"
+    },
+    {
+      "nba_id": 1629623,
+      "slug": "lindell-wigginton"
+    },
+    {
+      "nba_id": 203912,
+      "slug": "cj-wilcox"
+    },
+    {
+      "nba_id": 1628451,
+      "slug": "jacob-wiley"
+    },
+    {
+      "nba_id": 2863,
+      "slug": "damien-wilkins"
+    },
+    {
+      "nba_id": 1122,
+      "slug": "dominique-wilkins"
+    },
+    {
+      "nba_id": 1626210,
+      "slug": "alan-williams"
+    },
+    {
+      "nba_id": 203710,
+      "slug": "cj-williams"
+    },
+    {
+      "nba_id": 101114,
+      "slug": "deron-williams"
+    },
+    {
+      "nba_id": 202682,
+      "slug": "derrick-williams"
+    },
+    {
+      "nba_id": 1631495,
+      "slug": "donovan-williams"
+    },
+    {
+      "nba_id": 202343,
+      "slug": "elliot-williams"
+    },
+    {
+      "nba_id": 1715,
+      "slug": "jason-williams"
+    },
+    {
+      "nba_id": 1629140,
+      "slug": "johnathan-williams"
+    },
+    {
+      "nba_id": 101150,
+      "slug": "lou-williams"
+    },
+    {
+      "nba_id": 101107,
+      "slug": "marvin-williams"
+    },
+    {
+      "nba_id": 2590,
+      "slug": "mo-williams"
+    },
+    {
+      "nba_id": 202130,
+      "slug": "reggie-williams"
+    },
+    {
+      "nba_id": 281,
+      "slug": "scott-williams"
+    },
+    {
+      "nba_id": 1742,
+      "slug": "shammond-williams"
+    },
+    {
+      "nba_id": 1627786,
+      "slug": "troy-williams"
+    },
+    {
+      "nba_id": 1005,
+      "slug": "walt-williams"
+    },
+    {
+      "nba_id": 1628475,
+      "slug": "matt-williams-jr"
+    },
+    {
+      "nba_id": 1628430,
+      "slug": "nigel-williams-goss"
+    },
+    {
+      "nba_id": 722,
+      "slug": "corliss-williamson"
+    },
+    {
+      "nba_id": 1628391,
+      "slug": "dj-wilson"
+    },
+    {
+      "nba_id": 203966,
+      "slug": "jamil-wilson"
+    },
+    {
+      "nba_id": 1627787,
+      "slug": "kyle-wiltjer"
+    },
+    {
+      "nba_id": 1629685,
+      "slug": "dylan-windler"
+    },
+    {
+      "nba_id": 1626159,
+      "slug": "justise-winslow"
+    },
+    {
+      "nba_id": 1630216,
+      "slug": "cassius-winston"
+    },
+    {
+      "nba_id": 203481,
+      "slug": "jeff-withey"
+    },
+    {
+      "nba_id": 203489,
+      "slug": "nate-wolters"
+    },
+    {
+      "nba_id": 1631209,
+      "slug": "isaiah-wong"
+    },
+    {
+      "nba_id": 1626174,
+      "slug": "christian-wood"
+    },
+    {
+      "nba_id": 1630218,
+      "slug": "robert-woodard-ii"
+    },
+    {
+      "nba_id": 1629624,
+      "slug": "kenny-wooten"
+    },
+    {
+      "nba_id": 1897,
+      "slug": "metta-world-peace"
+    },
+    {
+      "nba_id": 1460,
+      "slug": "james-worthy"
+    },
+    {
+      "nba_id": 201148,
+      "slug": "brandan-wright"
+    },
+    {
+      "nba_id": 202874,
+      "slug": "chris-wright"
+    },
+    {
+      "nba_id": 1626153,
+      "slug": "delon-wright"
+    },
+    {
+      "nba_id": 2748,
+      "slug": "dorell-wright"
+    },
+    {
+      "nba_id": 953,
+      "slug": "lorenzen-wright"
+    },
+    {
+      "nba_id": 1630589,
+      "slug": "moses-wright"
+    },
+    {
+      "nba_id": 1630593,
+      "slug": "mckinley-wright-iv"
+    },
+    {
+      "nba_id": 1629625,
+      "slug": "justin-wright-foreman"
+    },
+    {
+      "nba_id": 203100,
+      "slug": "tony-wroten"
+    },
+    {
+      "nba_id": 2397,
+      "slug": "yao-ming"
+    },
+    {
+      "nba_id": 201146,
+      "slug": "yi-jianlian"
+    },
+    {
+      "nba_id": 203923,
+      "slug": "james-young"
+    },
+    {
+      "nba_id": 1626202,
+      "slug": "joe-young"
+    },
+    {
+      "nba_id": 201156,
+      "slug": "nick-young"
+    },
+    {
+      "nba_id": 201152,
+      "slug": "thaddeus-young"
+    },
+    {
+      "nba_id": 1630209,
+      "slug": "omer-yurtseven"
+    },
+    {
+      "nba_id": 203469,
+      "slug": "cody-zeller"
+    },
+    {
+      "nba_id": 203092,
+      "slug": "tyler-zeller"
+    },
+    {
+      "nba_id": 1627757,
+      "slug": "stephen-zimmerman"
+    },
+    {
+      "nba_id": 1627835,
+      "slug": "paul-zipser"
+    },
+    {
+      "nba_id": 1627790,
+      "slug": "ante-zizic"
+    },
+    {
+      "nba_id": 1628427,
+      "slug": "vlatko-anar"
+    }
+  ]
+}
