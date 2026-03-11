@@ -91,10 +91,17 @@ def process_player(fname, new_only=False):
         face = crop_to_face(img)
 
         # Face: 256x256 (already resized by crop_to_face)
+        # Trim bottom 5% to remove jersey/padding strip
+        trim = int(256 * 0.05)
+        face = face.crop((0, 0, 256, 256 - trim))
+        face = face.resize((256, 256), Image.LANCZOS)
         face.save(face_out, "PNG")
 
         # Thumb: 64x64
         thumb = face.resize((64, 64), Image.LANCZOS)
+        trim = int(64 * 0.05)
+        thumb = thumb.crop((0, 0, 64, 64 - trim))
+        thumb = thumb.resize((64, 64), Image.LANCZOS)
         thumb.save(thumb_out, "PNG")
 
         return True
