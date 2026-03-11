@@ -50,21 +50,18 @@ def remove_bg(img):
 
 
 def crop_to_face(img):
-    """Crop to face region and make square to preserve aspect ratio."""
     w, h = img.size
-    # Define crop box for NBA CDN headshots (1040x760)
-    left = int(w * 0.18)
-    right = int(w * 0.82)
-    top = int(h * 0.00)
-    bottom = int(h * 0.55)
+    left = int(w * 0.12)
+    right = int(w * 0.88)
+    top = int(h * 0.02)
+    bottom = int(h * 0.62)
     cropped = img.crop((left, top, right, bottom))
 
-    # Make it square by centering on a transparent canvas
     cw, ch = cropped.size
     side = max(cw, ch)
     square = Image.new("RGBA", (side, side), (0, 0, 0, 0))
     offset_x = (side - cw) // 2
-    offset_y = (side - ch) // 2
+    offset_y = 0
     if cropped.mode == "RGBA":
         square.paste(cropped, (offset_x, offset_y), cropped)
     else:
