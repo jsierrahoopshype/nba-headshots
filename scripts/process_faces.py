@@ -3,15 +3,16 @@
 import argparse
 import os
 import re
+from pathlib import Path
 
 import numpy as np
 from PIL import Image
 
 from utils import log
 
-ORIGINAL_DIR = os.path.join("players", "headshots", "original")
-FACE_DIR = os.path.join("players", "headshots", "face")
-THUMB_DIR = os.path.join("players", "headshots", "thumb")
+ORIGINAL_DIR = Path("players") / "headshots" / "original"
+FACE_DIR = Path("players") / "headshots" / "face"
+THUMB_DIR = Path("players") / "headshots" / "thumb"
 
 try:
     from rembg import remove
@@ -42,69 +43,49 @@ def remove_grey_background(img):
     return Image.fromarray(data)
 
 
-def remove_bg(img):
-    """Remove background using rembg or fallback."""
-    if USE_REMBG:
-        return remove(img)
-    return remove_grey_background(img)
-
-
 def crop_to_face(img):
     w, h = img.size
     left = int(w * 0.12)
     right = int(w * 0.88)
     top = int(h * 0.02)
     bottom = int(h * 0.62)
-    cropped = img.crop((left, top, right, bottom))
+    return img.crop((left, top, right, bottom))
 
-    cw, ch = cropped.size
-    side = max(cw, ch)
-    square = Image.new("RGBA", (side, side), (0, 0, 0, 0))
-    offset_x = (side - cw) // 2
-    offset_y = 0
-    if cropped.mode == "RGBA":
-        square.paste(cropped, (offset_x, offset_y), cropped)
+
+def process_player(nba_id, slug, force=False):
+    src = ORIGINAL_DIR / f"{nba_id}-{slug}.png"
+    dst_face = FACE_DIR / f"{nba_id}-{slug}.png"
+    dst_thumb = THUMB_DIR / f"{nba_id}-{slug}.png"
+    if not src.exists():
+        return "no_source"
+    if dst_face.exists() and not force:
+        return "cached"
+    img = Image.open(src)
+
+    # Step 1: crop to face region first
+    cropped = crop_to_face(img)
+
+    # Step 2: remove background from cropped image
+    if USE_REMBG:
+        result = remove(cropped)
     else:
-        square.paste(cropped, (offset_x, offset_y))
+        result = remove_grey_background(cropped)
 
-    return square.resize((256, 256), Image.LANCZOS)
+    # Step 3: resize to 256x256
+    face = result.resize((256, 256), Image.LANCZOS)
+    face.save(dst_face, "PNG", optimize=True)
+
+    thumb = result.resize((64, 64), Image.LANCZOS)
+    thumb.save(dst_thumb, "PNG", optimize=True)
+
+    return "done"
 
 
-def process_player(fname, new_only=False):
-    """Process a single player headshot by filename (e.g. 2544-lebron-james.png)."""
-    src = os.path.join(ORIGINAL_DIR, fname)
-    face_out = os.path.join(FACE_DIR, fname)
-    thumb_out = os.path.join(THUMB_DIR, fname)
-
-    if not os.path.exists(src):
-        return False
-
-    if new_only and os.path.exists(face_out):
-        return True
-
-    try:
-        img = Image.open(src).convert("RGBA")
-        img = remove_bg(img)
-        face = crop_to_face(img)
-
-        # Face: 256x256 (already resized by crop_to_face)
-        # Trim bottom 5% to remove jersey/padding strip
-        trim = int(256 * 0.05)
-        face = face.crop((0, 0, 256, 256 - trim))
-        face = face.resize((256, 256), Image.LANCZOS)
-        face.save(face_out, "PNG")
-
-        # Thumb: 64x64
-        thumb = face.resize((64, 64), Image.LANCZOS)
-        trim = int(64 * 0.05)
-        thumb = thumb.crop((0, 0, 64, 64 - trim))
-        thumb = thumb.resize((64, 64), Image.LANCZOS)
-        thumb.save(thumb_out, "PNG")
-
-        return True
-    except Exception as e:
-        log(f"Error processing {fname}: {e}")
-        return False
+def parse_filename(fname):
+    """Parse 'nba_id-slug.png' into (nba_id, slug)."""
+    stem = fname.rsplit(".", 1)[0]
+    nba_id, slug = stem.split("-", 1)
+    return int(nba_id), slug
 
 
 def cleanup_legacy_filenames():
@@ -112,12 +93,12 @@ def cleanup_legacy_filenames():
     numeric_re = re.compile(r"^\d+\.png$")
     total_deleted = 0
     for d in (FACE_DIR, THUMB_DIR):
-        if not os.path.isdir(d):
+        if not d.is_dir():
             continue
         deleted = 0
-        for fname in os.listdir(d):
-            if numeric_re.match(fname):
-                os.remove(os.path.join(d, fname))
+        for f in d.iterdir():
+            if numeric_re.match(f.name):
+                f.unlink()
                 deleted += 1
         if deleted:
             log(f"Deleted {deleted} legacy numeric-only file(s) from {d}")
@@ -135,28 +116,31 @@ if __name__ == "__main__":
     parser.add_argument("--cleanup", action="store_true", help="Remove legacy numeric-only filenames from face/thumb dirs")
     args = parser.parse_args()
 
-    os.makedirs(FACE_DIR, exist_ok=True)
-    os.makedirs(THUMB_DIR, exist_ok=True)
+    FACE_DIR.mkdir(parents=True, exist_ok=True)
+    THUMB_DIR.mkdir(parents=True, exist_ok=True)
 
-    skip_existing = args.new_only and not args.force
+    force = args.force or not args.new_only
 
     if args.cleanup:
         cleanup_legacy_filenames()
     elif args.id:
         # Find file by ID prefix
         prefix = f"{args.id}-"
-        matches = [f for f in os.listdir(ORIGINAL_DIR) if f.startswith(prefix) and f.endswith(".png")]
+        matches = [f.name for f in ORIGINAL_DIR.iterdir() if f.name.startswith(prefix) and f.name.endswith(".png")]
         if matches:
-            ok = process_player(matches[0], new_only=skip_existing)
-            log(f"Player {args.id} ({matches[0]}): {'OK' if ok else 'FAILED'}")
+            nba_id, slug = parse_filename(matches[0])
+            result = process_player(nba_id, slug, force=force)
+            log(f"Player {args.id} ({matches[0]}): {result}")
         else:
             log(f"Player {args.id}: no file found with prefix {prefix}")
     else:
-        files = [f for f in os.listdir(ORIGINAL_DIR) if f.endswith(".png")]
+        files = [f.name for f in ORIGINAL_DIR.iterdir() if f.name.endswith(".png")]
         log(f"Processing {len(files)} headshots (force={args.force})...")
         success = 0
         for i, fname in enumerate(files):
-            if process_player(fname, new_only=skip_existing):
+            nba_id, slug = parse_filename(fname)
+            result = process_player(nba_id, slug, force=force)
+            if result == "done":
                 success += 1
             if (i + 1) % 100 == 0:
                 log(f"Progress: {i + 1}/{len(files)} (success={success})")
