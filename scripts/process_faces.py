@@ -71,11 +71,16 @@ def process_player(nba_id, slug, force=False):
     else:
         result = remove_grey_background(cropped)
 
-    # Step 3: resize to 256x256
-    face = result.resize((256, 256), Image.LANCZOS)
+    # Step 3: pad to square without stretching
+    result_w, result_h = result.size
+    side = max(result_w, result_h)
+    square = Image.new("RGBA", (side, side), (0, 0, 0, 0))
+    square.paste(result, ((side - result_w) // 2, (side - result_h) // 2), result if result.mode == "RGBA" else None)
+
+    face = square.resize((256, 256), Image.LANCZOS)
     face.save(dst_face, "PNG", optimize=True)
 
-    thumb = result.resize((64, 64), Image.LANCZOS)
+    thumb = square.resize((64, 64), Image.LANCZOS)
     thumb.save(dst_thumb, "PNG", optimize=True)
 
     return "done"
