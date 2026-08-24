@@ -63,14 +63,17 @@ def process_player(fname, new_only=False):
     if new_only and os.path.exists(face_out):
         return True
 
-    try:
-        img = Image.open(src).convert("RGBA")
-        img = remove_bg(img)
-        img = crop_face(img)
+    # Step 3: pad to square without stretching
+    result_w, result_h = result.size
+    side = max(result_w, result_h)
+    square = Image.new("RGBA", (side, side), (0, 0, 0, 0))
+    square.paste(result, ((side - result_w) // 2, (side - result_h) // 2), result if result.mode == "RGBA" else None)
 
-        # Face: 256x256
-        face = img.resize((256, 256), Image.LANCZOS)
-        face.save(face_out, "PNG")
+    face = square.resize((256, 256), Image.LANCZOS)
+    face.save(dst_face, "PNG", optimize=True)
+
+    thumb = square.resize((64, 64), Image.LANCZOS)
+    thumb.save(dst_thumb, "PNG", optimize=True)
 
         # Thumb: 64x64
         thumb = img.resize((64, 64), Image.LANCZOS)
