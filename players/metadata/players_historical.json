@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-07-28T09:19:32.267139+00:00",
-  "total_players": 1213,
-  "with_headshot": 1213,
+  "total_players": 1216,
+  "with_headshot": 1216,
   "players": [
     {
       "nba_id": 76003,
@@ -6215,8 +6215,8 @@
     },
     {
       "nba_id": 203957,
-      "full_name": "Dant\u00e9 Exum",
-      "first_name": "Dant\u00e9",
+      "full_name": "Danté Exum",
+      "first_name": "Danté",
       "last_name": "Exum",
       "slug": "dant-exum",
       "team_id": null,
@@ -15575,9 +15575,9 @@
     },
     {
       "nba_id": 1628394,
-      "full_name": "An\u017eejs Pase\u010d\u0146iks",
-      "first_name": "An\u017eejs",
-      "last_name": "Pase\u010d\u0146iks",
+      "full_name": "Anžejs Pasečņiks",
+      "first_name": "Anžejs",
+      "last_name": "Pasečņiks",
       "slug": "anejs-paseiks",
       "team_id": null,
       "team_abbrev": "",
@@ -21803,9 +21803,9 @@
     },
     {
       "nba_id": 1628427,
-      "full_name": "Vlatko \u010can\u010dar",
+      "full_name": "Vlatko Čančar",
       "first_name": "Vlatko",
-      "last_name": "\u010can\u010dar",
+      "last_name": "Čančar",
       "slug": "vlatko-anar",
       "team_id": null,
       "team_abbrev": "",
@@ -21821,9 +21821,9 @@
     },
     {
       "nba_id": 1642365,
-      "full_name": "Nikola \u0110uri\u0161i\u0107",
+      "full_name": "Nikola Đurišić",
       "first_name": "Nikola",
-      "last_name": "\u0110uri\u0161i\u0107",
+      "last_name": "Đurišić",
       "slug": "nikola-urii",
       "team_id": null,
       "team_abbrev": "",
@@ -21835,6 +21835,60 @@
         "original": true,
         "source": "nba_cdn",
         "filename": "1642365-nikola-urii.png"
+      }
+    },
+    {
+      "nba_id": 77480,
+      "full_name": "Slater Martin",
+      "first_name": "Slater",
+      "last_name": "Martin",
+      "slug": "slater-martin",
+      "team_id": 1610612747,
+      "team_abbrev": "LAL",
+      "active": false,
+      "seasons_from": 1949,
+      "seasons_to": 1959,
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "nba_cdn",
+        "filename": "77480-slater-martin.png"
+      }
+    },
+    {
+      "nba_id": 77141,
+      "full_name": "Dennis Johnson",
+      "first_name": "Dennis",
+      "last_name": "Johnson",
+      "slug": "dennis-johnson",
+      "team_id": 1610612738,
+      "team_abbrev": "BOS",
+      "active": false,
+      "seasons_from": 1976,
+      "seasons_to": 1989,
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "nba_cdn",
+        "filename": "77141-dennis-johnson.png"
+      }
+    },
+    {
+      "nba_id": 920,
+      "full_name": "A.C. Green",
+      "first_name": "A.C.",
+      "last_name": "Green",
+      "slug": "ac-green",
+      "team_id": 1610612747,
+      "team_abbrev": "LAL",
+      "active": false,
+      "seasons_from": 1985,
+      "seasons_to": 2000,
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "nba_cdn",
+        "filename": "920-ac-green.png"
       }
     }
   ]
