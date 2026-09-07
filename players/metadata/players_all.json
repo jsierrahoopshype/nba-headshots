@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-07-28T09:19:32.267139+00:00",
-  "total_players": 1788,
-  "with_headshot": 1788,
+  "total_players": 1789,
+  "with_headshot": 1789,
   "players": [
     {
       "nba_id": 76003,
@@ -32185,6 +32185,24 @@
         "original": true,
         "source": "nba_cdn",
         "filename": "920-ac-green.png"
+      }
+    },
+    {
+      "nba_id": 467,
+      "full_name": "Jason Kidd",
+      "first_name": "Jason",
+      "last_name": "Kidd",
+      "slug": "jason-kidd",
+      "team_id": 0,
+      "team_abbrev": "NYK",
+      "active": false,
+      "seasons_from": 1994,
+      "seasons_to": 2012,
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "espn_cdn",
+        "filename": "467-jason-kidd.png"
       }
     }
   ]

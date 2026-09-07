@@ -21890,6 +21890,24 @@
         "source": "nba_cdn",
         "filename": "920-ac-green.png"
       }
+    },
+    {
+      "nba_id": 467,
+      "full_name": "Jason Kidd",
+      "first_name": "Jason",
+      "last_name": "Kidd",
+      "slug": "jason-kidd",
+      "team_id": 0,
+      "team_abbrev": "NYK",
+      "active": false,
+      "seasons_from": 1994,
+      "seasons_to": 2012,
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "espn_cdn",
+        "filename": "467-jason-kidd.png"
+      }
     }
   ]
 }
