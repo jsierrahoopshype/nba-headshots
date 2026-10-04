@@ -1,0 +1,51 @@
+name: face-tight
+
+# Builds players/headshots/face-tight/ (128px tight WebP crops) from players/headshots/face/.
+# Additive: only writes face-tight/ and its .hashes.json; never touches face/, face2/,
+# face2-160/, thumb/, teams/ or the metadata.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "players/headshots/face/**"
+      - "scripts/build_face_tight.py"
+      - ".github/workflows/face-tight.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: face-tight
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Pillow
+        run: python -m pip install --quiet pillow
+
+      - name: Build face-tight
+        run: python scripts/build_face_tight.py
+
+      - name: Commit if changed
+        run: |
+          git add players/headshots/face-tight/ players/headshots/face-tight/.hashes.json
+          if git diff --cached --quiet; then
+            echo "face-tight: nothing changed"
+            exit 0
+          fi
+          # count changed .webp outputs (added, modified or deleted) for the commit message
+          n=$(git diff --cached --name-only -- 'players/headshots/face-tight/*.webp' | wc -l)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "face-tight: ${n} files"
+          git push
