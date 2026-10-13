@@ -85,6 +85,11 @@ except ImportError:
 
 
 def remove_bg(img):
+    # NBA CDN headshots already come with a transparent background; the slow AI model is only
+    # needed when one doesn't (a full class of rookies through it took over 30 minutes).
+    alpha = np.array(img.convert("RGBA"))[:, :, 3]
+    if (alpha == 0).mean() > 0.05:
+        return img
     if rembg_remove:
         return rembg_remove(img)
     rgba = np.array(img.convert("RGBA"))
