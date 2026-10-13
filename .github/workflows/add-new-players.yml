@@ -15,6 +15,9 @@ on:
         description: "Only list who would be added"
         type: boolean
         default: false
+      redo_face:
+        description: "Optional: comma-separated NBA ids whose face/ and thumb/ to rebuild"
+        required: false
 
 permissions:
   contents: write
@@ -39,7 +42,7 @@ jobs:
         run: python -m pip install --quiet pillow numpy "opencv-python-headless<5" "curl_cffi==0.7.*" "rembg[cpu]"
 
       - name: Add new players
-        run: python scripts/add_new_actives.py ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: python scripts/add_new_actives.py ${{ inputs.dry_run && '--dry-run' || '' }} ${{ inputs.redo_face && format('--redo-face {0}', inputs.redo_face) || '' }}
 
       - name: Build face-tight for them
         # A push made with GITHUB_TOKEN doesn't start the face-tight workflow, so build it here.

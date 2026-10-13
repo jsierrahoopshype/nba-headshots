@@ -3,8 +3,8 @@
 Additive only. For every ACTIVE player in the NBA's player index who has no
 players/headshots/face/ file yet, this:
   1. downloads the NBA CDN headshot (skips players whose photo is still the blank silhouette),
-  2. writes face/ (256px, transparent background) and thumb/ (64px) the way the original
-     pipeline did: background removed, head-and-shoulders crop, padded to a square,
+  2. writes face/ (256px, transparent background) and thumb/ (64px), locked onto the detected
+     face so heads match the existing face/ crops (the original fixed crop is the fallback),
   3. writes face2/ (520px) with recrop_faces.py's own functions, so the framing matches
      every other face2 crop,
   4. writes face2-160/ (160px WebP) like make_face2_160.py,
@@ -99,15 +99,35 @@ def remove_bg(img):
     return Image.fromarray(rgba)
 
 
-def face_and_thumb(original):
-    """process_faces.py's recipe: remove background, crop 15-85% wide / 2-70% tall, pad square."""
+# face/ framing, measured on existing face/ crops: the head is a bit bigger than in face2/
+# (face box ~50% of the side vs 44%) and sits a touch lower. Locking onto the detected face
+# keeps rookies' heads the same size as everyone else's: the CDN frames new photos wider, so
+# process_faces.py's fixed 15-85% / 2-70% crop made their heads visibly smaller.
+FACE_SHARE_FACE1, EYE_LINE_FACE1 = 0.50, 0.47
+
+
+def face_and_thumb(original, rc):
+    """face/ (256, transparent) and thumb/ (64) for one player."""
     img = remove_bg(original.convert("RGBA")).convert("RGBA")
     w, h = img.size
-    crop = img.crop((int(w * 0.15), int(h * 0.02), int(w * 0.85), int(h * 0.70)))
-    cw, ch = crop.size
-    side = max(cw, ch)
-    square = Image.new("RGBA", (side, side), (0, 0, 0, 0))
-    square.paste(crop, ((side - cw) // 2, (side - ch) // 2), crop)
+    import cv2
+    bgr = cv2.cvtColor(np.array(Image.alpha_composite(Image.new("RGBA", img.size, (22, 22, 22, 255)), img).convert("RGB")),
+                       cv2.COLOR_RGB2BGR)
+    box = rc.best_face(bgr)
+    if box is not None:
+        fx, fy, fw, fh = box
+        side = min(fh / FACE_SHARE_FACE1, w * 1.6, h * 1.6)
+        x0 = fx + fw / 2.0 - side / 2.0
+        y0 = fy + fh / 2.0 - side * EYE_LINE_FACE1
+        canvas = Image.new("RGBA", (int(round(side)), int(round(side))), (0, 0, 0, 0))
+        canvas.paste(img, (int(round(-x0)), int(round(-y0))), img)   # outside the photo stays transparent
+        square = canvas
+    else:   # no face found: the original recipe
+        crop = img.crop((int(w * 0.15), int(h * 0.02), int(w * 0.85), int(h * 0.70)))
+        cw, ch = crop.size
+        side = max(cw, ch)
+        square = Image.new("RGBA", (side, side), (0, 0, 0, 0))
+        square.paste(crop, ((side - cw) // 2, (side - ch) // 2), crop)
     return square.resize((256, 256), Image.LANCZOS), square.resize((64, 64), Image.LANCZOS)
 
 
@@ -115,10 +135,22 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--redo-face", default="", help="comma-separated NBA ids: rebuild only their face/ and thumb/")
     a = ap.parse_args()
 
     import cv2
     import recrop_faces as rc   # its own face2 functions (cascade, crop_on_face, center_crop)
+
+    if a.redo_face:
+        ids = {x.strip() for x in a.redo_face.split(",") if x.strip()}
+        for fn in sorted(os.listdir(os.path.join(HS, "face"))):
+            if fn.split("-", 1)[0] in ids:
+                original = Image.open(io.BytesIO(get(PHOTO_URL.format(fn.split("-", 1)[0]))))
+                face, thumb = face_and_thumb(original, rc)
+                face.save(os.path.join(HS, "face", fn), "PNG", optimize=True)
+                thumb.save(os.path.join(HS, "thumb", fn), "PNG", optimize=True)
+                print(f"  face/ rebuilt: {fn}")
+        return
 
     have = {f.split("-", 1)[0] for f in os.listdir(os.path.join(HS, "face")) if f.endswith(".png")}
     todo = [p for p in active_players() if str(p["nba_id"]) not in have]
@@ -141,7 +173,7 @@ def main():
             added.append(p)
             continue
         original = Image.open(io.BytesIO(raw))
-        face, thumb = face_and_thumb(original)
+        face, thumb = face_and_thumb(original, rc)
         face.save(os.path.join(HS, "face", fn), "PNG", optimize=True)
         thumb.save(os.path.join(HS, "thumb", fn), "PNG", optimize=True)
 
