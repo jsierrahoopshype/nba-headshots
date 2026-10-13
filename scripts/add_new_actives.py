@@ -13,7 +13,7 @@ Existing files and existing metadata rows are never touched. face-tight/ is buil
 by scripts/build_face_tight.py (the workflow runs it).
 
 Run from the repo root:  python scripts/add_new_actives.py [--dry-run] [--limit N]
-Needs: pillow numpy opencv-python-headless<5 rembg (rembg optional: falls back to a colour key).
+Needs: pillow numpy opencv-python-headless<5 curl_cffi rembg (rembg optional: falls back to a colour key).
 """
 
 import argparse
@@ -46,7 +46,14 @@ def slugify(name):
 
 
 def get(url, timeout=30):
-    return urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=timeout).read()
+    """cdn.nba.com turns away plain scripts from cloud machines, so look like Chrome when curl_cffi is there."""
+    try:
+        from curl_cffi import requests as creq
+    except ImportError:
+        return urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=timeout).read()
+    r = creq.get(url, impersonate="chrome", timeout=timeout, headers={"Referer": "https://www.nba.com/"})
+    r.raise_for_status()
+    return r.content
 
 
 def active_players():
@@ -173,4 +180,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:   # readable on the run page without opening the log
+        print(f"::error::add_new_actives failed: {type(e).__name__}: {e}")
+        raise
