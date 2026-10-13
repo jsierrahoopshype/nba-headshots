@@ -61,5 +61,7 @@ jobs:
           n=$(git diff --cached --name-only --diff-filter=A -- 'players/headshots/face/*.png' | wc -l)
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "add-new-players: ${n} players"
+          m=$(git diff --cached --name-only --diff-filter=M -- 'players/headshots/face/*.png' | wc -l)
+          if [ "$n" -gt 0 ]; then msg="add-new-players: ${n} players"; else msg="add-new-players: ${m} face/ crops rebuilt"; fi
+          git commit -m "$msg"
           git push
