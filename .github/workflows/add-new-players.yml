@@ -1,0 +1,62 @@
+name: add-new-players
+
+# Adds players who joined the league since the last full pipeline run (rookies, new signings):
+# face/, thumb/, face2/, face2-160/ and face-tight/ files plus a row in players.json,
+# active.json and players_all.json. Additive only: existing photos and metadata rows are
+# never touched (scripts/add_new_actives.py). Runs every Monday and by hand from the
+# Actions tab (tick "dry run" to only list who would be added).
+
+on:
+  schedule:
+    - cron: "40 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only list who would be added"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: add-new-players
+  cancel-in-progress: false
+
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install
+        # OpenCV 5 dropped cv2.CascadeClassifier, which recrop_faces.py needs.
+        run: python -m pip install --quiet pillow numpy "opencv-python-headless<5" "rembg[cpu]"
+
+      - name: Add new players
+        run: python scripts/add_new_actives.py ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Build face-tight for them
+        # A push made with GITHUB_TOKEN doesn't start the face-tight workflow, so build it here.
+        if: ${{ !inputs.dry_run }}
+        run: python scripts/build_face_tight.py
+
+      - name: Commit if anything was added
+        if: ${{ !inputs.dry_run }}
+        run: |
+          git add players/headshots/face players/headshots/thumb players/headshots/face2 \
+                  players/headshots/face2-160 players/headshots/face-tight players/metadata
+          if git diff --cached --quiet; then
+            echo "Nobody new to add"
+            exit 0
+          fi
+          n=$(git diff --cached --name-only --diff-filter=A -- 'players/headshots/face/*.png' | wc -l)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "add-new-players: ${n} players"
+          git push
