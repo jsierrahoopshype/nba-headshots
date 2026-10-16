@@ -15,9 +15,11 @@ on:
         type: boolean
         default: false
   push:
-    branches: [main]
+    # TEMPORARY second branch + path: proves the workflow on GitHub runners before merge
+    branches: [main, claude/focused-newton-e98mnz]
     paths:
       - "players/headshots/face/**"
+      - ".github/workflows/head-uniform.yml"
 
 permissions:
   contents: write
@@ -46,7 +48,7 @@ jobs:
 
       - name: Build head-uniform
         run: |
-          if [ "${{ inputs.force }}" = "true" ]; then
+          if [ "${{ inputs.force }}" = "true" ] || [ "${{ github.ref_name }}" = "claude/focused-newton-e98mnz" ]; then
             python scripts/build_head_uniform.py --force
           else
             python scripts/build_head_uniform.py
