@@ -1,0 +1,72 @@
+name: head-uniform
+
+# Builds players/headshots/head-uniform/ (160px WebP, passport-style framing from MediaPipe
+# face landmarks) from players/headshots/face/. Players without a usable photo get no file and
+# are listed in head-uniform/FALLBACKS.md ("use initials"). Additive: only writes head-uniform/
+# (WebPs, .hashes.json, FALLBACKS.md); never touches face/, face2/, face2-160/, face-tight/,
+# thumb/, teams/ or the metadata. Incremental by source hash; run manually with "force" to
+# rebuild everything.
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Rebuild every file (ignore the hashes)"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - "players/headshots/face/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: head-uniform
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        # MediaPipe's shared library links against EGL/GLES even when it runs on the CPU.
+        # The landmark model itself is downloaded (and sha256-checked) by the script.
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libegl1 libgles2
+          python -m pip install --quiet pillow numpy "mediapipe==1.1.1"
+
+      - name: Build head-uniform
+        run: |
+          if [ "${{ inputs.force }}" = "true" ]; then
+            python scripts/build_head_uniform.py --force
+          else
+            python scripts/build_head_uniform.py
+          fi
+
+      - name: Commit if changed
+        run: |
+          git add players/headshots/head-uniform/
+          if git diff --cached --quiet; then
+            echo "head-uniform: nothing changed"
+            exit 0
+          fi
+          # count changed .webp outputs (added, modified or deleted) for the commit message
+          n=$(git diff --cached --name-only -- 'players/headshots/head-uniform/*.webp' | wc -l)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "head-uniform: ${n} files"
+          # other workflows also push to this branch; rebase onto them (only head-uniform/ is ours)
+          for i in 1 2 3; do
+            git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+          done
+          git push origin "HEAD:${GITHUB_REF_NAME}"
