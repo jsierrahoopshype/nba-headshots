@@ -1,88 +1,78 @@
 #!/usr/bin/env python3
 """
-Builds players/headshots/head-uniform/<stem>.webp from players/headshots/face/<stem>.png.
+Builds players/headshots/head-uniform/<stem>.webp from players/headshots/face/<stem>.png,
+normalised like a passport photo from facial landmarks.
 
-Every output is a 160x160 WebP with alpha and the same framing, locked onto the detected face:
-  - face box height = 45% of the frame (72px)
-  - face box centred horizontally
-  - top of the face box at 22% from the top (room for hair), so the chin lands around 67%
-    and the neck / upper shoulders fill the bottom
-  - if the hair would still poke out of the top, the whole crop moves down until it fits
-    (never cut the head); the chin sits far above the bottom edge at this framing
-  - wherever the scaled cutout doesn't reach a frame edge the pixels stay transparent
+Per face/ cutout:
+  1. MediaPipe Face Landmarker (Apache-2.0 model, 478 landmarks) on the cutout composited onto
+     mid grey; retried at 2x if nothing is found. Each eye centre is the mean of its 16 contour
+     landmarks, so it doesn't move with gaze the way the iris does.
+  2. Rotate so the eye line is horizontal, scale so the distance between the eye centres is 25%
+     of the frame width, put the eye midpoint at 50% across and 44% down.
+  3. 160x160 WebP with alpha. Whatever the cutout doesn't cover stays transparent.
 
-Face detection: OpenCV Haar cascades (bundled with opencv-python; needs opencv-python<5,
-OpenCV 5 dropped CascadeClassifier). The cutout is composited onto near-black first, as
-recrop_faces.py does. Three frontal cascades (default, alt2, alt) each give their largest
-plausible face (sane size, upper-middle of the frame, sitting on opaque pixels):
-  - two or more agree (overlap)  -> the average of the agreeing boxes
-  - only one / none agree        -> the default cascade's box (else alt2, alt), but only if the
-                                    face is at least 27% of the source height; a lone small box
-                                    is usually a chin, an ear or a headband
-  - nothing yet                  -> default cascade with minNeighbors 3, same size rule
+No file is written for the grey placeholder silhouettes, for photos where the landmarks fail,
+or for profile shots (eye-to-chin over 2.6x the eye distance, where eye-based scaling blows the
+face up). Any stale file for them is removed. They're listed in head-uniform/FALLBACKS.md as
+"use initials", so consumers fall back to initials.
 
-No face found (mostly the grey placeholder silhouettes already in face/): top-anchored crop at
-the median face scale. The opaque content is centred on the head (the columns of the top band)
-and its top edge is put at the median hair-top line of the detected faces. Every fallback is
-listed in head-uniform/FALLBACKS.md.
+head-uniform/.hashes.json maps stem -> {sha256 of the source, result, chin/crown positions}, so
+reruns only process new or changed sources. Changing RECIPE rebuilds everything.
+  chin  = output y of the chin landmark (152)
+  crown = output y of the top of the head (topmost opaque pixel within half an eye distance
+          of the centre line), measured before clipping, so a negative value means hair is cut
 
-head-uniform/.hashes.json maps stem -> {sha256 of the source PNG, how it was framed}, so reruns
-only process new or changed sources. Fallbacks are also redone when the median scale or
-hair-top line drifts (new players shift the median). Changing RECIPE rebuilds everything.
+The model (~3.7 MB) is downloaded once to ~/.cache/nba-headshots/ and checked against its sha256.
 
 Run from the repo root:
     python scripts/build_head_uniform.py            # incremental
     python scripts/build_head_uniform.py --force    # rebuild everything
 Additive only: reads face/, writes head-uniform/. Never touches anything else.
-Needs: pip install pillow numpy "opencv-python-headless<5"
+Needs: pip install pillow numpy "mediapipe==1.1.1"
+(Linux without a desktop also needs libegl1 and libgles2 for MediaPipe's shared library.)
 """
 import argparse
 import hashlib
 import json
+import math
 import os
 import statistics
 import sys
+import urllib.request
 
 import numpy as np
 from PIL import Image
-
-try:
-    import cv2
-except ImportError:
-    sys.exit('OpenCV missing. Run:  pip install "opencv-python-headless<5"')
 
 SRC = os.path.join("players", "headshots", "face")
 DST = os.path.join("players", "headshots", "head-uniform")
 HASHES = os.path.join(DST, ".hashes.json")
 FALLBACKS_MD = os.path.join(DST, "FALLBACKS.md")
 
-RECIPE = 2          # bump when the framing below changes: forces a full rebuild
+RECIPE = 3            # bump when the framing below changes: forces a full rebuild
 SIZE = 160
-FACE_SHARE = 0.45   # face box height / frame side
-FACE_TOP = 0.22     # top of the face box, share of the frame from the top
-HEAD_MARGIN = 1     # px kept free above the hair when the head would otherwise be cut
-ALPHA_MIN = 16      # alpha at or below this counts as empty
+EYE_DIST = 0.25       # distance between eye centres / frame width
+EYE_X, EYE_Y = 0.50, 0.44   # eye midpoint, share of the frame
+SUPERSAMPLE = 2       # rotate/scale at 2x, then Lanczos down: sharper than one bicubic pass
 QUALITY = 90
-PAD = 512           # transparent border added around the source so any crop box fits
+ALPHA_MIN = 16
 
-# Fallback defaults, used only if no face was detected anywhere (never in practice)
-DEFAULT_SCALE = SIZE * FACE_SHARE / 115.0
-DEFAULT_HEAD_TOP = 10.0
+MODEL_URL = ("https://storage.googleapis.com/mediapipe-models/face_landmarker/"
+             "face_landmarker/float16/1/face_landmarker.task")
+MODEL_SHA256 = "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff"
+MODEL_PATH = os.path.join(os.path.expanduser("~"), ".cache", "nba-headshots", "face_landmarker.task")
 
-CASCADES = ["haarcascade_frontalface_default.xml", "haarcascade_frontalface_alt2.xml",
-            "haarcascade_frontalface_alt.xml"]
-AGREE_IOU = 0.4         # two cascades "agree" when their boxes overlap at least this much
-LONE_MIN_SHARE = 0.27   # a box no other cascade confirms must be at least this share of the height
-_cascade_cache = {}
+# MediaPipe face mesh eye contours. "Right" is the subject's right eye, on the left of the image.
+RIGHT_EYE = [33, 7, 163, 144, 145, 153, 154, 155, 133, 173, 157, 158, 159, 160, 161, 246]
+LEFT_EYE = [362, 382, 381, 380, 374, 373, 390, 249, 263, 466, 388, 387, 386, 385, 384, 398]
+CHIN = 152
 
-
-def cascade(name):
-    if name not in _cascade_cache:
-        c = cv2.CascadeClassifier(cv2.data.haarcascades + name)
-        if c.empty():
-            sys.exit(f"could not load {name} (opencv-python<5 is required)")
-        _cascade_cache[name] = c
-    return _cascade_cache[name]
+REASON_PLACEHOLDER = "placeholder silhouette"
+REASON_NO_LANDMARKS = "no landmarks"
+REASON_OFF_CUTOUT = "landmarks off the cutout"
+REASON_PROFILE = "face turned (profile)"
+# eye-line-to-chin / eye distance is ~1.8 for a frontal face (1.5-2.1 covers 99% of face/).
+# Turned heads shrink the eye distance and blow the face up; above this the shot is a profile.
+MAX_CHIN_RATIO = 2.6
 
 
 def sha256_of(path):
@@ -93,140 +83,153 @@ def sha256_of(path):
     return h.hexdigest()
 
 
-def alpha_mask(im):
-    return np.array(im.getchannel("A")) > ALPHA_MIN
+def ensure_model():
+    if not (os.path.exists(MODEL_PATH) and sha256_of(MODEL_PATH) == MODEL_SHA256):
+        os.makedirs(os.path.dirname(MODEL_PATH), exist_ok=True)
+        print(f"downloading face landmarker model -> {MODEL_PATH}")
+        urllib.request.urlretrieve(MODEL_URL, MODEL_PATH + ".part")
+        if sha256_of(MODEL_PATH + ".part") != MODEL_SHA256:
+            sys.exit("face landmarker model sha256 mismatch; refusing to use it")
+        os.replace(MODEL_PATH + ".part", MODEL_PATH)
+    return MODEL_PATH
 
 
-def plausible(box, mask):
-    """Reject detections that can't be the face: tiny/huge, at the frame edge, or on empty pixels."""
-    x, y, w, h = box
-    H, W = mask.shape
-    cx, cy = x + w / 2.0, y + h / 2.0
-    if not (0.22 * H <= h <= 0.70 * H):
-        return False
-    if not (0.20 * W <= cx <= 0.80 * W and 0.20 * H <= cy <= 0.75 * H):
-        return False
-    return mask[y:y + h, x:x + w].mean() >= 0.6
+def make_landmarker():
+    try:
+        import mediapipe as mp
+        from mediapipe.tasks import python as mpt
+        from mediapipe.tasks.python import vision
+    except ImportError:
+        sys.exit('MediaPipe missing. Run:  pip install "mediapipe==1.1.1"')
+    opts = vision.FaceLandmarkerOptions(
+        base_options=mpt.BaseOptions(model_asset_path=ensure_model()),
+        running_mode=vision.RunningMode.IMAGE, num_faces=1,
+        min_face_detection_confidence=0.5, min_face_presence_confidence=0.5)
+    lm = vision.FaceLandmarker.create_from_options(opts)
 
-
-def iou(a, b):
-    ax, ay, aw, ah = a
-    bx, by, bw, bh = b
-    iw = max(0, min(ax + aw, bx + bw) - max(ax, bx))
-    ih = max(0, min(ay + ah, by + bh) - max(ay, by))
-    inter = iw * ih
-    return inter / float(aw * ah + bw * bh - inter)
-
-
-def detect_face(im, mask):
-    """Face box (x, y, w, h) in source pixels, or None. See the module docstring for the rules."""
-    dark = Image.alpha_composite(Image.new("RGBA", im.size, (22, 22, 22, 255)), im).convert("L")
-    gray = cv2.equalizeHist(np.array(dark))
-    side = min(im.size)
-    min_lone = LONE_MIN_SHARE * im.size[1]
-
-    def largest(name, neighbors):
-        faces = cascade(name).detectMultiScale(gray, scaleFactor=1.05, minNeighbors=neighbors,
-                                               minSize=(side // 6, side // 6))
-        good = [tuple(int(v) for v in f) for f in faces if plausible(f, mask)]
-        return max(good, key=lambda f: f[2] * f[3]) if good else None
-
-    boxes = [b for b in (largest(n, 5) for n in CASCADES) if b is not None]
-    for anchor in boxes:   # default first, so its group wins when there are two groups
-        group = [b for b in boxes if iou(anchor, b) >= AGREE_IOU]
-        if len(group) >= 2:
-            return tuple(int(round(v)) for v in np.mean(group, axis=0))
-    for b in boxes:
-        if b[3] >= min_lone:
-            return b
-    b = largest(CASCADES[0], 3)
-    return b if b is not None and b[3] >= min_lone else None
+    def detect(rgb):
+        r = lm.detect(mp.Image(image_format=mp.ImageFormat.SRGB, data=np.ascontiguousarray(rgb)))
+        return r.face_landmarks[0] if r.face_landmarks else None
+    return lm, detect
 
 
 def is_placeholder(im):
     """The grey head silhouette the NBA CDN serves when there's no photo: flat grey, no detail.
-    Only solid pixels count, so a soft faded edge doesn't hide it. Labels FALLBACKS.md only."""
+    Only solid pixels count, so a soft faded edge doesn't hide it."""
     a = np.array(im)
     rgb = a[..., :3][a[..., 3] > 200].astype(np.int16)
     if rgb.size == 0:
-        return False
+        return True
     chroma = (rgb.max(axis=1) - rgb.min(axis=1)).mean()
     return chroma < 10 and rgb.std(axis=0).mean() < 12
 
 
-def render(im, scale, src_x0, src_y0):
-    """160x160 crop: source pixel (src_x0, src_y0) lands on output (0, 0), at `scale` out px per src px."""
+def landmarks(im, detect):
+    """Source-pixel landmarks as an (N, 2) array, or None. Mid-grey backdrop, then 2x if needed."""
     w, h = im.size
-    canvas = Image.new("RGBA", (w + 2 * PAD, h + 2 * PAD), (0, 0, 0, 0))
-    canvas.paste(im, (PAD, PAD))
-    span = SIZE / scale
-    box = (src_x0 + PAD, src_y0 + PAD, src_x0 + PAD + span, src_y0 + PAD + span)
-    # resize() premultiplies RGBA internally, so the transparent border never bleeds dark fringes
-    return canvas.resize((SIZE, SIZE), Image.LANCZOS, box=box)
+    flat = Image.alpha_composite(Image.new("RGBA", im.size, (128, 128, 128, 255)), im).convert("RGB")
+    for up in (1, 2):
+        img = flat if up == 1 else flat.resize((w * up, h * up), Image.LANCZOS)
+        found = detect(np.array(img))
+        if found is not None:
+            return np.array([(p.x * w, p.y * h) for p in found])
+    return None
 
 
-def frame_face(im, mask, box):
-    """Returns (image, record) for a detected face."""
-    fx, fy, fw, fh = box
-    scale = SIZE * FACE_SHARE / fh
-    src_x0 = fx + fw / 2.0 - (SIZE / 2.0) / scale
-    src_y0 = fy - (SIZE * FACE_TOP) / scale
-    # Hair check: topmost opaque row over the face columns. If it would land above the frame,
-    # slide the crop down (the chin is ~53px from the bottom at this framing, plenty of room).
-    cols = mask[:, max(fx, 0):fx + fw]
-    rows = np.where(cols.any(axis=1))[0]
-    head_top_out = None
-    if rows.size:
-        head_top_out = (rows[0] - src_y0) * scale
-        if head_top_out < HEAD_MARGIN:
-            src_y0 -= (HEAD_MARGIN - head_top_out) / scale
-            head_top_out = HEAD_MARGIN
-    rec = {"mode": "face", "face": [fx, fy, fw, fh], "scale": round(scale, 5),
-           "head_top": None if head_top_out is None else round(float(head_top_out), 2)}
-    return render(im, scale, src_x0, src_y0), rec
+def transform_for(lms):
+    """(scale, angle, eye midpoint) mapping source pixels onto the output frame."""
+    right = lms[RIGHT_EYE].mean(axis=0)   # image left
+    left = lms[LEFT_EYE].mean(axis=0)     # image right
+    dx, dy = left - right
+    return SIZE * EYE_DIST / math.hypot(dx, dy), math.atan2(dy, dx), (right + left) / 2.0
 
 
-def frame_fallback(im, mask, scale, head_top):
-    """Top-anchored crop at the median face scale; None when the image has no opaque pixels."""
-    rows = np.where(mask.any(axis=1))[0]
-    if rows.size == 0:
-        return None
-    top = rows[0]
-    # centre on the head, not the shoulders: opaque columns in the top band (one face height)
-    band = mask[top:top + int(round(SIZE * FACE_SHARE / scale))]
-    cols = np.where(band.any(axis=0))[0]
-    cx = (cols[0] + cols[-1] + 1) / 2.0
-    src_x0 = cx - (SIZE / 2.0) / scale
-    src_y0 = top - head_top / scale
-    return render(im, scale, src_x0, src_y0)
+def to_output(pts, scale, angle, mid):
+    """Source points (N, 2) -> output points: rotate by -angle about the eye midpoint, scale, move."""
+    c, s = math.cos(angle), math.sin(angle)
+    d = pts - mid
+    u = (c * d[:, 0] + s * d[:, 1]) * scale + SIZE * EYE_X
+    v = (-s * d[:, 0] + c * d[:, 1]) * scale + SIZE * EYE_Y
+    return np.stack([u, v], axis=1)
 
 
-def write_fallbacks_md(records, scale, head_top):
-    fb = sorted(s for s, r in records.items() if r.get("mode") == "fallback")
+def render(im, scale, angle, mid):
+    big = SIZE * SUPERSAMPLE
+    k = scale * SUPERSAMPLE
+    c, s = math.cos(angle), math.sin(angle)
+    cx, cy = big * EYE_X, big * EYE_Y
+    # Pillow wants the inverse map (output -> source): x = a*u + b*v + c0, y = d*u + e*v + f0
+    a, b = c / k, -s / k
+    d, e = s / k, c / k
+    c0 = mid[0] - a * cx - b * cy
+    f0 = mid[1] - d * cx - e * cy
+    # premultiplied alpha so interpolation never drags dark fringes in from transparent pixels
+    out = im.convert("RGBa").transform((big, big), Image.AFFINE, (a, b, c0, d, e, f0),
+                                       resample=Image.BICUBIC, fillcolor=(0, 0, 0, 0))
+    return out.resize((SIZE, SIZE), Image.LANCZOS).convert("RGBA")
+
+
+def frame(im, detect):
+    """(image, record) for a usable photo, or (None, record with the exclusion reason)."""
+    if is_placeholder(im):
+        return None, {"status": "excluded", "reason": REASON_PLACEHOLDER}
+    lms = landmarks(im, detect)
+    if lms is None:
+        return None, {"status": "excluded", "reason": REASON_NO_LANDMARKS}
+    alpha = np.array(im.getchannel("A"))
+    eyes = np.vstack([lms[RIGHT_EYE].mean(axis=0), lms[LEFT_EYE].mean(axis=0)])
+    for x, y in eyes:
+        xi, yi = int(round(x)), int(round(y))
+        if not (0 <= xi < im.width and 0 <= yi < im.height) or alpha[yi, xi] <= ALPHA_MIN:
+            return None, {"status": "excluded", "reason": REASON_OFF_CUTOUT}
+
+    scale, angle, mid = transform_for(lms)
+    chin = float(to_output(lms[[CHIN]], scale, angle, mid)[0, 1])
+    if (chin - SIZE * EYE_Y) / (SIZE * EYE_DIST) > MAX_CHIN_RATIO:
+        return None, {"status": "excluded", "reason": REASON_PROFILE}
+    # crown: map every opaque source pixel to the output and take the highest one near the centre
+    ys, xs = np.nonzero(alpha > ALPHA_MIN)
+    pts = to_output(np.stack([xs + 0.5, ys + 0.5], axis=1), scale, angle, mid)
+    near = np.abs(pts[:, 0] - SIZE * EYE_X) <= SIZE * EYE_DIST / 2.0
+    crown = float(pts[near, 1].min())
+    rec = {"status": "ok", "chin": round(chin, 2), "crown": round(crown, 2),
+           "tilt": round(math.degrees(angle), 2), "scale": round(scale, 4)}
+    return render(im, scale, angle, mid), rec
+
+
+def write_fallbacks_md(records):
+    ex = sorted((s, r["reason"]) for s, r in records.items() if r["status"] == "excluded")
     opaque = sorted(s for s, r in records.items() if r.get("no_alpha"))
+    by_reason = {}
+    for _, reason in ex:
+        by_reason[reason] = by_reason.get(reason, 0) + 1
     lines = [
-        "# head-uniform fallbacks",
+        "# head-uniform: use initials",
         "",
-        "No face was detected in these face/ cutouts, so they use a top-anchored crop of the opaque",
-        f"bounding box at the median face scale ({scale:.4f} output px per source px), with the top",
-        f"of the cutout at the median hair-top line ({head_top:.1f}px) and the head centred.",
+        "No head-uniform file exists for these players: their face/ cutout is a placeholder",
+        "silhouette, the face landmarks could not be found, or the face is turned too far",
+        "(profile) for eye-based framing. Show initials instead.",
         "Generated by scripts/build_head_uniform.py.",
         "",
-        f"Total: {len(fb)}",
+        f"Total: {len(ex)} (" + ", ".join(f"{n} {r}" for r, n in sorted(by_reason.items())) + ")",
         "",
-        "| file | reason |",
-        "|---|---|",
+        "| player (face/ stem) | action | reason |",
+        "|---|---|---|",
     ]
-    for s in fb:
-        reason = "placeholder silhouette" if records[s].get("placeholder") else "no face detected"
-        lines.append(f"| {s}.webp | {reason} |")
+    lines += [f"| {s} | use initials | {reason} |" for s, reason in ex]
     if opaque:
-        lines += ["", "## Sources without alpha", "",
-                  "These face/ PNGs are opaque photos (no transparent background), so their",
-                  "head-uniform crop keeps the photo background.", ""]
-        lines += [f"- {s}.png" for s in opaque]
+        lines += ["", "## Written, but the source has no alpha", "",
+                  "These face/ PNGs are opaque photos (no transparent background). Their head-uniform",
+                  "file is written, but it keeps the photo background inside the frame.", ""]
+        lines += [f"- {s}" for s in opaque]
     with open(FALLBACKS_MD, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
+
+
+def spread(vals):
+    q = np.percentile(vals, [5, 25, 50, 75, 95])
+    return (f"median {q[2]:.1f}px ({q[2] / SIZE:.1%}), IQR {q[1]:.1f}-{q[3]:.1f} "
+            f"({q[3] - q[1]:.1f}px), p5-p95 {q[0]:.1f}-{q[4]:.1f}, sd {statistics.pstdev(vals):.1f}")
 
 
 def main():
@@ -245,82 +248,64 @@ def main():
     records = store.get("files", {}) if store.get("recipe") == RECIPE and not args.force else {}
 
     sources = sorted(f[:-4] for f in os.listdir(SRC) if f.lower().endswith(".png"))
-    # sources that disappeared from face/ drop out of the index (their .webp is left alone)
-    records = {s: r for s, r in records.items() if s in set(sources)}
+    keep = set(sources)
+    records = {s: r for s, r in records.items() if s in keep}
 
     written = unchanged = 0
-    empty = []
-    pending_fallback = []   # (stem, digest, no_alpha, placeholder) framed after the median is known
+    lm = detect = None
     for stem in sources:
         src = os.path.join(SRC, stem + ".png")
         out = os.path.join(DST, stem + ".webp")
         digest = sha256_of(src)
         rec = records.get(stem)
-        if rec and rec.get("sha") == digest and os.path.exists(out):
-            if rec.get("mode") == "fallback":
-                pending_fallback.append((stem, digest, rec.get("no_alpha", False), rec.get("placeholder", False)))
-            else:
-                unchanged += 1
+        if rec and rec.get("sha") == digest and (rec["status"] == "excluded" or os.path.exists(out)):
+            unchanged += 1
             continue
+        if detect is None:
+            lm, detect = make_landmarker()
         with Image.open(src) as raw:
             no_alpha = raw.mode not in ("RGBA", "LA", "PA") and "transparency" not in raw.info
             im = raw.convert("RGBA")
-        mask = alpha_mask(im)
-        box = detect_face(im, mask)
-        if box is None:
-            pending_fallback.append((stem, digest, no_alpha, is_placeholder(im)))
-            continue
-        result, rec = frame_face(im, mask, box)
-        result.save(out, "WEBP", quality=QUALITY, method=4, exact=False)
-        rec.update(sha=digest)
+        result, rec = frame(im, detect)
+        rec["sha"] = digest
         if no_alpha:
             rec["no_alpha"] = True
         records[stem] = rec
-        written += 1
-
-    faces = [r for r in records.values() if r.get("mode") == "face"]
-    scale = statistics.median(r["scale"] for r in faces) if faces else DEFAULT_SCALE
-    tops = [r["head_top"] for r in faces if r.get("head_top") is not None]
-    head_top = statistics.median(tops) if tops else DEFAULT_HEAD_TOP
-
-    fb_written = 0
-    for stem, digest, no_alpha, placeholder in pending_fallback:
-        out = os.path.join(DST, stem + ".webp")
-        rec = records.get(stem)
-        if (rec and rec.get("mode") == "fallback" and rec.get("sha") == digest and os.path.exists(out)
-                and abs(rec["scale"] - scale) / scale < 0.01 and abs(rec["head_top"] - head_top) < 0.5):
-            unchanged += 1
-            continue
-        with Image.open(os.path.join(SRC, stem + ".png")) as raw:
-            im = raw.convert("RGBA")
-        result = frame_fallback(im, alpha_mask(im), scale, head_top)
         if result is None:
-            print(f"skip (no opaque pixels): {stem}.png")
-            empty.append(stem)
-            records.pop(stem, None)
-            continue
-        result.save(out, "WEBP", quality=QUALITY, method=4, exact=False)
-        rec = {"mode": "fallback", "sha": digest, "scale": round(scale, 5), "head_top": round(head_top, 2)}
-        if no_alpha:
-            rec["no_alpha"] = True
-        if placeholder:
-            rec["placeholder"] = True
-        records[stem] = rec
-        fb_written += 1
+            print(f"use initials ({rec['reason']}): {stem}")
+        else:
+            result.save(out, "WEBP", quality=QUALITY, method=4, exact=False)
+            written += 1
+    if lm is not None:
+        lm.close()
+
+    # only players with a usable photo keep a file: drop stale ones (excluded or source gone)
+    wanted = {s for s, r in records.items() if r["status"] == "ok"}
+    removed = 0
+    for fname in os.listdir(DST):
+        if fname.endswith(".webp") and fname[:-5] not in wanted:
+            os.remove(os.path.join(DST, fname))
+            removed += 1
 
     with open(HASHES, "w", encoding="utf-8") as f:
         json.dump({"recipe": RECIPE, "files": dict(sorted(records.items()))}, f,
                   indent=0, sort_keys=True, separators=(",", ":"))
         f.write("\n")
-    write_fallbacks_md(records, scale, head_top)
+    write_fallbacks_md(records)
 
-    n_fb = sum(1 for r in records.values() if r.get("mode") == "fallback")
-    print(f"head-uniform: wrote {written} face + {fb_written} fallback, unchanged {unchanged}, "
-          f"skipped {len(empty)} -> {DST}")
-    print(f"  {len(faces)} detected faces, {n_fb} fallbacks; median scale {scale:.4f}, "
-          f"median hair-top {head_top:.1f}px")
-    if empty:
-        print("skipped stems: " + ", ".join(empty))
+    ok = [r for r in records.values() if r["status"] == "ok"]
+    excluded = {}
+    for r in records.values():
+        if r["status"] == "excluded":
+            excluded[r["reason"]] = excluded.get(r["reason"], 0) + 1
+    print(f"head-uniform: wrote {written}, unchanged {unchanged}, removed {removed} -> {DST}")
+    print(f"  {len(ok)} files, excluded {sum(excluded.values())} "
+          + (str(dict(sorted(excluded.items()))) if excluded else ""))
+    if ok:
+        chins = [r["chin"] for r in ok]
+        crowns = [r["crown"] for r in ok]
+        print(f"  chin:  {spread(chins)}; below the frame: {sum(c > SIZE for c in chins)}")
+        print(f"  crown: {spread(crowns)}; hair cut at the top: {sum(c < 0 for c in crowns)}")
 
 
 if __name__ == "__main__":
