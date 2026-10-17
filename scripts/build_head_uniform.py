@@ -9,9 +9,10 @@ Per face/ cutout:
      landmarks, so it doesn't move with gaze the way the iris does.
   2. Rotate so the eye line is horizontal, scale so the distance between the eye centres is 20%
      of the frame width, put the eye midpoint at 50% across and 48% down.
-     If the top of the hair would then be cut off, the face is shrunk about the chin (still
-     centred) until the highest opaque pixel is 3% below the top edge; those photos keep their
-     chin height and their eyes sit lower than 48%.
+     If the hair would then touch the top edge anywhere across the width (an opaque pixel within
+     1% of the top), the face is shrunk about the chin (still centred) until the highest opaque
+     pixel is 3% below the top edge; those photos keep their chin height and their eyes sit
+     lower than 48%.
   3. 160x160 WebP with alpha. Whatever the cutout doesn't cover stays transparent.
 
 No file is written for the grey placeholder silhouettes, for opaque sources (no transparent
@@ -63,6 +64,9 @@ ALPHA_MIN = 16
 # highest opaque pixel is this far below the top. Only these photos change; the eyes sit lower
 # than EYE_Y for them.
 CROWN_GAP = 0.03
+# "Touches the top": any opaque pixel, anywhere across the frame width, closer than this to the
+# top edge (a share of the frame, so 160 and 480 flag the same photos).
+TOUCH_MARGIN = 0.01
 
 MODEL_URL = ("https://storage.googleapis.com/mediapipe-models/face_landmarker/"
              "face_landmarker/float16/1/face_landmarker.task")
@@ -184,7 +188,12 @@ def render(im, scale, angle, mid, eye_y=None):
     return out.resize((SIZE, SIZE), Image.LANCZOS).convert("RGBA")
 
 
-def frame(im, detect):
+def touches_top(img):
+    """True if the rendered image has an opaque pixel in its top row."""
+    return bool((np.array(img.getchannel("A"))[0] > ALPHA_MIN).any())
+
+
+def frame(im, detect, force_lift=False):
     """(image, record) for a usable photo, or (None, record with the exclusion reason)."""
     if is_placeholder(im):
         return None, {"status": "excluded", "reason": REASON_PLACEHOLDER}
@@ -209,13 +218,25 @@ def frame(im, detect):
     crown = float(pts[near, 1].min())
     rec = {"status": "ok", "chin": round(chin, 2), "crown": round(crown, 2),
            "tilt": round(math.degrees(angle), 2), "scale": round(scale, 4)}
-    if crown >= 0:
-        return render(im, scale, angle, mid), rec
-    # Hair cut at the top: shrink about the chin until the highest opaque pixel anywhere across
-    # the frame sits CROWN_GAP below the top edge. Twice, because shrinking pulls more of the
-    # cutout's width into the frame.
     src = np.stack([xs + 0.5, ys + 0.5], axis=1)
-    gap = CROWN_GAP * SIZE
+    top_full = float(pts[(pts[:, 0] >= 0) & (pts[:, 0] < SIZE), 1].min())  # highest opaque pixel, full width
+    if crown >= 0 and top_full >= TOUCH_MARGIN * SIZE and not force_lift:
+        img = render(im, scale, angle, mid)
+        if not touches_top(img):
+            return img, rec
+    # Hair at the top edge: shrink about the chin until the highest opaque pixel anywhere across
+    # the frame sits CROWN_GAP below the top edge (more if the render still touches the top row).
+    # Iterated, because shrinking pulls more of the cutout's width into the frame.
+    for extra in range(4):
+        img, k, eye_y, top = _lift(im, src, scale, angle, mid, chin, (CROWN_GAP + 0.01 * extra) * SIZE)
+        if not touches_top(img):
+            break
+    rec.update({"crown0": rec["crown"], "top0": round(top_full, 2), "crown": round(top, 2), "scale": round(k, 4),
+                "eye_y": round(eye_y, 4), "lifted": True})
+    return img, rec
+
+
+def _lift(im, src, scale, angle, mid, chin, gap):
     k, eye_y = scale, EYE_Y
     for _ in range(3):
         p = to_output(src, k, angle, mid, eye_y)
@@ -229,8 +250,7 @@ def frame(im, detect):
         eye_y = (gap + above * k) / SIZE
     p = to_output(src, k, angle, mid, eye_y)
     top = float(p[(p[:, 0] >= 0) & (p[:, 0] < SIZE), 1].min())
-    rec.update({"crown0": rec["crown"], "crown": round(top, 2), "scale": round(k, 4), "eye_y": round(eye_y, 4), "lifted": True})
-    return render(im, k, angle, mid, eye_y), rec
+    return render(im, k, angle, mid, eye_y), k, eye_y, top
 
 
 def write_fallbacks_md(records):
@@ -266,7 +286,11 @@ def spread(vals):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--force", action="store_true", help="rebuild even if the source hash is unchanged")
+    ap.add_argument("--recheck-top", action="store_true",
+                    help="check every stored photo for hair at the top edge; rewrite only the ones that need the fix")
+    ap.add_argument("--lift", default="", help="comma-separated stems to shrink in any case (to match the other size)")
     args = ap.parse_args()
+    force = set(filter(None, args.lift.split(",")))
 
     if not os.path.isdir(SRC):
         sys.exit("run this from the nba-headshots repo root (players/headshots/face not found)")
@@ -291,10 +315,28 @@ def main():
         rec = records.get(stem)
         manual = MANUAL_EXCLUDE.get(stem)
         cached_manual = bool(rec) and rec.get("manual", False)
-        if (rec and rec.get("sha") == digest and cached_manual == bool(manual)
-                and (rec["status"] == "excluded" or os.path.exists(out))
-                and not (rec["status"] == "ok" and rec.get("crown", 0) < 0)):  # hair cut: redo with CROWN_GAP
+        cached = (rec and rec.get("sha") == digest and cached_manual == bool(manual)
+                  and (rec["status"] == "excluded" or os.path.exists(out)))
+        recheck = cached and rec["status"] == "ok" and not rec.get("lifted") and (
+            args.recheck_top or rec.get("crown", 0) < 0 or stem in force)
+        if cached and not recheck:
             unchanged += 1
+            continue
+        if recheck:
+            # Only a photo that now needs the top-edge fix is rewritten; the others stay as they are.
+            with Image.open(src) as raw:
+                im = raw.convert("RGBA")
+            if detect is None:
+                lm, detect = make_landmarker()
+            result, new = frame(im, detect, force_lift=stem in force)
+            if result is None or not new.get("lifted"):
+                unchanged += 1
+                continue
+            new["sha"] = digest
+            records[stem] = new
+            result.save(out, "WEBP", quality=QUALITY, method=4, exact=False)
+            written += 1
+            print(f"top edge fixed: {stem}")
             continue
         result = None
         with Image.open(src) as raw:
@@ -307,7 +349,7 @@ def main():
         else:
             if detect is None:
                 lm, detect = make_landmarker()
-            result, rec = frame(im, detect)
+            result, rec = frame(im, detect, force_lift=stem in force)
         rec["sha"] = digest
         records[stem] = rec
         if result is None:
