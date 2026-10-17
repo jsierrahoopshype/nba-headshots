@@ -9,6 +9,9 @@ Per face/ cutout:
      landmarks, so it doesn't move with gaze the way the iris does.
   2. Rotate so the eye line is horizontal, scale so the distance between the eye centres is 20%
      of the frame width, put the eye midpoint at 50% across and 48% down.
+     If the top of the hair would then be cut off, the face is shrunk about the chin (still
+     centred) until the highest opaque pixel is 3% below the top edge; those photos keep their
+     chin height and their eyes sit lower than 48%.
   3. 160x160 WebP with alpha. Whatever the cutout doesn't cover stays transparent.
 
 No file is written for the grey placeholder silhouettes, for opaque sources (no transparent
@@ -56,6 +59,10 @@ EYE_X, EYE_Y = 0.50, 0.48   # eye midpoint, share of the frame
 SUPERSAMPLE = 2       # rotate/scale at 2x, then Lanczos down: sharper than one bicubic pass
 QUALITY = 90
 ALPHA_MIN = 16
+# Hair past the top edge: shrink the face (chin kept where it was, centred horizontally) until the
+# highest opaque pixel is this far below the top. Only these photos change; the eyes sit lower
+# than EYE_Y for them.
+CROWN_GAP = 0.03
 
 MODEL_URL = ("https://storage.googleapis.com/mediapipe-models/face_landmarker/"
              "face_landmarker/float16/1/face_landmarker.task")
@@ -150,20 +157,22 @@ def transform_for(lms):
     return SIZE * EYE_DIST / math.hypot(dx, dy), math.atan2(dy, dx), (right + left) / 2.0
 
 
-def to_output(pts, scale, angle, mid):
+def to_output(pts, scale, angle, mid, eye_y=None):
     """Source points (N, 2) -> output points: rotate by -angle about the eye midpoint, scale, move."""
+    eye_y = EYE_Y if eye_y is None else eye_y
     c, s = math.cos(angle), math.sin(angle)
     d = pts - mid
     u = (c * d[:, 0] + s * d[:, 1]) * scale + SIZE * EYE_X
-    v = (-s * d[:, 0] + c * d[:, 1]) * scale + SIZE * EYE_Y
+    v = (-s * d[:, 0] + c * d[:, 1]) * scale + SIZE * eye_y
     return np.stack([u, v], axis=1)
 
 
-def render(im, scale, angle, mid):
+def render(im, scale, angle, mid, eye_y=None):
+    eye_y = EYE_Y if eye_y is None else eye_y
     big = SIZE * SUPERSAMPLE
     k = scale * SUPERSAMPLE
     c, s = math.cos(angle), math.sin(angle)
-    cx, cy = big * EYE_X, big * EYE_Y
+    cx, cy = big * EYE_X, big * eye_y
     # Pillow wants the inverse map (output -> source): x = a*u + b*v + c0, y = d*u + e*v + f0
     a, b = c / k, -s / k
     d, e = s / k, c / k
@@ -200,7 +209,28 @@ def frame(im, detect):
     crown = float(pts[near, 1].min())
     rec = {"status": "ok", "chin": round(chin, 2), "crown": round(crown, 2),
            "tilt": round(math.degrees(angle), 2), "scale": round(scale, 4)}
-    return render(im, scale, angle, mid), rec
+    if crown >= 0:
+        return render(im, scale, angle, mid), rec
+    # Hair cut at the top: shrink about the chin until the highest opaque pixel anywhere across
+    # the frame sits CROWN_GAP below the top edge. Twice, because shrinking pulls more of the
+    # cutout's width into the frame.
+    src = np.stack([xs + 0.5, ys + 0.5], axis=1)
+    gap = CROWN_GAP * SIZE
+    k, eye_y = scale, EYE_Y
+    for _ in range(3):
+        p = to_output(src, k, angle, mid, eye_y)
+        inside = (p[:, 0] >= 0) & (p[:, 0] < SIZE)
+        top = float(p[inside, 1].min())
+        if top >= gap - 0.25:
+            break
+        above = (SIZE * eye_y - top) / k        # source px from the eye line up to the top of the hair
+        below = (chin - SIZE * EYE_Y) / scale    # source px from the eye line down to the chin
+        k = (chin - gap) / (above + below)       # chin stays at the same height
+        eye_y = (gap + above * k) / SIZE
+    p = to_output(src, k, angle, mid, eye_y)
+    top = float(p[(p[:, 0] >= 0) & (p[:, 0] < SIZE), 1].min())
+    rec.update({"crown0": rec["crown"], "crown": round(top, 2), "scale": round(k, 4), "eye_y": round(eye_y, 4), "lifted": True})
+    return render(im, k, angle, mid, eye_y), rec
 
 
 def write_fallbacks_md(records):
@@ -262,7 +292,8 @@ def main():
         manual = MANUAL_EXCLUDE.get(stem)
         cached_manual = bool(rec) and rec.get("manual", False)
         if (rec and rec.get("sha") == digest and cached_manual == bool(manual)
-                and (rec["status"] == "excluded" or os.path.exists(out))):
+                and (rec["status"] == "excluded" or os.path.exists(out))
+                and not (rec["status"] == "ok" and rec.get("crown", 0) < 0)):  # hair cut: redo with CROWN_GAP
             unchanged += 1
             continue
         result = None
