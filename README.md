@@ -43,6 +43,8 @@ players/
     original/     ← full-size downloads (git-ignored)
     face/         ← 256x256 face crops (committed)
     thumb/        ← 64x64 thumbnails (committed)
+    head-uniform/      ← 160x160 passport-style crops: eyes 20% of the width apart, 48% down (committed)
+    head-uniform-480/  ← the same framing at 480x480, transparent WebP (committed)
   metadata/
     players.json  ← full player index
     active.json   ← active players only
@@ -65,6 +67,8 @@ scripts/
   process_faces.py
   fetch_teams.py
   build_index.py
+  build_head_uniform.py      ← head-uniform/ (160px)
+  build_head_uniform_480.py  ← head-uniform-480/ (480px, same recipe)
 index.js          ← JavaScript SDK
 index.py          ← Python SDK
 run_pipeline.sh   ← one-shot pipeline runner
