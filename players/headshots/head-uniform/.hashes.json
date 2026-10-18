@@ -7573,9 +7573,12 @@
 "status":"excluded"
 },
 "1641761-grant-nelson":{
-"reason":"placeholder silhouette",
-"sha":"3afccf7a34627e3612215300176e299da9435de073d668951dc7399655e4ceda",
-"status":"excluded"
+"chin":133.54,
+"crown":18.71,
+"scale":0.6826,
+"sha":"1f5b29fe51573959638640efe8d7266e01885fd1daa0aa4544978e3102ef449a",
+"status":"ok",
+"tilt":-0.86
 },
 "1641763-julian-phillips":{
 "chin":130.71,
@@ -9282,9 +9285,12 @@
 "tilt":0.01
 },
 "1642951-sean-pedulla":{
-"reason":"placeholder silhouette",
-"sha":"3afccf7a34627e3612215300176e299da9435de073d668951dc7399655e4ceda",
-"status":"excluded"
+"chin":138.58,
+"crown":13.66,
+"scale":0.9001,
+"sha":"e9bb0a2936a61c600f0ad6811e4e18c7a2b04ba881a40df05ba20db016bb0cd7",
+"status":"ok",
+"tilt":0.9
 },
 "1642954-will-richard":{
 "chin":129.11,
@@ -9453,9 +9459,12 @@
 "status":"excluded"
 },
 "1643257-jayson-kent":{
-"reason":"placeholder silhouette",
-"sha":"3afccf7a34627e3612215300176e299da9435de073d668951dc7399655e4ceda",
-"status":"excluded"
+"chin":135.97,
+"crown":23.63,
+"scale":0.7784,
+"sha":"e275091e6710e1ae819b8ea486a877ec4f33f2aec23c71ec220ade2d36448b86",
+"status":"ok",
+"tilt":-0.3
 },
 "1643265-jonas-aidoo":{
 "chin":133.36,

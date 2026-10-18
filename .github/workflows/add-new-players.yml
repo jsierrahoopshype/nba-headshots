@@ -1,10 +1,11 @@
 name: add-new-players
 
 # Adds players who joined the league since the last full pipeline run (rookies, new signings):
-# face/, thumb/, face2/, face2-160/ and face-tight/ files plus a row in players.json,
-# active.json and players_all.json. Additive only: existing photos and metadata rows are
-# never touched (scripts/add_new_actives.py). Runs every Monday and by hand from the
-# Actions tab (tick "dry run" to only list who would be added).
+# face/, thumb/, face2/, face2-160/, face-tight/, head-uniform/ and head-uniform-480/ files plus
+# a row in players.json, active.json and players_all.json. Additive only: existing photos and
+# metadata rows are never touched, except that an active player whose face/ file is the CDN's
+# grey silhouette gets their real photo once the CDN has one (scripts/add_new_actives.py).
+# Runs every Monday and by hand from the Actions tab (tick "dry run" to only list who would be added).
 
 on:
   schedule:
@@ -49,11 +50,27 @@ jobs:
         if: ${{ !inputs.dry_run }}
         run: python scripts/build_face_tight.py
 
+      - name: Build head-uniform (160 and 480) for them
+        # Same reason: the head-uniform workflow never sees this push. Both are incremental by
+        # source hash, so only new or replaced face/ files are processed. Players still on the
+        # silhouette stay in FALLBACKS.md ("use initials").
+        # MediaPipe is installed only here: it pulls in OpenCV 5, which must not replace the
+        # OpenCV 4 the face/ and face2/ crops above were made with. Its shared library links
+        # against EGL/GLES even when it runs on the CPU.
+        if: ${{ !inputs.dry_run }}
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libegl1 libgles2
+          python -m pip install --quiet "mediapipe==1.1.1"
+          python scripts/build_head_uniform.py
+          python scripts/build_head_uniform_480.py
+
       - name: Commit if anything was added
         if: ${{ !inputs.dry_run }}
         run: |
           git add players/headshots/face players/headshots/thumb players/headshots/face2 \
-                  players/headshots/face2-160 players/headshots/face-tight players/metadata
+                  players/headshots/face2-160 players/headshots/face-tight \
+                  players/headshots/head-uniform players/headshots/head-uniform-480 players/metadata
           if git diff --cached --quiet; then
             echo "Nobody new to add"
             exit 0
@@ -62,6 +79,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           m=$(git diff --cached --name-only --diff-filter=M -- 'players/headshots/face/*.png' | wc -l)
-          if [ "$n" -gt 0 ]; then msg="add-new-players: ${n} players"; else msg="add-new-players: ${m} face/ crops rebuilt"; fi
+          if [ "$n" -gt 0 ] && [ "$m" -gt 0 ]; then msg="add-new-players: ${n} players, ${m} face/ files updated"
+          elif [ "$n" -gt 0 ]; then msg="add-new-players: ${n} players"
+          else msg="add-new-players: ${m} face/ files updated"; fi
           git commit -m "$msg"
           git push
