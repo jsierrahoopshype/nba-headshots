@@ -227,7 +227,7 @@
       "slug": "ochai-agbaji",
       "team_id": 1610612751,
       "team_abbrev": "BKN",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -803,7 +803,7 @@
       "slug": "alex-antetokounmpo",
       "team_id": 1610612749,
       "team_abbrev": "MIL",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -857,7 +857,7 @@
       "slug": "thanasis-antetokounmpo",
       "team_id": 1610612749,
       "team_abbrev": "MIL",
-      "active": true,
+      "active": false,
       "seasons_from": "2015",
       "seasons_to": "2025",
       "headshot": {
@@ -1451,7 +1451,7 @@
       "slug": "patrick-baldwin-jr",
       "team_id": 1610612758,
       "team_abbrev": "SAC",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -1503,9 +1503,9 @@
       "first_name": "Mo",
       "last_name": "Bamba",
       "slug": "mo-bamba",
-      "team_id": 0,
-      "team_abbrev": null,
-      "active": false,
+      "team_id": 1610612762,
+      "team_abbrev": "UTA",
+      "active": true,
       "seasons_from": "2018",
       "seasons_to": "2025",
       "headshot": {
@@ -1881,9 +1881,9 @@
       "first_name": "Charles",
       "last_name": "Bassey",
       "slug": "charles-bassey",
-      "team_id": 0,
-      "team_abbrev": null,
-      "active": false,
+      "team_id": 1610612744,
+      "team_abbrev": "GSW",
+      "active": true,
       "seasons_from": "2021",
       "seasons_to": "2025",
       "headshot": {
@@ -1919,7 +1919,7 @@
       "slug": "tamar-bates",
       "team_id": null,
       "team_abbrev": "",
-      "active": true,
+      "active": false,
       "seasons_from": null,
       "seasons_to": null,
       "headshot": {
@@ -1973,7 +1973,7 @@
       "slug": "nicolas-batum",
       "team_id": 1610612746,
       "team_abbrev": "LAC",
-      "active": true,
+      "active": false,
       "seasons_from": "2008",
       "seasons_to": "2025",
       "headshot": {
@@ -2153,7 +2153,7 @@
       "slug": "marjon-beauchamp",
       "team_id": 1610612755,
       "team_abbrev": "PHI",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -2169,9 +2169,9 @@
       "first_name": "Reece",
       "last_name": "Beekman",
       "slug": "reece-beekman",
-      "team_id": null,
-      "team_abbrev": "",
-      "active": false,
+      "team_id": 1610612764,
+      "team_abbrev": "WAS",
+      "active": true,
       "seasons_from": null,
       "seasons_to": null,
       "headshot": {
@@ -2585,7 +2585,7 @@
       "slug": "bismack-biyombo",
       "team_id": 1610612759,
       "team_abbrev": "SAS",
-      "active": true,
+      "active": false,
       "seasons_from": "2011",
       "seasons_to": "2025",
       "headshot": {
@@ -3339,9 +3339,9 @@
       "first_name": "Tony",
       "last_name": "Bradley",
       "slug": "tony-bradley",
-      "team_id": 0,
-      "team_abbrev": null,
-      "active": false,
+      "team_id": 1610612762,
+      "team_abbrev": "UTA",
+      "active": true,
       "seasons_from": "2017",
       "seasons_to": "2025",
       "headshot": {
@@ -3755,7 +3755,7 @@
       "slug": "johni-broome",
       "team_id": 1610612755,
       "team_abbrev": "PHI",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -3809,7 +3809,7 @@
       "slug": "bruce-brown",
       "team_id": 1610612743,
       "team_abbrev": "DEN",
-      "active": true,
+      "active": false,
       "seasons_from": "2018",
       "seasons_to": "2025",
       "headshot": {
@@ -4223,7 +4223,7 @@
       "slug": "kobe-bufkin",
       "team_id": 1610612747,
       "team_abbrev": "LAL",
-      "active": true,
+      "active": false,
       "seasons_from": "2023",
       "seasons_to": "2025",
       "headshot": {
@@ -5555,7 +5555,7 @@
       "slug": "brandon-clarke",
       "team_id": 1610612763,
       "team_abbrev": "MEM",
-      "active": true,
+      "active": false,
       "seasons_from": "2019",
       "seasons_to": "2025",
       "headshot": {
@@ -5753,7 +5753,7 @@
       "slug": "amir-coffey",
       "team_id": 1610612756,
       "team_abbrev": "PHX",
-      "active": true,
+      "active": false,
       "seasons_from": "2019",
       "seasons_to": "2025",
       "headshot": {
@@ -5969,7 +5969,7 @@
       "slug": "pat-connaughton",
       "team_id": 1610612766,
       "team_abbrev": "CHA",
-      "active": true,
+      "active": false,
       "seasons_from": "2015",
       "seasons_to": "2025",
       "headshot": {
@@ -6095,7 +6095,7 @@
       "slug": "sharife-cooper",
       "team_id": 1610612764,
       "team_abbrev": "WAS",
-      "active": true,
+      "active": false,
       "seasons_from": "2021",
       "seasons_to": "2025",
       "headshot": {
@@ -6599,7 +6599,7 @@
       "slug": "seth-curry",
       "team_id": 1610612744,
       "team_abbrev": "GSW",
-      "active": true,
+      "active": false,
       "seasons_from": "2013",
       "seasons_to": "2025",
       "headshot": {
@@ -6977,7 +6977,7 @@
       "slug": "jd-davison",
       "team_id": 1610612745,
       "team_abbrev": "HOU",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -7517,7 +7517,7 @@
       "slug": "hunter-dickinson",
       "team_id": 1610612740,
       "team_abbrev": "NOP",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -7571,7 +7571,7 @@
       "slug": "rob-dillingham",
       "team_id": 1610612741,
       "team_abbrev": "CHI",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -8669,7 +8669,7 @@
       "slug": "tyson-etienne",
       "team_id": 1610612751,
       "team_abbrev": "BKN",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -8687,7 +8687,7 @@
       "slug": "drew-eubanks",
       "team_id": 1610612758,
       "team_abbrev": "SAC",
-      "active": true,
+      "active": false,
       "seasons_from": "2018",
       "seasons_to": "2025",
       "headshot": {
@@ -8777,7 +8777,7 @@
       "slug": "tosan-evbuomwan",
       "team_id": 1610612766,
       "team_abbrev": "CHA",
-      "active": true,
+      "active": false,
       "seasons_from": "2023",
       "seasons_to": "2025",
       "headshot": {
@@ -8813,7 +8813,7 @@
       "slug": "dant-exum",
       "team_id": null,
       "team_abbrev": "",
-      "active": true,
+      "active": false,
       "seasons_from": null,
       "seasons_to": null,
       "headshot": {
@@ -8847,9 +8847,9 @@
       "first_name": "Tacko",
       "last_name": "Fall",
       "slug": "tacko-fall",
-      "team_id": null,
-      "team_abbrev": "",
-      "active": false,
+      "team_id": 1610612755,
+      "team_abbrev": "PHI",
+      "active": true,
       "seasons_from": null,
       "seasons_to": null,
       "headshot": {
@@ -9153,9 +9153,9 @@
       "first_name": "Adam",
       "last_name": "Flagler",
       "slug": "adam-flagler",
-      "team_id": null,
-      "team_abbrev": "",
-      "active": false,
+      "team_id": 1610612758,
+      "team_abbrev": "SAC",
+      "active": true,
       "seasons_from": null,
       "seasons_to": null,
       "headshot": {
@@ -9587,7 +9587,7 @@
       "slug": "enrique-freeman",
       "team_id": 1610612750,
       "team_abbrev": "MIN",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -10145,7 +10145,7 @@
       "slug": "taj-gibson",
       "team_id": 1610612763,
       "team_abbrev": "MEM",
-      "active": true,
+      "active": false,
       "seasons_from": "2009",
       "seasons_to": "2025",
       "headshot": {
@@ -10937,7 +10937,7 @@
       "slug": "jeff-green",
       "team_id": 1610612745,
       "team_abbrev": "HOU",
-      "active": true,
+      "active": false,
       "seasons_from": "2007",
       "seasons_to": "2025",
       "headshot": {
@@ -11657,7 +11657,7 @@
       "slug": "gary-harris",
       "team_id": 1610612749,
       "team_abbrev": "MIL",
-      "active": true,
+      "active": false,
       "seasons_from": "2014",
       "seasons_to": "2025",
       "headshot": {
@@ -11711,7 +11711,7 @@
       "slug": "kevon-harris",
       "team_id": null,
       "team_abbrev": "",
-      "active": true,
+      "active": false,
       "seasons_from": null,
       "seasons_to": null,
       "headshot": {
@@ -12017,7 +12017,7 @@
       "slug": "killian-hayes",
       "team_id": 1610612758,
       "team_abbrev": "SAC",
-      "active": true,
+      "active": false,
       "seasons_from": "2020",
       "seasons_to": "2025",
       "headshot": {
@@ -12215,7 +12215,7 @@
       "slug": "chucky-hepburn",
       "team_id": 1610612761,
       "team_abbrev": "TOR",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -12321,9 +12321,9 @@
       "first_name": "Mario",
       "last_name": "Hezonja",
       "slug": "mario-hezonja",
-      "team_id": null,
-      "team_abbrev": "",
-      "active": false,
+      "team_id": 1610612739,
+      "team_abbrev": "CLE",
+      "active": true,
       "seasons_from": null,
       "seasons_to": null,
       "headshot": {
@@ -12413,7 +12413,7 @@
       "slug": "haywood-highsmith",
       "team_id": 1610612756,
       "team_abbrev": "PHX",
-      "active": true,
+      "active": false,
       "seasons_from": "2018",
       "seasons_to": "2025",
       "headshot": {
@@ -12647,7 +12647,7 @@
       "slug": "aaron-holiday",
       "team_id": 1610612745,
       "team_abbrev": "HOU",
-      "active": true,
+      "active": false,
       "seasons_from": "2018",
       "seasons_to": "2025",
       "headshot": {
@@ -12953,7 +12953,7 @@
       "slug": "caleb-houstan",
       "team_id": 1610612737,
       "team_abbrev": "ATL",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -13475,7 +13475,7 @@
       "slug": "joe-ingles",
       "team_id": 1610612750,
       "team_abbrev": "MIN",
-      "active": true,
+      "active": false,
       "seasons_from": "2014",
       "seasons_to": "2025",
       "headshot": {
@@ -13619,7 +13619,7 @@
       "slug": "jaden-ivey",
       "team_id": 1610612741,
       "team_abbrev": "CHI",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -13871,7 +13871,7 @@
       "slug": "andre-jackson-jr",
       "team_id": 1610612749,
       "team_abbrev": "MIL",
-      "active": true,
+      "active": false,
       "seasons_from": "2023",
       "seasons_to": "2025",
       "headshot": {
@@ -14159,7 +14159,7 @@
       "slug": "trey-jemison-iii",
       "team_id": 1610612752,
       "team_abbrev": "NYK",
-      "active": true,
+      "active": false,
       "seasons_from": "2023",
       "seasons_to": "2025",
       "headshot": {
@@ -14879,7 +14879,7 @@
       "slug": "curtis-jones",
       "team_id": 1610612743,
       "team_abbrev": "DEN",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -14951,7 +14951,7 @@
       "slug": "dillon-jones",
       "team_id": 1610612752,
       "team_abbrev": "NYK",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -15527,7 +15527,7 @@
       "slug": "yuki-kawamura",
       "team_id": 1610612741,
       "team_abbrev": "CHI",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -15545,7 +15545,7 @@
       "slug": "trevor-keels",
       "team_id": 1610612748,
       "team_abbrev": "MIA",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -15887,7 +15887,7 @@
       "slug": "maxi-kleber",
       "team_id": 1610612747,
       "team_abbrev": "LAL",
-      "active": true,
+      "active": false,
       "seasons_from": "2017",
       "seasons_to": "2025",
       "headshot": {
@@ -15905,7 +15905,7 @@
       "slug": "bobi-klintman",
       "team_id": 1610612765,
       "team_abbrev": "DET",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -16049,7 +16049,7 @@
       "slug": "christian-koloko",
       "team_id": 1610612737,
       "team_abbrev": "ATL",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -16067,7 +16067,7 @@
       "slug": "john-konchar",
       "team_id": 1610612762,
       "team_abbrev": "UTA",
-      "active": true,
+      "active": false,
       "seasons_from": "2019",
       "seasons_to": "2025",
       "headshot": {
@@ -16607,7 +16607,7 @@
       "slug": "aj-lawson",
       "team_id": 1610612761,
       "team_abbrev": "TOR",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -16985,7 +16985,7 @@
       "slug": "ej-liddell",
       "team_id": 1610612751,
       "team_abbrev": "BKN",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -17093,7 +17093,7 @@
       "slug": "isaiah-livers",
       "team_id": 1610612756,
       "team_abbrev": "PHX",
-      "active": true,
+      "active": false,
       "seasons_from": "2021",
       "seasons_to": "2025",
       "headshot": {
@@ -17273,7 +17273,7 @@
       "slug": "kevin-love",
       "team_id": 1610612762,
       "team_abbrev": "UTA",
-      "active": true,
+      "active": false,
       "seasons_from": "2008",
       "seasons_to": "2025",
       "headshot": {
@@ -17309,7 +17309,7 @@
       "slug": "kyle-lowry",
       "team_id": 1610612755,
       "team_abbrev": "PHI",
-      "active": true,
+      "active": false,
       "seasons_from": "2006",
       "seasons_to": "2025",
       "headshot": {
@@ -17469,9 +17469,9 @@
       "first_name": "Trey",
       "last_name": "Lyles",
       "slug": "trey-lyles",
-      "team_id": null,
-      "team_abbrev": "",
-      "active": false,
+      "team_id": 1610612750,
+      "team_abbrev": "MIN",
+      "active": true,
       "seasons_from": null,
       "seasons_to": null,
       "headshot": {
@@ -18191,7 +18191,7 @@
       "slug": "tyrese-martin",
       "team_id": 1610612755,
       "team_abbrev": "PHI",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -18641,7 +18641,7 @@
       "slug": "mac-mcclung",
       "team_id": 1610612741,
       "team_abbrev": "CHI",
-      "active": true,
+      "active": false,
       "seasons_from": "2021",
       "seasons_to": "2025",
       "headshot": {
@@ -18803,7 +18803,7 @@
       "slug": "doug-mcdermott",
       "team_id": 1610612758,
       "team_abbrev": "SAC",
-      "active": true,
+      "active": false,
       "seasons_from": "2014",
       "seasons_to": "2025",
       "headshot": {
@@ -19469,7 +19469,7 @@
       "slug": "emanuel-miller",
       "team_id": 1610612759,
       "team_abbrev": "SAS",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -20207,7 +20207,7 @@
       "slug": "wendell-moore-jr",
       "team_id": 1610612765,
       "team_abbrev": "DET",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -20855,7 +20855,7 @@
       "slug": "pete-nance",
       "team_id": 1610612749,
       "team_abbrev": "MIL",
-      "active": true,
+      "active": false,
       "seasons_from": "2023",
       "seasons_to": "2025",
       "headshot": {
@@ -20927,7 +20927,7 @@
       "slug": "eli-john-ndiaye",
       "team_id": null,
       "team_abbrev": "",
-      "active": true,
+      "active": false,
       "seasons_from": null,
       "seasons_to": null,
       "headshot": {
@@ -21179,7 +21179,7 @@
       "slug": "tristen-newton",
       "team_id": 1610612745,
       "team_abbrev": "HOU",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -21701,7 +21701,7 @@
       "slug": "josh-oduro",
       "team_id": 1610612740,
       "team_abbrev": "NOP",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -21917,7 +21917,7 @@
       "slug": "lachlan-olbrich",
       "team_id": 1610612741,
       "team_abbrev": "CHI",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -21989,7 +21989,7 @@
       "slug": "kelly-olynyk",
       "team_id": 1610612759,
       "team_abbrev": "SAS",
-      "active": true,
+      "active": false,
       "seasons_from": "2013",
       "seasons_to": "2025",
       "headshot": {
@@ -22007,7 +22007,7 @@
       "slug": "norchad-omier",
       "team_id": 1610612746,
       "team_abbrev": "LAC",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -22583,7 +22583,7 @@
       "slug": "cameron-payne",
       "team_id": 1610612755,
       "team_abbrev": "PHI",
-      "active": true,
+      "active": false,
       "seasons_from": "2015",
       "seasons_to": "2025",
       "headshot": {
@@ -22871,7 +22871,7 @@
       "slug": "taelon-peter",
       "team_id": 1610612754,
       "team_abbrev": "IND",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -23159,7 +23159,7 @@
       "slug": "mason-plumlee",
       "team_id": 1610612759,
       "team_abbrev": "SAS",
-      "active": true,
+      "active": false,
       "seasons_from": "2013",
       "seasons_to": "2025",
       "headshot": {
@@ -23519,7 +23519,7 @@
       "slug": "john-poulakidas",
       "team_id": 1610612742,
       "team_abbrev": "DAL",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -24129,9 +24129,9 @@
       "first_name": "Duop",
       "last_name": "Reath",
       "slug": "duop-reath",
-      "team_id": 0,
-      "team_abbrev": null,
-      "active": false,
+      "team_id": 1610612756,
+      "team_abbrev": "PHX",
+      "active": true,
       "seasons_from": "2023",
       "seasons_to": "2025",
       "headshot": {
@@ -24347,7 +24347,7 @@
       "slug": "antonio-reeves",
       "team_id": 1610612766,
       "team_abbrev": "CHA",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -24887,7 +24887,7 @@
       "slug": "david-roddy",
       "team_id": 1610612743,
       "team_abbrev": "DEN",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -25049,7 +25049,7 @@
       "slug": "jackson-rowe",
       "team_id": null,
       "team_abbrev": "",
-      "active": true,
+      "active": false,
       "seasons_from": null,
       "seasons_to": null,
       "headshot": {
@@ -25067,7 +25067,7 @@
       "slug": "terry-rozier",
       "team_id": 1610612748,
       "team_abbrev": "MIA",
-      "active": true,
+      "active": false,
       "seasons_from": "2015",
       "seasons_to": "2025",
       "headshot": {
@@ -25175,7 +25175,7 @@
       "slug": "dangelo-russell",
       "team_id": 1610612764,
       "team_abbrev": "WAS",
-      "active": true,
+      "active": false,
       "seasons_from": "2015",
       "seasons_to": "2025",
       "headshot": {
@@ -25427,7 +25427,7 @@
       "slug": "payton-sandfort",
       "team_id": 1610612760,
       "team_abbrev": "OKC",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -25535,7 +25535,7 @@
       "slug": "olivier-sarr",
       "team_id": 1610612739,
       "team_abbrev": "CLE",
-      "active": true,
+      "active": false,
       "seasons_from": "2021",
       "seasons_to": "2025",
       "headshot": {
@@ -26075,7 +26075,7 @@
       "slug": "max-shulga",
       "team_id": 1610612738,
       "team_abbrev": "BOS",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -26181,9 +26181,9 @@
       "first_name": "Ben",
       "last_name": "Simmons",
       "slug": "ben-simmons",
-      "team_id": null,
-      "team_abbrev": "",
-      "active": false,
+      "team_id": 1610612758,
+      "team_abbrev": "SAC",
+      "active": true,
       "seasons_from": null,
       "seasons_to": null,
       "headshot": {
@@ -26291,7 +26291,7 @@
       "slug": "kj-simpson",
       "team_id": 1610612743,
       "team_abbrev": "DEN",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -26741,7 +26741,7 @@
       "slug": "tyler-smith",
       "team_id": 1610612742,
       "team_abbrev": "DAL",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -26813,7 +26813,7 @@
       "slug": "nick-smith-jr",
       "team_id": 1610612747,
       "team_abbrev": "LAL",
-      "active": true,
+      "active": false,
       "seasons_from": "2023",
       "seasons_to": "2025",
       "headshot": {
@@ -26867,7 +26867,7 @@
       "slug": "jeremy-sochan",
       "team_id": 1610612752,
       "team_abbrev": "NYK",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -27101,7 +27101,7 @@
       "slug": "isaiah-stevens",
       "team_id": 1610612758,
       "team_abbrev": "SAC",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -27695,7 +27695,7 @@
       "slug": "garrett-temple",
       "team_id": 1610612761,
       "team_abbrev": "TOR",
-      "active": true,
+      "active": false,
       "seasons_from": "2009",
       "seasons_to": "2025",
       "headshot": {
@@ -27749,7 +27749,7 @@
       "slug": "dalen-terry",
       "team_id": 1610612755,
       "team_abbrev": "PHI",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -27911,7 +27911,7 @@
       "slug": "cam-thomas",
       "team_id": 1610612749,
       "team_abbrev": "MIL",
-      "active": true,
+      "active": false,
       "seasons_from": "2021",
       "seasons_to": "2025",
       "headshot": {
@@ -28091,7 +28091,7 @@
       "slug": "ethan-thompson",
       "team_id": 1610612754,
       "team_abbrev": "IND",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -28307,7 +28307,7 @@
       "slug": "xavier-tillman",
       "team_id": 1610612766,
       "team_abbrev": "CHA",
-      "active": true,
+      "active": false,
       "seasons_from": "2020",
       "seasons_to": "2025",
       "headshot": {
@@ -28325,7 +28325,7 @@
       "slug": "drew-timme",
       "team_id": 1610612747,
       "team_abbrev": "LAL",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -28451,7 +28451,7 @@
       "slug": "alex-toohey",
       "team_id": null,
       "team_abbrev": "",
-      "active": true,
+      "active": false,
       "seasons_from": null,
       "seasons_to": null,
       "headshot": {
@@ -28955,7 +28955,7 @@
       "slug": "jonas-valaninas",
       "team_id": 1610612743,
       "team_abbrev": "DEN",
-      "active": true,
+      "active": false,
       "seasons_from": "2012",
       "seasons_to": "2025",
       "headshot": {
@@ -29189,7 +29189,7 @@
       "slug": "gabe-vincent",
       "team_id": 1610612737,
       "team_abbrev": "ATL",
-      "active": true,
+      "active": false,
       "seasons_from": "2019",
       "seasons_to": "2025",
       "headshot": {
@@ -29567,7 +29567,7 @@
       "slug": "keaton-wallace",
       "team_id": 1610612737,
       "team_abbrev": "ATL",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -29819,7 +29819,7 @@
       "slug": "tyty-washington-jr",
       "team_id": 1610612746,
       "team_abbrev": "LAC",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -29873,7 +29873,7 @@
       "slug": "lindy-waters-iii",
       "team_id": 1610612759,
       "team_abbrev": "SAS",
-      "active": true,
+      "active": false,
       "seasons_from": "2021",
       "seasons_to": "2025",
       "headshot": {
@@ -30233,7 +30233,7 @@
       "slug": "blake-wesley",
       "team_id": 1610612757,
       "team_abbrev": "POR",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -30305,7 +30305,7 @@
       "slug": "russell-westbrook",
       "team_id": 1610612758,
       "team_abbrev": "SAC",
-      "active": true,
+      "active": false,
       "seasons_from": "2008",
       "seasons_to": "2025",
       "headshot": {
@@ -31025,7 +31025,7 @@
       "slug": "nate-williams",
       "team_id": 1610612744,
       "team_abbrev": "GSW",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -31205,7 +31205,7 @@
       "slug": "vince-williams-jr",
       "team_id": 1610612762,
       "team_abbrev": "UTA",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -31401,9 +31401,9 @@
       "first_name": "James",
       "last_name": "Wiseman",
       "slug": "james-wiseman",
-      "team_id": 0,
-      "team_abbrev": null,
-      "active": false,
+      "team_id": 1610612752,
+      "team_abbrev": "NYK",
+      "active": true,
       "seasons_from": "2020",
       "seasons_to": "2025",
       "headshot": {
@@ -31745,7 +31745,7 @@
       "slug": "guerschon-yabusele",
       "team_id": 1610612741,
       "team_abbrev": "CHI",
-      "active": true,
+      "active": false,
       "seasons_from": "2017",
       "seasons_to": "2025",
       "headshot": {
@@ -31799,7 +31799,7 @@
       "slug": "jahmir-young",
       "team_id": 1610612748,
       "team_abbrev": "MIA",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -32123,7 +32123,7 @@
       "slug": "nikola-urii",
       "team_id": null,
       "team_abbrev": "",
-      "active": true,
+      "active": false,
       "seasons_from": null,
       "seasons_to": null,
       "headshot": {
@@ -32231,7 +32231,7 @@
       "slug": "rashaun-agee",
       "team_id": 1610612739,
       "team_abbrev": "CLE",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -32249,7 +32249,7 @@
       "slug": "jonas-aidoo",
       "team_id": 1610612762,
       "team_abbrev": "UTA",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -32339,7 +32339,7 @@
       "slug": "zack-austin",
       "team_id": 1610612739,
       "team_abbrev": "CLE",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -32537,7 +32537,7 @@
       "slug": "nimari-burnett",
       "team_id": 1610612761,
       "team_abbrev": "TOR",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -32573,7 +32573,7 @@
       "slug": "tyler-burton",
       "team_id": 1610612744,
       "team_abbrev": "GSW",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2026",
       "headshot": {
@@ -32609,7 +32609,7 @@
       "slug": "rafael-castro",
       "team_id": 1610612747,
       "team_abbrev": "LAL",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -32699,7 +32699,7 @@
       "slug": "cameron-corhen",
       "team_id": 1610612737,
       "team_abbrev": "ATL",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -32717,7 +32717,7 @@
       "slug": "matt-cross",
       "team_id": 1610612742,
       "team_abbrev": "DAL",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -32735,7 +32735,7 @@
       "slug": "rj-davis",
       "team_id": 1610612759,
       "team_abbrev": "SAS",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -32771,7 +32771,7 @@
       "slug": "tyson-degenhart",
       "team_id": 1610612761,
       "team_abbrev": "TOR",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -32789,7 +32789,7 @@
       "slug": "tucker-devries",
       "team_id": 1610612738,
       "team_abbrev": "BOS",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -32933,7 +32933,7 @@
       "slug": "jon-elmore",
       "team_id": 1610612759,
       "team_abbrev": "SAS",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -32987,7 +32987,7 @@
       "slug": "wyatt-fricks",
       "team_id": 1610612766,
       "team_abbrev": "CHA",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33005,7 +33005,7 @@
       "slug": "taylor-funk",
       "team_id": 1610612762,
       "team_abbrev": "UTA",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33041,7 +33041,7 @@
       "slug": "dane-goodwin",
       "team_id": 1610612743,
       "team_abbrev": "DEN",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33077,7 +33077,7 @@
       "slug": "hayden-gray",
       "team_id": 1610612738,
       "team_abbrev": "BOS",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2026",
       "headshot": {
@@ -33095,7 +33095,7 @@
       "slug": "coleman-hawkins",
       "team_id": 1610612743,
       "team_abbrev": "DEN",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33113,7 +33113,7 @@
       "slug": "andrew-holifield",
       "team_id": 1610612760,
       "team_abbrev": "OKC",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33149,7 +33149,7 @@
       "slug": "ben-humrichous",
       "team_id": 1610612751,
       "team_abbrev": "BKN",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33203,7 +33203,7 @@
       "slug": "kobe-johnson",
       "team_id": 1610612737,
       "team_abbrev": "ATL",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33239,7 +33239,7 @@
       "slug": "jarkel-joiner",
       "team_id": 1610612766,
       "team_abbrev": "CHA",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33293,7 +33293,7 @@
       "slug": "keba-keita",
       "team_id": 1610612754,
       "team_abbrev": "IND",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33311,7 +33311,7 @@
       "slug": "tyreke-key",
       "team_id": 1610612761,
       "team_abbrev": "TOR",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33383,7 +33383,7 @@
       "slug": "gabe-madsen",
       "team_id": 1610612748,
       "team_abbrev": "MIA",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33455,7 +33455,7 @@
       "slug": "rienk-mast",
       "team_id": 1610612754,
       "team_abbrev": "IND",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33473,7 +33473,7 @@
       "slug": "bez-mbeng",
       "team_id": 1610612748,
       "team_abbrev": "MIA",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2026",
       "headshot": {
@@ -33491,7 +33491,7 @@
       "slug": "gabe-mcglothan",
       "team_id": 1610612738,
       "team_abbrev": "BOS",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33509,7 +33509,7 @@
       "slug": "isaac-mckneely",
       "team_id": 1610612737,
       "team_abbrev": "ATL",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33527,7 +33527,7 @@
       "slug": "duke-miles",
       "team_id": 1610612755,
       "team_abbrev": "PHI",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33581,7 +33581,7 @@
       "slug": "damari-monsanto",
       "team_id": 1610612758,
       "team_abbrev": "SAC",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33599,7 +33599,7 @@
       "slug": "jalon-moore",
       "team_id": 1610612740,
       "team_abbrev": "NOP",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33635,7 +33635,7 @@
       "slug": "jameer-nelson-jr",
       "team_id": 1610612755,
       "team_abbrev": "PHI",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33671,7 +33671,7 @@
       "slug": "aaron-nkrumah",
       "team_id": 1610612758,
       "team_abbrev": "SAC",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33851,7 +33851,7 @@
       "slug": "anthony-pritchard",
       "team_id": 1610612760,
       "team_abbrev": "OKC",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33905,7 +33905,7 @@
       "slug": "jaxson-robinson",
       "team_id": 1610612739,
       "team_abbrev": "CLE",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33923,7 +33923,7 @@
       "slug": "ian-schieffelin",
       "team_id": 1610612748,
       "team_abbrev": "MIA",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -33977,7 +33977,7 @@
       "slug": "jamarion-sharp",
       "team_id": 1610612761,
       "team_abbrev": "TOR",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -34049,7 +34049,7 @@
       "slug": "jake-stephens",
       "team_id": 1610612749,
       "team_abbrev": "MIL",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -34121,7 +34121,7 @@
       "slug": "saint-thomas",
       "team_id": 1610612755,
       "team_abbrev": "PHI",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -34157,7 +34157,7 @@
       "slug": "christoph-tilly",
       "team_id": 1610612760,
       "team_abbrev": "OKC",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -34193,7 +34193,7 @@
       "slug": "john-ukomadu",
       "team_id": 1610612765,
       "team_abbrev": "DET",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -34211,7 +34211,7 @@
       "slug": "milos-uzan",
       "team_id": 1610612738,
       "team_abbrev": "BOS",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -34265,7 +34265,7 @@
       "slug": "mohamed-wague",
       "team_id": 1610612762,
       "team_abbrev": "UTA",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -34283,7 +34283,7 @@
       "slug": "phillip-wheeler",
       "team_id": 1610612756,
       "team_abbrev": "PHX",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2026",
       "headshot": {
@@ -34301,7 +34301,7 @@
       "slug": "brice-williams",
       "team_id": 1610612765,
       "team_abbrev": "DET",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -34319,7 +34319,7 @@
       "slug": "malik-williams",
       "team_id": 1610612759,
       "team_abbrev": "SAS",
-      "active": true,
+      "active": false,
       "seasons_from": "2023",
       "seasons_to": "2026",
       "headshot": {
@@ -34355,7 +34355,7 @@
       "slug": "noam-yaacov",
       "team_id": 1610612739,
       "team_abbrev": "CLE",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
