@@ -5,6 +5,9 @@ name: add-new-players
 # a row in players.json, active.json and players_all.json. Additive only: existing photos and
 # metadata rows are never touched, except that an active player whose face/ file is the CDN's
 # grey silhouette gets their real photo once the CDN has one (scripts/add_new_actives.py).
+# It also keeps the "active" flag in step with the NBA index: players it stops listing get
+# "active": false and leave active.json, players who come back are flipped to true. Nobody is
+# deleted and no image file is touched by that step.
 # Runs every Monday and by hand from the Actions tab (tick "dry run" to only list who would be added).
 
 on:
@@ -81,6 +84,7 @@ jobs:
           m=$(git diff --cached --name-only --diff-filter=M -- 'players/headshots/face/*.png' | wc -l)
           if [ "$n" -gt 0 ] && [ "$m" -gt 0 ]; then msg="add-new-players: ${n} players, ${m} face/ files updated"
           elif [ "$n" -gt 0 ]; then msg="add-new-players: ${n} players"
-          else msg="add-new-players: ${m} face/ files updated"; fi
+          elif [ "$m" -gt 0 ]; then msg="add-new-players: ${m} face/ files updated"
+          else msg="add-new-players: active flags updated"; fi
           git commit -m "$msg"
           git push

@@ -10,6 +10,12 @@ players/headshots/face/ file yet, this:
      every other face2 crop,
   4. writes face2-160/ (160px WebP) like make_face2_160.py,
   5. appends the player to players.json, active.json and players_all.json.
+Then it keeps the "active" flag in step with the index: a player the index no longer lists as
+active gets "active": false in players.json and players_all.json and leaves active.json (the
+active-only view, as build_index.py writes it); a player who comes back is flipped to true, gets
+the team the index lists now, and is put back in active.json. Nobody is deleted from players.json or players_all.json and no image
+file is touched by this step. It is skipped when the index lists fewer than MIN_INDEX_ACTIVE
+active players (a broken or partial download must not deactivate the league).
 Existing files and existing metadata rows are never touched, with one exception: an active
 player whose face/ file is the CDN's grey silhouette (committed before the pixel check existed)
 is downloaded again, and once the CDN has a real photo their face/, thumb/, face2/ and face2-160/
@@ -135,6 +141,66 @@ def face_and_thumb(original, rc):
     return square.resize((256, 256), Image.LANCZOS), square.resize((64, 64), Image.LANCZOS)
 
 
+# A full NBA index lists ~500-650 active players (rosters plus two-way deals). Fewer than this
+# means a broken download, so the active flags are left alone.
+MIN_INDEX_ACTIVE = 400
+
+
+def write_meta(name, doc):
+    # Same formatting each file already has, so the diff is only the changed rows:
+    # players.json and active.json escape accents, players_all.json doesn't; no final newline.
+    with open(os.path.join(META, f"{name}.json"), "w", encoding="utf-8") as f:
+        f.write(json.dumps(doc, indent=2, ensure_ascii=(name != "players_all")))
+
+
+def sync_active(actives, dry_run):
+    """Set "active" from the index. Returns (deactivated, reactivated) as lists of names."""
+    if len(actives) < MIN_INDEX_ACTIVE:
+        print(f"::warning::index lists only {len(actives)} active players; active flags left as they are")
+        return [], []
+    ids = {str(p["nba_id"]) for p in actives}
+    team = {str(p["nba_id"]): {"team_id": p["team_id"], "team_abbrev": p["team_abbrev"]} for p in actives}
+    docs = {}
+    for name in ("players", "active", "players_all"):
+        with open(os.path.join(META, f"{name}.json"), encoding="utf-8") as f:
+            docs[name] = json.load(f)
+    off, on, changed = {}, {}, set()
+    for name in ("players", "players_all"):
+        for row in docs[name]["players"]:
+            pid = str(row.get("nba_id"))
+            if row.get("active") and pid not in ids:
+                row["active"] = False
+                off[pid] = row["full_name"]
+                changed.add(name)
+            elif row.get("active") is False and pid in ids:
+                row["active"] = True
+                row.update(team[pid])   # whatever team they had when they left is stale
+                on[pid] = row["full_name"]
+                changed.add(name)
+    # active.json: drop rows the index no longer lists, put returning players back (their
+    # players.json row, else players_all.json's), at the end like new players.
+    act = docs["active"]
+    listed = {str(r.get("nba_id")) for r in act["players"]}
+    keep = [r for r in act["players"] if str(r.get("nba_id")) in ids]
+    full = {str(r.get("nba_id")): r for r in docs["players_all"]["players"]}
+    full.update({str(r.get("nba_id")): r for r in docs["players"]["players"]})
+    back = [dict(full[pid], active=True, **team[pid]) for pid in sorted(ids - listed) if pid in full]
+    for r in act["players"]:
+        if str(r.get("nba_id")) not in ids:
+            off[str(r.get("nba_id"))] = r["full_name"]
+    for r in back:
+        on[str(r["nba_id"])] = r["full_name"]
+    if len(keep) != len(act["players"]) or back:
+        act["players"] = keep + back
+        act["total_players"] = len(act["players"])
+        act["with_headshot"] = sum(1 for r in act["players"] if (r.get("headshot") or {}).get("face"))
+        changed.add("active")
+    if not dry_run:
+        for name in changed:
+            write_meta(name, docs[name])
+    return sorted(off.values()), sorted(on.values())
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
@@ -224,17 +290,20 @@ def main():
                 doc["total_players"] = len(doc["players"])
             if "with_headshot" in doc:
                 doc["with_headshot"] = doc["with_headshot"] + len(new)
-            # Same formatting each file already has, so the diff is only the new rows:
-            # players.json and active.json escape accents, players_all.json doesn't; no final newline.
-            with open(path, "w", encoding="utf-8") as f:
-                f.write(json.dumps(doc, indent=2, ensure_ascii=(name != "players_all")))
+            write_meta(name, doc)
+
+    # --limit is for trying the photo steps on a few players, so it leaves the flags alone.
+    deactivated, reactivated = ([], []) if a.limit else sync_active(actives, a.dry_run)
 
     would = "would be " if a.dry_run else ""
     print(f"::notice::{len(added)} players {would}added"
           + (f": {', '.join(p['full_name'] for p in added)}" if added else "")
           + (f". {len(replaced)} silhouettes {would}replaced by real photos: "
              f"{', '.join(p['full_name'] for p in replaced)}" if replaced else "")
-          + (f". Still a silhouette on the NBA CDN: {', '.join(silhouettes)}" if silhouettes else ""))
+          + (f". Still a silhouette on the NBA CDN: {', '.join(silhouettes)}" if silhouettes else "")
+          + (f". {len(deactivated)} {would}marked inactive (no longer active in the NBA index): "
+             f"{', '.join(deactivated)}" if deactivated else "")
+          + (f". {len(reactivated)} {would}marked active again: {', '.join(reactivated)}" if reactivated else ""))
 
 
 if __name__ == "__main__":
