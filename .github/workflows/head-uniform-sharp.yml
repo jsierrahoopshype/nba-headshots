@@ -19,7 +19,7 @@ on:
         type: boolean
         default: false
   push:
-    branches: [main, claude/zen-volta-eqkplv] # TEMPORARY: branch removed before merging
+    branches: [main]
     paths:
       - "scripts/build_head_uniform_sharp.py"
       - ".github/workflows/head-uniform-sharp.yml"
