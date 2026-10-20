@@ -1,0 +1,71 @@
+name: head-uniform-sharp
+
+# Builds players/headshots/head-uniform-sharp/ (480px WebP, the head-uniform framing made from the
+# 1040x760 NBA CDN originals, never blown up). Additive: only writes head-uniform-sharp/ (WebPs,
+# .sources.json, MISSING.md); never touches any other folder or the metadata. Incremental: only
+# players not done yet are downloaded. Runs every Monday after add-new-players, and by hand.
+
+on:
+  schedule:
+    - cron: "40 8 * * 1"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Redo every player"
+        type: boolean
+        default: false
+      retry:
+        description: "Redo the players whose download failed"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - "scripts/build_head_uniform_sharp.py"
+      - ".github/workflows/head-uniform-sharp.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: head-uniform-sharp
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        # MediaPipe's shared library links against EGL/GLES even when it runs on the CPU.
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libegl1 libgles2
+          python -m pip install --quiet pillow numpy "mediapipe==1.1.1" "curl_cffi==0.7.*"
+
+      - name: Build head-uniform-sharp
+        run: python scripts/build_head_uniform_sharp.py ${{ inputs.force && '--force' || '' }} ${{ inputs.retry && '--retry' || '' }}
+
+      - name: Commit if changed
+        run: |
+          git add players/headshots/head-uniform-sharp/
+          if git diff --cached --quiet; then
+            echo "head-uniform-sharp: nothing changed"
+            exit 0
+          fi
+          n=$(git diff --cached --name-only -- 'players/headshots/head-uniform-sharp/*.webp' | wc -l)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "head-uniform-sharp: ${n} files"
+          # other workflows also push to this branch; rebase onto them (only head-uniform-sharp/ is ours)
+          for i in 1 2 3; do
+            git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+          done
+          git push origin "HEAD:${GITHUB_REF_NAME}"

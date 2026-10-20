@@ -45,6 +45,9 @@ players/
     thumb/        ← 64x64 thumbnails (committed)
     head-uniform/      ← 160x160 passport-style crops: eyes 20% of the width apart, 48% down (committed)
     head-uniform-480/  ← the same framing at 480x480, transparent WebP (committed)
+    head-uniform-sharp/ ← the same framing at 480x480 made from the 1040x760 NBA CDN originals, never
+                          blown up: only players whose original holds the 480 frame (committed;
+                          MISSING.md lists the rest). New and separate: nothing above changes.
   metadata/
     players.json  ← full player index
     active.json   ← active players only
@@ -69,6 +72,7 @@ scripts/
   build_index.py
   build_head_uniform.py      ← head-uniform/ (160px)
   build_head_uniform_480.py  ← head-uniform-480/ (480px, same recipe)
+  build_head_uniform_sharp.py ← head-uniform-sharp/ (480px from the originals, no upscaling)
 index.js          ← JavaScript SDK
 index.py          ← Python SDK
 run_pipeline.sh   ← one-shot pipeline runner
