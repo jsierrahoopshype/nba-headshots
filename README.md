@@ -48,6 +48,11 @@ players/
     head-uniform-sharp/ ← the same framing at 480x480 made from the 1040x760 NBA CDN originals, never
                           blown up: only players whose original holds the 480 frame (committed;
                           MISSING.md lists the rest). New and separate: nothing above changes.
+    face-fill/         ← THE HoopsMatic headshot (Oct 26 2026): the face fills the frame, chin just inside the
+                          bottom, no neck line, no background. 160x160 transparent WebP, show it in a
+                          circle. Built from head-uniform-sharp (head-uniform-480 when there's no sharp
+                          file); MISSING.md lists players with neither: show initials for them.
+    face-fill-320/     ← the same at 320x320, for big circles (videos, share cards)
   metadata/
     players.json  ← full player index
     active.json   ← active players only
@@ -73,6 +78,7 @@ scripts/
   build_head_uniform.py      ← head-uniform/ (160px)
   build_head_uniform_480.py  ← head-uniform-480/ (480px, same recipe)
   build_head_uniform_sharp.py ← head-uniform-sharp/ (480px from the originals, no upscaling)
+  build_face_fill.py         ← face-fill/ and face-fill-320/ (weekly, .github/workflows/face-fill.yml)
 index.js          ← JavaScript SDK
 index.py          ← Python SDK
 run_pipeline.sh   ← one-shot pipeline runner
