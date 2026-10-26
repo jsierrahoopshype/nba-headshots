@@ -1,0 +1,59 @@
+name: face-fill
+
+# Builds players/headshots/face-fill/ (160px) and face-fill-320/ (320px), the one HoopsMatic
+# headshot look, from head-uniform-sharp/ (or head-uniform-480/ when a player has no sharp file).
+# Weekly on Monday after add-new-players (06:40) and head-uniform-sharp (08:40), so new players
+# get one the same day. Additive: only writes face-fill/ and face-fill-320/.
+
+on:
+  schedule:
+    - cron: "40 10 * * 1"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Rebuild every player"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - "scripts/build_face_fill.py"
+      - ".github/workflows/face-fill.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: face-fill
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Pillow
+        run: python -m pip install --quiet pillow
+
+      - name: Build face-fill
+        run: python scripts/build_face_fill.py ${{ inputs.force && '--force' || '' }}
+
+      - name: Commit if changed
+        run: |
+          git add players/headshots/face-fill players/headshots/face-fill-320
+          if git diff --cached --quiet; then
+            echo "face-fill: nothing changed"
+            exit 0
+          fi
+          n=$(git diff --cached --name-only -- 'players/headshots/face-fill/*.webp' | wc -l)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "face-fill: ${n} files"
+          git pull --rebase origin main
+          git push
