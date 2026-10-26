@@ -3467,7 +3467,7 @@
       "slug": "koby-brea",
       "team_id": 1610612756,
       "team_abbrev": "PHX",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -4221,9 +4221,9 @@
       "first_name": "Kobe",
       "last_name": "Bufkin",
       "slug": "kobe-bufkin",
-      "team_id": 1610612747,
-      "team_abbrev": "LAL",
-      "active": false,
+      "team_id": 1610612762,
+      "team_abbrev": "UTA",
+      "active": true,
       "seasons_from": "2023",
       "seasons_to": "2025",
       "headshot": {
@@ -9155,7 +9155,7 @@
       "slug": "adam-flagler",
       "team_id": 1610612758,
       "team_abbrev": "SAC",
-      "active": true,
+      "active": false,
       "seasons_from": null,
       "seasons_to": null,
       "headshot": {
@@ -12557,7 +12557,7 @@
       "slug": "blake-hinson",
       "team_id": 1610612762,
       "team_abbrev": "UTA",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -13331,7 +13331,7 @@
       "slug": "cj-huntley",
       "team_id": 1610612756,
       "team_abbrev": "PHX",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -18713,7 +18713,7 @@
       "slug": "kevin-mccullar-jr",
       "team_id": 1610612752,
       "team_abbrev": "NYK",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -20855,7 +20855,7 @@
       "slug": "pete-nance",
       "team_id": 1610612749,
       "team_abbrev": "MIL",
-      "active": false,
+      "active": true,
       "seasons_from": "2023",
       "seasons_to": "2025",
       "headshot": {
@@ -23375,7 +23375,7 @@
       "slug": "kevin-porter-jr",
       "team_id": 1610612749,
       "team_abbrev": "MIL",
-      "active": true,
+      "active": false,
       "seasons_from": "2019",
       "seasons_to": "2025",
       "headshot": {
@@ -23555,7 +23555,7 @@
       "slug": "dwight-powell",
       "team_id": 1610612742,
       "team_abbrev": "DAL",
-      "active": true,
+      "active": false,
       "seasons_from": "2014",
       "seasons_to": "2025",
       "headshot": {
@@ -28323,9 +28323,9 @@
       "first_name": "Drew",
       "last_name": "Timme",
       "slug": "drew-timme",
-      "team_id": 1610612747,
-      "team_abbrev": "LAL",
-      "active": false,
+      "team_id": 1610612756,
+      "team_abbrev": "PHX",
+      "active": true,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -33761,7 +33761,7 @@
       "slug": "otega-oweh",
       "team_id": 1610612760,
       "team_abbrev": "OKC",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {

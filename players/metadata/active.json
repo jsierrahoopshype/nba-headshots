@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-03-08T23:04:37.237357+00:00",
-  "total_players": 526,
-  "with_headshot": 526,
+  "total_players": 521,
+  "with_headshot": 521,
   "players": [
     {
       "nba_id": 1630173,
@@ -649,24 +649,6 @@
         "original": true,
         "source": "nba_cdn",
         "filename": "1631128-christian-braun.png"
-      }
-    },
-    {
-      "nba_id": 1642886,
-      "full_name": "Koby Brea",
-      "first_name": "Koby",
-      "last_name": "Brea",
-      "slug": "koby-brea",
-      "team_id": 1610612756,
-      "team_abbrev": "PHX",
-      "active": true,
-      "seasons_from": "2025",
-      "seasons_to": "2025",
-      "headshot": {
-        "face": true,
-        "original": true,
-        "source": "nba_cdn",
-        "filename": "1642886-koby-brea.png"
       }
     },
     {
@@ -2956,24 +2938,6 @@
       }
     },
     {
-      "nba_id": 1642396,
-      "full_name": "Blake Hinson",
-      "first_name": "Blake",
-      "last_name": "Hinson",
-      "slug": "blake-hinson",
-      "team_id": 1610612762,
-      "team_abbrev": "UTA",
-      "active": true,
-      "seasons_from": "2025",
-      "seasons_to": "2025",
-      "headshot": {
-        "face": true,
-        "original": true,
-        "source": "nba_cdn",
-        "filename": "1642396-blake-hinson.png"
-      }
-    },
-    {
       "nba_id": 201950,
       "full_name": "Jrue Holiday",
       "first_name": "Jrue",
@@ -3151,24 +3115,6 @@
         "original": true,
         "source": "nba_cdn",
         "filename": "1629631-deandre-hunter.png"
-      }
-    },
-    {
-      "nba_id": 1643047,
-      "full_name": "CJ Huntley",
-      "first_name": "CJ",
-      "last_name": "Huntley",
-      "slug": "cj-huntley",
-      "team_id": 1610612756,
-      "team_abbrev": "PHX",
-      "active": true,
-      "seasons_from": "2025",
-      "seasons_to": "2025",
-      "headshot": {
-        "face": true,
-        "original": true,
-        "source": "nba_cdn",
-        "filename": "1643047-cj-huntley.png"
       }
     },
     {
@@ -4594,24 +4540,6 @@
       }
     },
     {
-      "nba_id": 1641755,
-      "full_name": "Kevin McCullar Jr.",
-      "first_name": "Kevin",
-      "last_name": "McCullar Jr.",
-      "slug": "kevin-mccullar-jr",
-      "team_id": 1610612752,
-      "team_abbrev": "NYK",
-      "active": true,
-      "seasons_from": "2024",
-      "seasons_to": "2025",
-      "headshot": {
-        "face": true,
-        "original": true,
-        "source": "nba_cdn",
-        "filename": "1641755-kevin-mccullar-jr.png"
-      }
-    },
-    {
       "nba_id": 1630183,
       "full_name": "Jaden McDaniels",
       "first_name": "Jaden",
@@ -5602,24 +5530,6 @@
       }
     },
     {
-      "nba_id": 1629645,
-      "full_name": "Kevin Porter Jr.",
-      "first_name": "Kevin",
-      "last_name": "Porter Jr.",
-      "slug": "kevin-porter-jr",
-      "team_id": 1610612749,
-      "team_abbrev": "MIL",
-      "active": true,
-      "seasons_from": "2019",
-      "seasons_to": "2025",
-      "headshot": {
-        "face": true,
-        "original": true,
-        "source": "nba_cdn",
-        "filename": "1629645-kevin-porter-jr.png"
-      }
-    },
-    {
       "nba_id": 1629008,
       "full_name": "Michael Porter Jr.",
       "first_name": "Michael",
@@ -5725,24 +5635,6 @@
         "original": true,
         "source": "nba_cdn",
         "filename": "1642962-drake-powell.png"
-      }
-    },
-    {
-      "nba_id": 203939,
-      "full_name": "Dwight Powell",
-      "first_name": "Dwight",
-      "last_name": "Powell",
-      "slug": "dwight-powell",
-      "team_id": 1610612742,
-      "team_abbrev": "DAL",
-      "active": true,
-      "seasons_from": "2014",
-      "seasons_to": "2025",
-      "headshot": {
-        "face": true,
-        "original": true,
-        "source": "nba_cdn",
-        "filename": "203939-dwight-powell.png"
       }
     },
     {
@@ -8896,24 +8788,6 @@
       }
     },
     {
-      "nba_id": 1642923,
-      "full_name": "Otega Oweh",
-      "first_name": "Otega",
-      "last_name": "Oweh",
-      "slug": "otega-oweh",
-      "team_id": 1610612760,
-      "team_abbrev": "OKC",
-      "active": true,
-      "seasons_from": "2026",
-      "seasons_to": "2026",
-      "headshot": {
-        "face": true,
-        "original": true,
-        "source": "nba_cdn",
-        "filename": "1642923-otega-oweh.png"
-      }
-    },
-    {
       "nba_id": 1643520,
       "full_name": "Koa Peat",
       "first_name": "Koa",
@@ -9436,24 +9310,6 @@
       }
     },
     {
-      "nba_id": 1641745,
-      "full_name": "Adam Flagler",
-      "first_name": "Adam",
-      "last_name": "Flagler",
-      "slug": "adam-flagler",
-      "team_id": 1610612758,
-      "team_abbrev": "SAC",
-      "active": true,
-      "seasons_from": null,
-      "seasons_to": null,
-      "headshot": {
-        "face": true,
-        "original": true,
-        "source": "nba_cdn",
-        "filename": "1641745-adam-flagler.png"
-      }
-    },
-    {
       "nba_id": 1641871,
       "full_name": "Duop Reath",
       "first_name": "Duop",
@@ -9469,6 +9325,60 @@
         "original": true,
         "source": "nba_cdn",
         "filename": "1641871-duop-reath.png"
+      }
+    },
+    {
+      "nba_id": 1631166,
+      "full_name": "Drew Timme",
+      "first_name": "Drew",
+      "last_name": "Timme",
+      "slug": "drew-timme",
+      "team_id": 1610612756,
+      "team_abbrev": "PHX",
+      "active": true,
+      "seasons_from": "2024",
+      "seasons_to": "2025",
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "nba_cdn",
+        "filename": "1631166-drew-timme.png"
+      }
+    },
+    {
+      "nba_id": 1631250,
+      "full_name": "Pete Nance",
+      "first_name": "Pete",
+      "last_name": "Nance",
+      "slug": "pete-nance",
+      "team_id": 1610612749,
+      "team_abbrev": "MIL",
+      "active": true,
+      "seasons_from": "2023",
+      "seasons_to": "2025",
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "nba_cdn",
+        "filename": "1631250-pete-nance.png"
+      }
+    },
+    {
+      "nba_id": 1641723,
+      "full_name": "Kobe Bufkin",
+      "first_name": "Kobe",
+      "last_name": "Bufkin",
+      "slug": "kobe-bufkin",
+      "team_id": 1610612762,
+      "team_abbrev": "UTA",
+      "active": true,
+      "seasons_from": "2023",
+      "seasons_to": "2025",
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "nba_cdn",
+        "filename": "1641723-kobe-bufkin.png"
       }
     }
   ]
