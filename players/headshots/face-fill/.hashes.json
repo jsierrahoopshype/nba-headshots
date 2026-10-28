@@ -16164,6 +16164,15 @@
 "sha": "2b1af65da3efa7d13610fa16dd40fd492fd4bf5c6554f3e93d3e46b9b62c0e52",
 "src": "head-uniform-sharp"
 },
+"467-jason-kidd": {
+"box": [
+70.0,
+94.4,
+340.0
+],
+"sha": "bb5b4fe0b2d731677e23ca116297f4f6754b6de774c3ef69bd4b757b6c1413c6",
+"src": "cutout-extra"
+},
 "468-jon-barry": {
 "box": [
 70.0,
@@ -16650,6 +16659,15 @@
 "sha": "1f30b4231c88ffa72f28f94a2d0e0f5e58ef13519770c84096e6dadb05a204f9",
 "src": "head-uniform-sharp"
 },
+"77141-dennis-johnson": {
+"box": [
+70.0,
+94.4,
+340.0
+],
+"sha": "af48ea0837efe66d6e7775928ae06280f81151dcf65fd6c6abf3f4976f06bd01",
+"src": "cutout-extra"
+},
 "77142-bob-cousy": {
 "box": [
 70.0,
@@ -16712,6 +16730,15 @@
 ],
 "sha": "828405cd079f639cb4926d82f0fa9fa05d260b00e8d0c5d4af25c38aa3c8f9d5",
 "src": "head-uniform-sharp"
+},
+"77480-slater-martin": {
+"box": [
+70.0,
+94.4,
+340.0
+],
+"sha": "19771ab031a70af8ddc676fad8cea8bc45e6e1365821f1e8b974f708ac3e4a8d",
+"src": "cutout-extra"
 },
 "77498-bob-mcadoo": {
 "box": [
@@ -16910,6 +16937,15 @@
 ],
 "sha": "fa7e3487db84ccf3e00a387148d0dce81d344362a3771d0b8bbd2bfd78604a9b",
 "src": "head-uniform-sharp"
+},
+"920-ac-green": {
+"box": [
+70.0,
+94.4,
+340.0
+],
+"sha": "0721754c4a40ca69e99a6d27cc1226a93452399bbe5e059010bbe782aad33ea2",
+"src": "cutout-extra"
 },
 "922-elden-campbell": {
 "box": [

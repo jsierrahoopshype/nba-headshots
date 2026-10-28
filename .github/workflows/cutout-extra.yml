@@ -1,0 +1,57 @@
+name: cutout-extra
+
+# Frames the background-removed cut-outs in players/headshots/cutout-extra/ like head-uniform-480
+# (MediaPipe eye landmarks; the model is downloaded and sha256-checked by build_head_uniform.py)
+# and commits cutout-extra/<stem>.webp + .hashes.json to the branch that was pushed. The cut-outs
+# themselves are made by hand (scripts/build_cutout_extra.py --cut, needs rembg).
+# Incremental: only cut-outs that changed are framed again. Additive: only writes cutout-extra/.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "players/headshots/cutout-extra/*.png"
+      - "scripts/build_cutout_extra.py"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cutout-extra-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  frame:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        # MediaPipe's shared library links against EGL/GLES even when it runs on the CPU.
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libegl1 libgles2
+          python -m pip install --quiet pillow numpy scipy "mediapipe==1.1.1"
+
+      - name: Frame the cut-outs
+        run: python scripts/build_cutout_extra.py
+
+      - name: Commit if changed
+        run: |
+          git add players/headshots/cutout-extra/
+          if git diff --cached --quiet; then
+            echo "cutout-extra: nothing changed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "cutout-extra: frame cut-outs"
+          for i in 1 2 3; do
+            git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+          done
+          git push origin "HEAD:${GITHUB_REF_NAME}"
