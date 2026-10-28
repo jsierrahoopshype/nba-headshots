@@ -15,7 +15,8 @@ Per stem in STEMS:
   2. save it as cutout-extra/<stem>.png (the new source file, 520x520 RGBA).
   3. frame it exactly like head-uniform-480/ (scripts/build_head_uniform.py's frame() at 480:
      MediaPipe eye landmarks, eye line level, eyes 20% of the width apart at 50%/48%, the same
-     hair-at-the-top fix) and save cutout-extra/<stem>.webp plus its record in
+     hair-at-the-top fix; a head turned to the side is shrunk to the usual eye-to-chin size,
+     see MAX_CHIN) and save cutout-extra/<stem>.webp plus its record in
      cutout-extra/.hashes.json (same fields as head-uniform-480/.hashes.json).
 scripts/build_face_fill.py reads cutout-extra/ as its third source (after head-uniform-sharp and
 head-uniform-480), so these players get face-fill/ and face-fill-320/ files framed like everyone.
@@ -49,7 +50,13 @@ DST = os.path.join("players", "headshots", "cutout-extra")
 HASHES = os.path.join(DST, ".hashes.json")
 MODEL = "u2net"
 QUALITY = 90
-RECIPE = 1          # bump to reframe every cut-out
+RECIPE = 2          # bump to reframe every cut-out
+# A head turned to the side has its eyes closer together, so eye-distance scaling blows the face
+# up (Dennis Johnson: eye line to chin 2.19 eye distances; head-uniform-480's median is 1.78, its
+# 95th percentile 1.99). Above MAX_CHIN the cut-out is shrunk about the eye midpoint until the
+# chin sits at the median, so the face is the same size as everyone else's in face-fill.
+MAX_CHIN = 2.0
+MEDIAN_CHIN = 1.78
 STEMS = [
     "467-jason-kidd",
     "77141-dennis-johnson",
@@ -73,8 +80,10 @@ def keep_largest_blob(im):
 
 
 def sha256_of(path):
+    """sha256 of the cut-out plus RECIPE: build_face_fill.py redoes a player when this changes,
+    so a reframe (RECIPE bump) reaches face-fill/ even when the cut-out itself is the same."""
     with open(path, "rb") as f:
-        return hashlib.sha256(f.read()).hexdigest()
+        return hashlib.sha256(f.read() + f"|recipe {RECIPE}".encode()).hexdigest()
 
 
 def cut():
@@ -114,7 +123,17 @@ def frame():
             if detect is None:
                 lm, detect = hu.make_landmarker()
             with Image.open(png) as raw:
-                img, rec = hu.frame(raw.convert("RGBA"), detect)
+                im = raw.convert("RGBA")
+            img, rec = hu.frame(im, detect)
+            eye_px = hu.SIZE * hu.EYE_DIST
+            if img is not None and not rec.get("lifted") and (rec["chin"] - hu.SIZE * hu.EYE_Y) / eye_px > MAX_CHIN:
+                ratio = (rec["chin"] - hu.SIZE * hu.EYE_Y) / eye_px
+                f = MEDIAN_CHIN / ratio
+                scale, angle, mid = hu.transform_for(hu.landmarks(im, detect))
+                img = hu.render(im, scale * f, angle, mid)
+                rec.update({"chin": round(hu.SIZE * hu.EYE_Y + (rec["chin"] - hu.SIZE * hu.EYE_Y) * f, 2),
+                            "crown": round(hu.SIZE * hu.EYE_Y + (rec["crown"] - hu.SIZE * hu.EYE_Y) * f, 2),
+                            "scale": round(scale * f, 4), "chin_ratio0": round(ratio, 3), "turned": True})
             rec["sha"] = sha
             records[stem] = rec
             if img is None:
