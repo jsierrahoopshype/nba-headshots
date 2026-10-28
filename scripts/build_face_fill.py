@@ -12,7 +12,9 @@ first:
   1. head-uniform-sharp/  (480px from the NBA's 1040x760 originals, never blown up)
   2. head-uniform-480/    (the same framing from the 256px face/ cutouts, for players with no
                            sharp file)
-Players in neither (no NBA photo, photo with a solid background, profile shots, failed
+  3. cutout-extra/        (the same framing at 480 from background-removed copies of the few
+                           photos that still had their background; scripts/build_cutout_extra.py)
+Players in none of them (no NBA photo, photo with a solid background, profile shots, failed
 landmarks) or in MANUAL_EXCLUDE get no file and are listed in face-fill/MISSING.md: show initials
 for them.
 
@@ -28,7 +30,7 @@ players whose source changed; changing RECIPE redoes everyone.
 Run from the repo root:
     python scripts/build_face_fill.py            # incremental
     python scripts/build_face_fill.py --force    # rebuild everything
-Additive only: reads head-uniform-sharp/ and head-uniform-480/, writes face-fill/ and
+Additive only: reads head-uniform-sharp/, head-uniform-480/ and cutout-extra/, writes face-fill/ and
 face-fill-320/. Never touches anything else. Needs: pip install pillow
 """
 import argparse
@@ -41,7 +43,7 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HS = os.path.join(ROOT, "players", "headshots")
-SOURCES = ["head-uniform-sharp", "head-uniform-480"]  # best first
+SOURCES = ["head-uniform-sharp", "head-uniform-480", "cutout-extra"]  # best first
 OUT = {160: os.path.join(HS, "face-fill"), 320: os.path.join(HS, "face-fill-320")}
 STATE = os.path.join(OUT[160], ".hashes.json")
 MISSING = os.path.join(OUT[160], "MISSING.md")
