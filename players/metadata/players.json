@@ -2765,7 +2765,7 @@
       "slug": "enrique-freeman",
       "team_id": 1610612750,
       "team_abbrev": "MIN",
-      "active": false,
+      "active": true,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -5481,9 +5481,9 @@
       "first_name": "Lawson",
       "last_name": "Lovering",
       "slug": "lawson-lovering",
-      "team_id": 0,
-      "team_abbrev": null,
-      "active": false,
+      "team_id": 1610612747,
+      "team_abbrev": "LAL",
+      "active": true,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -9729,9 +9729,9 @@
       "first_name": "Blake",
       "last_name": "Wesley",
       "slug": "blake-wesley",
-      "team_id": 1610612757,
-      "team_abbrev": "POR",
-      "active": false,
+      "team_id": 1610612746,
+      "team_abbrev": "LAC",
+      "active": true,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -11783,7 +11783,7 @@
       "slug": "ak-okereke",
       "team_id": 1610612747,
       "team_abbrev": "LAL",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
