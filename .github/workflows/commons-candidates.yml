@@ -1,0 +1,49 @@
+name: commons-candidates
+
+# Collects free-licensed photo candidates from Wikimedia Commons into commons-candidates/
+# (candidates.json, README.md and thumbnails for OK / SA files). Manual, plus one run when
+# this workflow or its script changes on main. Additive: only writes commons-candidates/.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/commons_candidates.py"
+      - ".github/workflows/commons-candidates.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: commons-candidates
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Collect Commons candidates
+        run: python scripts/commons_candidates.py
+
+      - name: Commit if changed
+        run: |
+          git add commons-candidates
+          if git diff --cached --quiet; then
+            echo "commons-candidates: nothing changed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Commons candidates refresh"
+          git pull --rebase origin main
+          git push origin HEAD:main
