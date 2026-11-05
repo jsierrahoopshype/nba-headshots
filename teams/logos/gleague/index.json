@@ -1,0 +1,192 @@
+{
+ "generated_at": "2026-11-05",
+ "source": "gleague.nba.com/teams (logo images served from the league's CDN, ak-static.cms.nba.com)",
+ "teams": [
+  {
+   "id": 1612709889,
+   "name": "Oklahoma City Blue",
+   "file": "1612709889.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709889/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709890,
+   "name": "Austin Spurs",
+   "file": "1612709890.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709890/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709893,
+   "name": "Cleveland Charge",
+   "file": "1612709893.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709893/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709902,
+   "name": "Santa Cruz Warriors",
+   "file": "1612709902.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709902/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709903,
+   "name": "Salt Lake City Stars",
+   "file": "1612709903.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709903/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709904,
+   "name": "Sioux Falls Skyforce",
+   "file": "1612709904.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709904/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709905,
+   "name": "Coachella Valley Lakers",
+   "file": "1612709905.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709905/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709908,
+   "name": "Rio Grande Valley Vipers",
+   "file": "1612709908.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709908/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709909,
+   "name": "Delaware Blue Coats",
+   "file": "1612709909.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709909/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709910,
+   "name": "Noblesville Boom",
+   "file": "1612709910.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709910/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709911,
+   "name": "Iowa Wolves",
+   "file": "1612709911.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709911/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709913,
+   "name": "Laketown Squadron",
+   "file": "1612709913.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709913/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709914,
+   "name": "Stockton Kings",
+   "file": "1612709914.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709914/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709915,
+   "name": "Maine Celtics",
+   "file": "1612709915.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709915/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709917,
+   "name": "Grand Rapids Gold",
+   "file": "1612709917.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709917/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709918,
+   "name": "Texas Legends",
+   "file": "1612709918.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709918/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709919,
+   "name": "Westchester Knicks",
+   "file": "1612709919.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709919/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709920,
+   "name": "Raptors 905",
+   "file": "1612709920.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709920/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709921,
+   "name": "Long Island Nets",
+   "file": "1612709921.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709921/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709922,
+   "name": "Greensboro Swarm",
+   "file": "1612709922.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709922/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709923,
+   "name": "Windy City Bulls",
+   "file": "1612709923.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709923/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709924,
+   "name": "San Diego Clippers",
+   "file": "1612709924.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709924/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709925,
+   "name": "Osceola Magic",
+   "file": "1612709925.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709925/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709926,
+   "name": "Memphis Hustle",
+   "file": "1612709926.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709926/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709927,
+   "name": "Wisconsin Herd",
+   "file": "1612709927.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709927/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709928,
+   "name": "Capital City Go-Go",
+   "file": "1612709928.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709928/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709929,
+   "name": "College Park Skyhawks",
+   "file": "1612709929.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709929/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709931,
+   "name": "Mexico City Capitanes",
+   "file": "1612709931.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709931/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709932,
+   "name": "Motor City Cruise",
+   "file": "1612709932.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709932/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709933,
+   "name": "Rip City Remix",
+   "file": "1612709933.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709933/primary/L/logo.svg"
+  },
+  {
+   "id": 1612709934,
+   "name": "Valley Suns",
+   "file": "1612709934.svg",
+   "source_url": "https://ak-static.cms.nba.com/wp-content/uploads/logos/nbagleague/1612709934/primary/L/logo.svg"
+  }
+ ]
+}
