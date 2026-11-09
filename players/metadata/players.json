@@ -2531,7 +2531,7 @@
       "slug": "tristan-enaruna",
       "team_id": 1610612739,
       "team_abbrev": "CLE",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -2765,7 +2765,7 @@
       "slug": "enrique-freeman",
       "team_id": 1610612750,
       "team_abbrev": "MIN",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -5895,9 +5895,9 @@
       "first_name": "Kevin",
       "last_name": "McCullar Jr.",
       "slug": "kevin-mccullar-jr",
-      "team_id": 1610612752,
-      "team_abbrev": "NYK",
-      "active": false,
+      "team_id": 1610612761,
+      "team_abbrev": "TOR",
+      "active": true,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -6813,9 +6813,9 @@
       "first_name": "Norchad",
       "last_name": "Omier",
       "slug": "norchad-omier",
-      "team_id": 1610612746,
-      "team_abbrev": "LAC",
-      "active": false,
+      "team_id": 1610612739,
+      "team_abbrev": "CLE",
+      "active": true,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -9731,7 +9731,7 @@
       "slug": "blake-wesley",
       "team_id": 1610612746,
       "team_abbrev": "LAC",
-      "active": true,
+      "active": false,
       "seasons_from": "2022",
       "seasons_to": "2025",
       "headshot": {
@@ -10757,7 +10757,7 @@
       "slug": "carson-cooper",
       "team_id": 1610612763,
       "team_abbrev": "MEM",
-      "active": true,
+      "active": false,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {

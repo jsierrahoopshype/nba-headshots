@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-03-08T23:04:37.237357+00:00",
-  "total_players": 523,
-  "with_headshot": 523,
+  "total_players": 521,
+  "with_headshot": 521,
   "players": [
     {
       "nba_id": 1630173,
@@ -1963,24 +1963,6 @@
         "original": true,
         "source": "nba_cdn",
         "filename": "203954-joel-embiid.png"
-      }
-    },
-    {
-      "nba_id": 1642400,
-      "full_name": "Tristan Enaruna",
-      "first_name": "Tristan",
-      "last_name": "Enaruna",
-      "slug": "tristan-enaruna",
-      "team_id": 1610612739,
-      "team_abbrev": "CLE",
-      "active": true,
-      "seasons_from": "2025",
-      "seasons_to": "2025",
-      "headshot": {
-        "face": true,
-        "original": true,
-        "source": "nba_cdn",
-        "filename": "1642400-tristan-enaruna.png"
       }
     },
     {
@@ -8176,24 +8158,6 @@
       }
     },
     {
-      "nba_id": 1643721,
-      "full_name": "Carson Cooper",
-      "first_name": "Carson",
-      "last_name": "Cooper",
-      "slug": "carson-cooper",
-      "team_id": 1610612763,
-      "team_abbrev": "MEM",
-      "active": true,
-      "seasons_from": "2026",
-      "seasons_to": "2026",
-      "headshot": {
-        "face": true,
-        "original": true,
-        "source": "nba_cdn",
-        "filename": "1643721-carson-cooper.png"
-      }
-    },
-    {
       "nba_id": 1643595,
       "full_name": "Quadir Copeland",
       "first_name": "Quadir",
@@ -9364,42 +9328,6 @@
       }
     },
     {
-      "nba_id": 1631104,
-      "full_name": "Blake Wesley",
-      "first_name": "Blake",
-      "last_name": "Wesley",
-      "slug": "blake-wesley",
-      "team_id": 1610612746,
-      "team_abbrev": "LAC",
-      "active": true,
-      "seasons_from": "2022",
-      "seasons_to": "2025",
-      "headshot": {
-        "face": true,
-        "original": true,
-        "source": "nba_cdn",
-        "filename": "1631104-blake-wesley.png"
-      }
-    },
-    {
-      "nba_id": 1642402,
-      "full_name": "Enrique Freeman",
-      "first_name": "Enrique",
-      "last_name": "Freeman",
-      "slug": "enrique-freeman",
-      "team_id": 1610612750,
-      "team_abbrev": "MIN",
-      "active": true,
-      "seasons_from": "2024",
-      "seasons_to": "2025",
-      "headshot": {
-        "face": true,
-        "original": true,
-        "source": "nba_cdn",
-        "filename": "1642402-enrique-freeman.png"
-      }
-    },
-    {
       "nba_id": 1643133,
       "full_name": "Lawson Lovering",
       "first_name": "Lawson",
@@ -9415,6 +9343,42 @@
         "original": true,
         "source": "nba_cdn",
         "filename": "1643133-lawson-lovering.png"
+      }
+    },
+    {
+      "nba_id": 1641755,
+      "full_name": "Kevin McCullar Jr.",
+      "first_name": "Kevin",
+      "last_name": "McCullar Jr.",
+      "slug": "kevin-mccullar-jr",
+      "team_id": 1610612761,
+      "team_abbrev": "TOR",
+      "active": true,
+      "seasons_from": "2024",
+      "seasons_to": "2025",
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "nba_cdn",
+        "filename": "1641755-kevin-mccullar-jr.png"
+      }
+    },
+    {
+      "nba_id": 1641807,
+      "full_name": "Norchad Omier",
+      "first_name": "Norchad",
+      "last_name": "Omier",
+      "slug": "norchad-omier",
+      "team_id": 1610612739,
+      "team_abbrev": "CLE",
+      "active": true,
+      "seasons_from": "2025",
+      "seasons_to": "2025",
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "nba_cdn",
+        "filename": "1641807-norchad-omier.png"
       }
     }
   ]
