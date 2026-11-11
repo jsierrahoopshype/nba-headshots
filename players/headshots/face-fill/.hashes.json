@@ -10908,15 +10908,6 @@
 "sha": "e531e709eb373051f87f10c3f30a7494fe0c36536afba6da65ca7653746add8c",
 "src": "head-uniform-sharp"
 },
-"165-charles-barkley": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "eac04d5c7782e7260eb5d4196a589b9f6a5e9cb5c0493d08d8a3138588468ddc",
-"src": "head-uniform-480"
-},
 "165-hakeem-olajuwon": {
 "box": [
 70.0,
@@ -10988,15 +10979,6 @@
 ],
 "sha": "c4a9af2da9fb72de2ae82135fce5270f6f2757897685fb722f1b6daba85e4078",
 "src": "head-uniform-sharp"
-},
-"1718-shaquille-oneal": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "85fb7518491ed73ff7115dced84d517d2483f03a5e4da1f0dd060e53038f4fad",
-"src": "head-uniform-480"
 },
 "1719-bonzi-wells": {
 "box": [
@@ -11196,15 +11178,6 @@
 "sha": "19077496e19318aa00f4766fc005d81b54793500d1f9433ec366dcb9e8eb8118",
 "src": "head-uniform-sharp"
 },
-"1897-vince-carter": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "785f01dc538f95421e872324ac54f2ab53ce9225c381309ec5edbea9aef83c0f",
-"src": "head-uniform-480"
-},
 "1899-james-posey": {
 "box": [
 70.0,
@@ -11241,15 +11214,6 @@
 "sha": "cf3c00bd1fbfda434ec02ba905001bad9f237db3598fbf9cefec39692098d8ba",
 "src": "head-uniform-sharp"
 },
-"193-hakeem-olajuwon": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "97c0a4f1df5dac12d9acb11bf9c296f26138f19fe1f2ce1252a147edc716d9f3",
-"src": "head-uniform-480"
-},
 "1938-manu-ginobili": {
 "box": [
 70.0,
@@ -11276,15 +11240,6 @@
 ],
 "sha": "c472f7f43ab80fab66b8029adf0fc9351c88e2b3fe020f6577e067fd279d5481",
 "src": "head-uniform-sharp"
-},
-"200746-dwight-howard": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "7bae88d9c29d2f5e094673e9e8114d07bea5c97f10d2ae711eaff7aa2f257dfb",
-"src": "head-uniform-480"
 },
 "200746-lamarcus-aldridge": {
 "box": [
@@ -14346,15 +14301,6 @@
 "sha": "a6a9347b1547f3f7acd064bbe47fe57034a6d478c1e13bacdba19736984698a0",
 "src": "head-uniform-sharp"
 },
-"2037-allen-iverson": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "516fce9e4c2be9e8c342315e7f7fa83ca9fa85468031993e0ce5f55aceb44a04",
-"src": "head-uniform-480"
-},
 "2037-jamal-crawford": {
 "box": [
 70.0,
@@ -15354,15 +15300,6 @@
 "sha": "5c2791b53544b4931d3bc10a895cde169b5275066375f39e68f105780e130d47",
 "src": "head-uniform-sharp"
 },
-"2406-dwyane-wade": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "54d5620ab3a92ca5dd721ea291c83aaf5a100da2c6ae0890811d3b039700f2a7",
-"src": "head-uniform-480"
-},
 "2410-fred-jones": {
 "box": [
 70.0,
@@ -15543,15 +15480,6 @@
 "sha": "6e66f82127c6a33e9fd4ca16f205c0e596db143e09530d866faf476017542264",
 "src": "head-uniform-sharp"
 },
-"255-reggie-miller": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "1d96e895998ef8d4808d8bdb276c6388d9f08f8dbf2e821862024f40b8773427",
-"src": "head-uniform-480"
-},
 "2550-kirk-hinrich": {
 "box": [
 70.0,
@@ -15659,15 +15587,6 @@
 ],
 "sha": "505db5707018a3daf3eeb701244e130b3f599a2323a4277e8c106eb41927ea2f",
 "src": "head-uniform-sharp"
-},
-"2585-chris-paul": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "fd72942ee2e85366264fceea29b9d716590f63b008543cf8fd5f49d1ad65e2ba",
-"src": "head-uniform-480"
 },
 "2585-zaza-pachulia": {
 "box": [
@@ -16119,15 +16038,6 @@
 "sha": "7c3618bd66e13114b93a15d66d7d9e4d698c5a54bdb8080f5b9e9270b85d55e3",
 "src": "head-uniform-sharp"
 },
-"431-glen-rice": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "274dddd6c78a6d2dcca6f9219013864c1553d0eb0ae03c289b47d8b5b1eb6b8d",
-"src": "head-uniform-480"
-},
 "431-shawn-kemp": {
 "box": [
 70.0,
@@ -16209,15 +16119,6 @@
 "sha": "e8bcfadd89778cbb0775c0752b94410d74d4fd74ce621a6882f4c911cdba386e",
 "src": "head-uniform-sharp"
 },
-"600001-bill-russell": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "03467b95adea8e4d65fd96589591211d23d897338a445e49838c88826832f322",
-"src": "head-uniform-480"
-},
 "600001-nate-thurmond": {
 "box": [
 70.0,
@@ -16244,15 +16145,6 @@
 ],
 "sha": "1a6bbb1e92643d0d8b26841f0982f7b586061b31701fd2e2512297c884f634ed",
 "src": "head-uniform-sharp"
-},
-"600005-julius-erving": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "1309ed04317c8d12e6d6b6c0d976b783d60314b1ccf794638824e7e29627a6c8",
-"src": "head-uniform-480"
 },
 "600006-earl-monroe": {
 "box": [
@@ -16289,24 +16181,6 @@
 ],
 "sha": "bb76de3556f272fba3e4aa54c8705174d7e7cfcf97d546fa35e581cfd7e2c592",
 "src": "head-uniform-sharp"
-},
-"600014-connie-hawkins": {
-"box": [
-87.1,
-124.3,
-305.7
-],
-"sha": "303554005b85a5186cef6539d5d599997d2ff10a8c6f60a031170ed5224a53b3",
-"src": "head-uniform-480"
-},
-"600015-george-gervin": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "173b0337e4f4c5beb54916fedada43086fed953f43a9dca6c4c197e2f40e22f7",
-"src": "head-uniform-480"
 },
 "600015-oscar-robertson": {
 "box": [
@@ -16434,15 +16308,6 @@
 "sha": "ec9d0cdfd95e54f28be183f11589882cf542f12951d7b2be7094e36d62788670",
 "src": "head-uniform-sharp"
 },
-"708-patrick-ewing": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "437376d05924733705fcfc43741688a616115687fb4a769b8907babdc08e9a36",
-"src": "head-uniform-480"
-},
 "722-corliss-williamson": {
 "box": [
 70.0,
@@ -16532,15 +16397,6 @@
 ],
 "sha": "15a2f2306e8056840314baa121fb73989076ceb3df0eeb157703b034e470cea4",
 "src": "head-uniform-sharp"
-},
-"76375-larry-bird": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "bcfc7f9f981e9d407b30b985432f820edc6f8ceb2c4c373a4ef70043c6f05765",
-"src": "head-uniform-480"
 },
 "76375-wilt-chamberlain": {
 "box": [
@@ -16668,15 +16524,6 @@
 "sha": "af48ea0837efe66d6e7775928ae06280f81151dcf65fd6c6abf3f4976f06bd01",
 "src": "cutout-extra"
 },
-"77142-bob-cousy": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "8b3236dc5c502151c972b45d5ba8feb196cd45997d2aa8c2d514ae5512d24c83",
-"src": "head-uniform-480"
-},
 "77142-magic-johnson": {
 "box": [
 70.0,
@@ -16776,15 +16623,6 @@
 "sha": "973c1808f8af7d6db7621d035978e4b4b31c14e8f1df4731ae609ef4ae9a826a",
 "src": "head-uniform-sharp"
 },
-"78049-jerry-west": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "500e8a2f87235f6b96895c70d55d1866b73531742b45898f8118740fa14bc50b",
-"src": "head-uniform-480"
-},
 "78076-dolph-schayes": {
 "box": [
 70.0,
@@ -16847,15 +16685,6 @@
 ],
 "sha": "cfa11eda6317febba748999b17ca293ca8c7afb660774122a22c6723fea6a4f9",
 "src": "head-uniform-sharp"
-},
-"78497-oscar-robertson": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "3dda77e22aeaf062cee974ed83c74be0cbf7b1483134c073637da8b6692a66df",
-"src": "head-uniform-480"
 },
 "787-charles-barkley": {
 "box": [
@@ -16974,15 +16803,6 @@
 "sha": "b5481fffa49089f10e86bb4d99ddd96ff826897ddac8a272aa8418fb245b91ed",
 "src": "head-uniform-sharp"
 },
-"934-grant-hill": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "0cc445469def49ffd95bebda73739cac8bfac721605e6ec7782b1d8f0d4a2184",
-"src": "head-uniform-480"
-},
 "937-scottie-pippen": {
 "box": [
 70.0,
@@ -17027,15 +16847,6 @@
 ],
 "sha": "23672d62866683ade7a3d3dcecab2bb027992fd2c971d234eac3871a0c0d053b",
 "src": "head-uniform-sharp"
-},
-"951-alonzo-mourning": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "ce9fae78bbff935ea6557c51a19d3aed0f19d71705cd27c22a57f89fdf32f98f",
-"src": "head-uniform-480"
 },
 "951-ray-allen": {
 "box": [
@@ -17090,15 +16901,6 @@
 ],
 "sha": "8690aa0ea4205e1b0b0334aa0cc37d06f8db268ff44227b4226250f80ae6a64c",
 "src": "head-uniform-sharp"
-},
-"956-stephon-marbury": {
-"box": [
-70.0,
-94.4,
-340.0
-],
-"sha": "0ef3ffa89d908f753e96601ada01e91012deb02eedf18bb2ad36f50248293c44",
-"src": "head-uniform-480"
 },
 "959-steve-nash": {
 "box": [
