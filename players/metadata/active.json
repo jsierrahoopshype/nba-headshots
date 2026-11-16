@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-03-08T23:04:37.237357+00:00",
-  "total_players": 521,
-  "with_headshot": 521,
+  "total_players": 524,
+  "with_headshot": 524,
   "players": [
     {
       "nba_id": 1630173,
@@ -9328,24 +9328,6 @@
       }
     },
     {
-      "nba_id": 1643133,
-      "full_name": "Lawson Lovering",
-      "first_name": "Lawson",
-      "last_name": "Lovering",
-      "slug": "lawson-lovering",
-      "team_id": 1610612747,
-      "team_abbrev": "LAL",
-      "active": true,
-      "seasons_from": "2025",
-      "seasons_to": "2025",
-      "headshot": {
-        "face": true,
-        "original": true,
-        "source": "nba_cdn",
-        "filename": "1643133-lawson-lovering.png"
-      }
-    },
-    {
       "nba_id": 1641755,
       "full_name": "Kevin McCullar Jr.",
       "first_name": "Kevin",
@@ -9379,6 +9361,78 @@
         "original": true,
         "source": "nba_cdn",
         "filename": "1641807-norchad-omier.png"
+      }
+    },
+    {
+      "nba_id": 1631115,
+      "full_name": "Orlando Robinson",
+      "first_name": "Orlando",
+      "last_name": "Robinson",
+      "slug": "orlando-robinson",
+      "team_id": 1610612741,
+      "team_abbrev": "CHI",
+      "active": true,
+      "seasons_from": "2022",
+      "seasons_to": "2025",
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "nba_cdn",
+        "filename": "1631115-orlando-robinson.png"
+      }
+    },
+    {
+      "nba_id": 1641780,
+      "full_name": "Johni Broome",
+      "first_name": "Johni",
+      "last_name": "Broome",
+      "slug": "johni-broome",
+      "team_id": 1610612750,
+      "team_abbrev": "MIN",
+      "active": true,
+      "seasons_from": "2025",
+      "seasons_to": "2025",
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "nba_cdn",
+        "filename": "1641780-johni-broome.png"
+      }
+    },
+    {
+      "nba_id": 1643721,
+      "full_name": "Carson Cooper",
+      "first_name": "Carson",
+      "last_name": "Cooper",
+      "slug": "carson-cooper",
+      "team_id": 1610612747,
+      "team_abbrev": "LAL",
+      "active": true,
+      "seasons_from": "2026",
+      "seasons_to": "2026",
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "nba_cdn",
+        "filename": "1643721-carson-cooper.png"
+      }
+    },
+    {
+      "nba_id": 203486,
+      "full_name": "Mason Plumlee",
+      "first_name": "Mason",
+      "last_name": "Plumlee",
+      "slug": "mason-plumlee",
+      "team_id": 1610612758,
+      "team_abbrev": "SAC",
+      "active": true,
+      "seasons_from": "2013",
+      "seasons_to": "2025",
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "nba_cdn",
+        "filename": "203486-mason-plumlee.png"
       }
     }
   ]
