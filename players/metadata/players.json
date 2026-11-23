@@ -101,7 +101,7 @@
       "slug": "trey-alexander",
       "team_id": 1610612740,
       "team_abbrev": "NOP",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -2963,7 +2963,7 @@
       "slug": "keshon-gilbert",
       "team_id": 1610612737,
       "team_abbrev": "ATL",
-      "active": true,
+      "active": false,
       "seasons_from": "2025",
       "seasons_to": "2025",
       "headshot": {
@@ -6131,7 +6131,7 @@
       "slug": "riley-minix",
       "team_id": 1610612739,
       "team_abbrev": "CLE",
-      "active": true,
+      "active": false,
       "seasons_from": "2024",
       "seasons_to": "2025",
       "headshot": {
@@ -10343,7 +10343,7 @@
       "slug": "jonas-aidoo",
       "team_id": 1610612762,
       "team_abbrev": "UTA",
-      "active": false,
+      "active": true,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -10433,7 +10433,7 @@
       "slug": "zack-austin",
       "team_id": 1610612739,
       "team_abbrev": "CLE",
-      "active": false,
+      "active": true,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {
@@ -10701,9 +10701,9 @@
       "first_name": "Rafael",
       "last_name": "Castro",
       "slug": "rafael-castro",
-      "team_id": 1610612747,
-      "team_abbrev": "LAL",
-      "active": false,
+      "team_id": 1610612737,
+      "team_abbrev": "ATL",
+      "active": true,
       "seasons_from": "2026",
       "seasons_to": "2026",
       "headshot": {

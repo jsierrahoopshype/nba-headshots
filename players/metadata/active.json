@@ -76,24 +76,6 @@
       }
     },
     {
-      "nba_id": 1641725,
-      "full_name": "Trey Alexander",
-      "first_name": "Trey",
-      "last_name": "Alexander",
-      "slug": "trey-alexander",
-      "team_id": 1610612740,
-      "team_abbrev": "NOP",
-      "active": true,
-      "seasons_from": "2024",
-      "seasons_to": "2025",
-      "headshot": {
-        "face": true,
-        "original": true,
-        "source": "nba_cdn",
-        "filename": "1641725-trey-alexander.png"
-      }
-    },
-    {
       "nba_id": 1629638,
       "full_name": "Nickeil Alexander-Walker",
       "first_name": "Nickeil",
@@ -2269,24 +2251,6 @@
         "original": true,
         "source": "nba_cdn",
         "filename": "1630581-josh-giddey.png"
-      }
-    },
-    {
-      "nba_id": 1642933,
-      "full_name": "Keshon Gilbert",
-      "first_name": "Keshon",
-      "last_name": "Gilbert",
-      "slug": "keshon-gilbert",
-      "team_id": 1610612737,
-      "team_abbrev": "ATL",
-      "active": true,
-      "seasons_from": "2025",
-      "seasons_to": "2025",
-      "headshot": {
-        "face": true,
-        "original": true,
-        "source": "nba_cdn",
-        "filename": "1642933-keshon-gilbert.png"
       }
     },
     {
@@ -4699,24 +4663,6 @@
         "original": true,
         "source": "nba_cdn",
         "filename": "1631159-leonard-miller.png"
-      }
-    },
-    {
-      "nba_id": 1642434,
-      "full_name": "Riley Minix",
-      "first_name": "Riley",
-      "last_name": "Minix",
-      "slug": "riley-minix",
-      "team_id": 1610612739,
-      "team_abbrev": "CLE",
-      "active": true,
-      "seasons_from": "2024",
-      "seasons_to": "2025",
-      "headshot": {
-        "face": true,
-        "original": true,
-        "source": "nba_cdn",
-        "filename": "1642434-riley-minix.png"
       }
     },
     {
@@ -9433,6 +9379,60 @@
         "original": true,
         "source": "nba_cdn",
         "filename": "203486-mason-plumlee.png"
+      }
+    },
+    {
+      "nba_id": 1643113,
+      "full_name": "Zack Austin",
+      "first_name": "Zack",
+      "last_name": "Austin",
+      "slug": "zack-austin",
+      "team_id": 1610612739,
+      "team_abbrev": "CLE",
+      "active": true,
+      "seasons_from": "2026",
+      "seasons_to": "2026",
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "nba_cdn",
+        "filename": "1643113-zack-austin.png"
+      }
+    },
+    {
+      "nba_id": 1643265,
+      "full_name": "Jonas Aidoo",
+      "first_name": "Jonas",
+      "last_name": "Aidoo",
+      "slug": "jonas-aidoo",
+      "team_id": 1610612762,
+      "team_abbrev": "UTA",
+      "active": true,
+      "seasons_from": "2026",
+      "seasons_to": "2026",
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "nba_cdn",
+        "filename": "1643265-jonas-aidoo.png"
+      }
+    },
+    {
+      "nba_id": 1643572,
+      "full_name": "Rafael Castro",
+      "first_name": "Rafael",
+      "last_name": "Castro",
+      "slug": "rafael-castro",
+      "team_id": 1610612737,
+      "team_abbrev": "ATL",
+      "active": true,
+      "seasons_from": "2026",
+      "seasons_to": "2026",
+      "headshot": {
+        "face": true,
+        "original": true,
+        "source": "nba_cdn",
+        "filename": "1643572-rafael-castro.png"
       }
     }
   ]
